@@ -1,4 +1,14 @@
 Nametagday::Application.routes.draw do
+
+  # if Rails.env.development?
+  #   mount MailPreview => 'mail_view'
+  # end
+
+
+  root :to => 'static_pages#show', :name => "home"
+  get 'site/:name' => 'static_pages#show', :as => "static_page"
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
