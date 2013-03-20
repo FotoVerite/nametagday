@@ -1,0 +1,15 @@
+<% @page_title = "Main Menu" %>
+
+<%= javascript_tag("function writeText(objName, txt) { if (document.getElementById) { x = document.getElementById(objName); x.innerHTML = ''; x.innerHTML = txt; } }") %>
+
+<div id="main-menu">
+  <h2>Main Menu</h2>
+  <div id="status"></div>
+  <ul class="left">
+    <li><%= menu_link "Mentors", staff_mentors_path %></li>
+  </ul>
+
+  <ul class="bottom">
+  </ul>
+  <div class="clear"></div>
+</div>

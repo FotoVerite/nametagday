@@ -1,0 +1,37 @@
+@import "base";
+
+#login {
+  padding:20px;
+  width:300px;
+  margin:50px auto 0 auto;
+  border:5px inset #6faecc;
+  @include border-radius(10px);
+}
+
+/* Main menu */
+#main-menu {
+  margin: 50px 70px;
+
+  h2 { text-align: center; }
+  h3 { text-align: center; }
+  ul { margin-top: 1em; padding: 0; list-style: none; }
+  ul li { margin-bottom: 2em; width: 200px; }
+  ul li a {
+    display: block; padding: 15px;
+    background-image: -webkit-gradient(linear, 0 0, 0 150%, from(#507fff), to(#2b2653));
+    border: 1px solid gray; text-decoration: none;
+    color:white;
+    font-size:24px;
+    @include border-radius(5px);
+  }
+  ul li a:hover { background: blue; }
+  #status { text-align: center; padding: 0.5em 1em;
+    width: 400px; height: 1.25em; margin: 0 auto;}
+
+  /* ul floated, not in a table */
+  ul.left { float: left; margin-left: 50px; }
+  ul.right { float: left; margin-left: 50px; }
+  ul.center { margin-left: 390px; }
+  ul.bottom { clear: both; margin-left: 390px; }
+
+}

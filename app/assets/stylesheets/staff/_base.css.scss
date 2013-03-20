@@ -1,0 +1,125 @@
+/* Base CSS styles */
+
+$grayA: #615e55;
+$grayB: #58554c;
+$grayC: #ededed;
+$grayD: #dbdbdb;
+$grayF: #e0e0e0;
+$grayG: #f8f8f8;
+$grayH: #f1f1f1;
+$grayI: #535048;
+$grayJ: #f3f3f3;
+$purple: #606ca1;
+
+.clear, .clearfix {clear:both; display:block;}
+
+@mixin hide-text { text-indent: -9999px; overflow: hidden; }
+
+@mixin constrained-width { width: 940px; margin: 0 auto; padding: 0 20px; }
+
+
+@mixin general-button {
+  display: block;
+  vertical-align: middle;
+  text-decoration: none;
+  border: 0;
+  -webkit-appearance: none; /* don't let iPhone/iPad override button CSS */
+  margin: 0;
+
+  &:hover { cursor: pointer; }
+}
+
+@mixin arrow-for-button {
+  padding-right: 30px;
+  margin-top: 16px;
+  background-position: 90% 50%;
+  background-repeat: no-repeat;
+}
+
+// Usually compass hacks apply to both ie6 & 7 -- set this to false to disable support for both.
+$legacy-support-for-ie: true !default;
+
+// Setting this to false will result in smaller output, but no support for ie6 hacks
+$legacy-support-for-ie6: $legacy-support-for-ie !default;
+
+// Setting this to false will result in smaller output, but no support for ie7 hacks
+$legacy-support-for-ie7: $legacy-support-for-ie !default;
+
+// Setting this to false will result in smaller output, but no support for legacy ie8 hacks
+$legacy-support-for-ie8: $legacy-support-for-ie !default;
+
+// @private
+// The user can simply set $legacy-support-for-ie and 6, 7, and 8 will be set accordingly,
+// But in case the user set each of those explicitly, we need to sync the value of
+// this combined variable.
+$legacy-support-for-ie: $legacy-support-for-ie6 or $legacy-support-for-ie7 or $legacy-support-for-ie8;
+
+// Support for mozilla in experimental css3 properties (-moz).
+$experimental-support-for-mozilla      : true !default;
+// Support for webkit in experimental css3 properties (-webkit).
+$experimental-support-for-webkit       : true !default;
+// Support for webkit's original (non-standard) gradient syntax.
+$support-for-original-webkit-gradients : true !default;
+// Support for opera in experimental css3 properties (-o).
+$experimental-support-for-opera        : true !default;
+// Support for microsoft in experimental css3 properties (-ms).
+$experimental-support-for-microsoft    : true !default;
+// Support for khtml in experimental css3 properties (-khtml).
+$experimental-support-for-khtml        : true !default;
+// Support for svg in experimental css3 properties.
+// Setting this to true might add significant size to your
+// generated stylesheets.
+$experimental-support-for-svg          : false !default;
+// Support for CSS PIE in experimental css3 properties (-pie).
+$experimental-support-for-pie          : false !default;
+
+@mixin experimental($property, $value, $moz: $experimental-support-for-mozilla, $webkit: $experimental-support-for-webkit, $o: $experimental-support-for-opera, $ms: $experimental-support-for-microsoft, $khtml: $experimental-support-for-khtml, $official: true) {
+  @if $moz and $experimental-support-for-mozilla {
+    -moz-#{$property}: $value; }
+  @if $webkit and $experimental-support-for-webkit {
+    -webkit-#{$property}: $value; }
+  @if $o and $experimental-support-for-opera {
+    -o-#{$property}: $value; }
+  @if $ms and $experimental-support-for-microsoft {
+    -ms-#{$property}: $value; }
+  @if $khtml and $experimental-support-for-khtml {
+    -khtml-#{$property}: $value; }
+  @if $official {
+    #{$property}: $value; } }
+
+
+@mixin border-radius($radius: $default-border-radius, $vertical-radius: false) {
+  @if $vertical-radius {
+    // Webkit doesn't understand the official shorthand syntax for specifying
+    // a vertical radius unless so in case there's several we only take the first.
+    @include experimental(border-radius, first-value-of($radius) first-value-of($vertical-radius), not -moz, -webkit, not -o, not -ms, not -khtml, not official);
+    @include experimental("border-radius", $radius unquote("/") $vertical-radius, -moz, not -webkit, -o, -ms, -khtml, official); }
+  @else {
+    @include experimental(border-radius, $radius); } }
+
+
+@mixin box-shadow($top: 0px, $left: 0px, $blur: false, $color: false, $inset: false) {
+  $args: $top $left;
+  @if $blur { $args: $args $blur; }
+  @if $color { $args: $args $color; }
+  @if $inset { $args: $args $inset; }
+  @include experimental(box-shadow, $args, -moz, -webkit, -o, not -ms, not -khtml, official);
+}
+
+@mixin transition ($value, $duration: false) {
+  -moz-transition: $value;
+  -o-transition: $value;
+  -webkit-transition: $value;
+  transition: $value;
+  @if  $duration {
+    @include transition-duration($duration);
+  }
+}
+
+@mixin transition-duration ($value) {
+  -moz-transition-duration: $value;
+  -o-transition-duration: $value;
+  -webkit-transition-duration: $value;
+  transition-duration: $value;
+}
+

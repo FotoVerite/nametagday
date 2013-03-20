@@ -7,6 +7,31 @@ Nametagday::Application.routes.draw do
 
   root :to => 'static_pages#show', :name => "home"
   get 'site/:name' => 'static_pages#show', :as => "static_page"
+  resource :registration, :except => [:destroy]
+
+  namespace :staff do
+
+    root :to => "access#menu", :name => "menu"
+
+    get "/login" => "access#new"
+    delete "/logout" => "access#destroy"
+    get "forgot-password" => "access#forgot_password", :as => 'forgot_password'
+    put "send-new-password" => "access#send_new_password", :as => 'send_new_password'
+
+    resource :exports, :only => [:show] do
+      collection do
+        post :export
+        get :update_fields
+      end
+    end
+
+    resource :access, :controller => "access", :except => [:index, :edit, :update] do
+      member do
+        get :get_password_idea
+      end
+    end
+
+  end
 
 
   # The priority is based upon order of creation:
