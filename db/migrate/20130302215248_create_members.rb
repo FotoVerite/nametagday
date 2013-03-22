@@ -1,8 +1,11 @@
 class CreateMembers < ActiveRecord::Migration
   def change
     create_table :members do |t|
+      t.string :first_name
+      t.string :last_name
       t.string :email
       t.string :login_token
+      t.string :phone
       t.boolean :leader, :default => false
       t.references :location
       t.timestamps

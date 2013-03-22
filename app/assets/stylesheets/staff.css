@@ -1,0 +1,7 @@
+/*
+ * This is a manifest file that will automatically include all the stylesheets as listed
+ *
+ *= require ./reset
+ *= require_self
+ *= require_tree ./staff
+*/

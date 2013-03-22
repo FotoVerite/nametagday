@@ -1,6 +1,6 @@
 STANDARD_EMAIL_REGEX = /\A([a-z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-z0-9\-]+\.)+))([a-z]{2,4}|[0-9]{1,3})(\]?)\z/i
 
-BRAND = "NFTixs"
+BRAND = "Name Tag Day"
 
 Time::DATE_FORMATS[:standard] = "%B %e, %Y at %l:%M %p %Z"
 Time::DATE_FORMATS[:date_only] = "%-m/%-d/%y"
