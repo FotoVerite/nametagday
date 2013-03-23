@@ -1,0 +1,66 @@
+@import "base";
+
+.checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.checklist li label {
+  float: left;
+  margin-right: 10px;
+  background: orange;
+  @include border-radius(5px);
+  width: 105px;
+  position: relative;
+  color:white;
+  padding:10px 0;
+  font-size:20px;
+  text-align:center;
+  &.checked {
+          border-color: green;
+          background-color: green;
+          .selected { display: block; }
+          .select { display: none; }
+        }
+}
+.checklist input { display: none; }
+
+
+.checklist p.selected,
+.checklistalmost p.selected,
+
+.checklist p.selected .checkbox-select,
+
+.checkbox-select {
+  display: block;
+  float: left;
+  position: absolute;
+  top: 84px;
+  left: 6px;
+  width: 85px;
+  height: 23px;
+  background:#ff3655;
+  padding:3px;
+  @include border-radius(5px);
+  color:white;
+}
+
+
+a.checkbox-deselect,
+a.radio-deselect {
+  display: none;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  position: absolute;
+  top: 120px;
+  right: 10px;
+}
+.checklist p.selected a.checkbox-deselect { display: block; }
+
+.checklist p span {
+  display: block;
+  text-align: center;
+  padding: 8px;
+}
+

@@ -32,18 +32,33 @@
   </dl>
 
 
-￼￼
-A
-￼￼￼￼￼￼￼Available Near Capacity At Capacity
-￼B
-C
-Choose a Time
-￼￼￼￼￼Add Another Shift
-Add friends to your volunteer group:
-Add Another Friend
-￼Friend's email
+<% Location::TIMES.each do |value, text|  %>
+  <ul class="checklist">
+    <li class="">
+      <%= check_box_tag "member[times]", value, nil, :id => "member_times_#{value}"%>
+      <%= label_tag "member[times][#{value}]", text, :id => "member_times_#{value}" %>
+      <a class="checkbox-select" href="#">Select</a>
+      <a class="checkbox-deselect" href="#">Cancel</a>
+    </li>
+  </ul>
+<% end %>
+
+<span class="clearfix"></span>
 
 <%= f.submit "Submit Registration" %>
 
 <% end %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.checklist input').change(function() {
+      if($(this).is(":checked")) {
+        $(this).siblings("label").addClass('checked');
+      }
+      else {
+       $(this).siblings("label").removeClass('checked');
+      }
+    });
+  });
+</script>
 ￼￼￼
