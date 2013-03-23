@@ -4,10 +4,6 @@ module ApplicationHelper
     string.last == 's' ? string + "'" : string + "'s"
   end
 
-  def error_messages_for(object)
-    render(:partial => 'application/error_messages', :locals => {:object => object})
-  end
-
   def truncate_on_space(text, *args)
     options = args.extract_options!
     options.reverse_merge!(:length => 30, :omission => "...")
