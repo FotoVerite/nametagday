@@ -24,6 +24,10 @@ Nametagday::Application.routes.draw do
     get "forgot-password" => "access#forgot_password", :as => 'forgot_password'
     put "send-new-password" => "access#send_new_password", :as => 'send_new_password'
 
+    resources :members
+    resources :friends
+    resources :locations
+
     resource :exports, :only => [:show] do
       collection do
         post :export

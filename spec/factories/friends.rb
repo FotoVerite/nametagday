@@ -2,5 +2,6 @@
 
 FactoryGirl.define do
   factory :friend do
+    email Faker::Internet.email
   end
 end

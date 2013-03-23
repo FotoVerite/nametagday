@@ -9,6 +9,10 @@ class Member < ActiveRecord::Base
 
   validates :first_name, :last_name, :times, :email, :presence => true
 
+  scope :search, lambda {|search| where(
+      ['first_name LIKE :kw OR last_name LIKE :kw OR email LIKE :kw', :kw => "%#{search}%"]
+  ) unless search.nil? }
+
   def full_name
     "#{first_name} #{last_name}"
   end
