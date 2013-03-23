@@ -39,6 +39,36 @@ class RegistrationsController < ApplicationController
     @leader = friend.member
   end
 
+  def edit
+    return render_404 unless @member = Member.find_by_reservation_token(params[:token])
+    session[:member_id] = @member.id
+  end
+
+  def update
+    return render_404 unless @member = Member.find_by_reservation_token(params[:token])
+    if @member.update_attributes(params[:member])
+      flash[:notice] = "Member was successfully updated."
+      redirect_to reservation_updated_registration_path
+    else
+      render('edit')
+    end
+  end
+
+  def cancel_reservation
+    return render_404 unless @member = Member.find_by_reservation_token(params[:token])
+    @member.update_attribute(:canceled, true)
+    session[:member_id] = @member.id
+    redirect_to reservation_canceled_registration_path
+  end
+
+  def reservation_updated
+    return render_404 unless @member = Member.find_by_id(session[:member_id])
+  end
+
+  def reservation_canceled
+    return render_404 unless @member = Member.find_by_id(session[:member_id])
+  end
+
  private
 
   def digest_friends(friends)

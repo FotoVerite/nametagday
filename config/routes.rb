@@ -9,10 +9,13 @@ Nametagday::Application.routes.draw do
   post 'site/send_contact_message' => 'static_pages#send_contact_message', :as => 'send_contact_message'
   post 'site/send_event_request' => 'static_pages#send_event_request', :as => 'send_event_request'
   get 'site/:name' => 'static_pages#show', :as => "static_page"
-  resource :registration, :except => [:destroy] do
+  resource :registration do
     collection do
       get :confirmation
       get 'friend_registration/:token' => "registrations#friend_registration", :as => "friend"
+      get 'reservation_updated'
+      get 'reservation_canceled'
+      delete 'cancel_reservation'
     end
   end
 

@@ -13,6 +13,8 @@ class Member < ActiveRecord::Base
       ['first_name LIKE :kw OR last_name LIKE :kw OR email LIKE :kw', :kw => "%#{search}%"]
   ) unless search.nil? }
 
+  before_create :create_registration_token
+
   def full_name
     "#{first_name} #{last_name}"
   end
@@ -27,6 +29,16 @@ class Member < ActiveRecord::Base
           :LNAME => first_name
         }
       })
+  end
+
+  def self.create_token(string="")
+    Digest::SHA1.hexdigest("Use the #{string} with #{Time.now}")
+  end
+
+  private
+
+  def create_registration_token
+    self.reservation_token = Member.create_token(full_name)
   end
 
 

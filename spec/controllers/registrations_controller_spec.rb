@@ -249,4 +249,215 @@ describe RegistrationsController do
 
   end
 
+  describe "GET 'edit'" do
+
+    before(:each) do
+      @member = FactoryGirl.create(:member)
+    end
+
+    it "renders 404 if member is not found by reservation_token" do
+      get_edit(:token => 'bad')
+      response.response_code.should == 404
+    end
+
+
+    it "finds member by reservation_token" do
+      get_edit
+      assigns[:member].should == @member
+    end
+
+    it "sets the member_id in the session" do
+      get_edit
+      session[:member_id].should == @member.id
+    end
+
+
+    it "should be a success" do
+      get_edit
+      response.should be_success
+    end
+
+    it "should render the template edit" do
+      get_edit
+      response.should render_template(:edit)
+    end
+
+    def get_edit(options={})
+      get :edit, {:token => @member.reservation_token }.merge(options)
+    end
+
+  end
+
+   describe "PUT 'update'" do
+
+    before(:each) do
+      @member = FactoryGirl.create(:member)
+    end
+
+    it "renders 404 if member is not found by reservation_token" do
+      put_update(:token => 'bad')
+      response.response_code.should == 404
+    end
+
+
+    it "finds member by reservation_token" do
+      put_update
+      assigns[:member].should == @member
+    end
+
+    context "success" do
+
+      it "updates member" do
+        lambda do
+          put_update
+          @member.reload
+        end.should change(@member, :times)
+      end
+
+      it "redirects to reservation_updated_registration_path" do
+        put_update
+        response.should redirect_to(reservation_updated_registration_path)
+      end
+    end
+
+    context "unsuccessful" do
+
+      it "should be a success" do
+        put_update(:member => {:first_name => nil})
+        response.should be_success
+      end
+
+      it "should render the template edit" do
+        put_update(:member => {:first_name => nil})
+        response.should render_template(:edit)
+      end
+
+    end
+
+
+    def put_update(options={})
+      put :update, {:token => @member.reservation_token, :member => {:times => [1,2]}}.merge(options)
+    end
+
+  end
+
+
+  describe "DELETE 'cancel_reservation'" do
+
+    before(:each) do
+      @member = FactoryGirl.create(:member)
+    end
+
+    it "renders 404 if member is not found by reservation_token" do
+      delete_cancel_reservation(:token => 'bad')
+      response.response_code.should == 404
+    end
+
+
+    it "finds member by reservation_token" do
+      delete_cancel_reservation
+      assigns[:member].should == @member
+    end
+
+    it "sets the member_id in the session" do
+      delete_cancel_reservation
+      session[:member_id].should == @member.id
+    end
+
+    context "success" do
+
+      it "updates member canceled status" do
+        lambda do
+          delete_cancel_reservation
+          @member.reload
+        end.should change(@member, :canceled).from("0").to("1")
+      end
+
+      it "redirects to reservation_canceled_registration_path" do
+        delete_cancel_reservation
+        response.should redirect_to(reservation_canceled_registration_path)
+      end
+    end
+
+
+    def delete_cancel_reservation(options={})
+      delete :cancel_reservation, {:token => @member.reservation_token}.merge(options)
+    end
+
+  end
+
+  describe "GET 'reservation_canceled'" do
+
+    before(:each) do
+      @member = FactoryGirl.create(:member)
+      session[:member_id] = @member.id
+    end
+
+    it "renders 404 if member is not found by reservation_token" do
+      session[:member_id] = nil
+      get_reservation_canceled
+      response.response_code.should == 404
+    end
+
+
+    it "finds member by session" do
+      get_reservation_canceled
+      assigns[:member].should == @member
+    end
+
+
+    it "should be a success" do
+      get_reservation_canceled
+      response.should be_success
+    end
+
+    it "should render the template reservation_canceled" do
+      get_reservation_canceled
+      response.should render_template(:reservation_canceled)
+    end
+
+    def get_reservation_canceled(options={})
+      get :reservation_canceled
+    end
+
+  end
+
+
+describe "GET 'reservation_updated'" do
+
+    before(:each) do
+      @member = FactoryGirl.create(:member)
+      session[:member_id] = @member.id
+    end
+
+    it "renders 404 if member is not found by reservation_token" do
+      session[:member_id] = nil
+      get_reservation_updated
+      response.response_code.should == 404
+    end
+
+
+    it "finds member by session" do
+      get_reservation_updated
+      assigns[:member].should == @member
+    end
+
+
+    it "should be a success" do
+      get_reservation_updated
+      response.should be_success
+    end
+
+    it "should render the template reservation_updated" do
+      get_reservation_updated
+      response.should render_template(:reservation_updated)
+    end
+
+    def get_reservation_updated(options={})
+      get :reservation_updated
+    end
+
+  end
+
+
 end
