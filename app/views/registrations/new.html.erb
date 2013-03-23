@@ -33,6 +33,22 @@
     <dd><%= f.check_box(:leader) %></dd>
   </dl>
 
+  <%= fields_for "friends" do |friend| %>
+    <small>Add friends to your volunteer group:</small>
+    <span class="clearfix"></span>
+    <div id="friends-emails">
+      <% unless @friends %>
+      <%= friend.email_field "emails", :name => 'friends[emails][]', :placeholder => "Friend's email" %>
+      <% else %>
+          <% for friends_email in @friends %>
+            <%= friend.email_field "emails", :name => 'friends[emails][]', :value => friends_email.email %>
+          <% end %>
+      <% end %>
+    </div>
+    <span class="clearfix"></span>
+    <%= link_to 'Add Another Friend', '#', :class => 'btn', :id => 'add-email' %>
+  <% end %>
+
 
 <% Location::TIMES.each do |value, text|  %>
   <ul class="checklist">
@@ -51,6 +67,11 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
+    $('#add-email').click(function(){
+      $('#friends-emails').append("<input id='friends_emails' name='friends[emails][]' placeholder=\"Friend's email\" size='30' type='email'>")
+      return false
+    });
+
     $('.checklist input').each(function() {
       if($(this).is(":checked")) {
         $(this).siblings("label").addClass('checked');

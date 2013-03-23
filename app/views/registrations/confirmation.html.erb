@@ -4,6 +4,8 @@
 
 <div>
   We've also sent emails to the following friends inviting them to join you on Nametag Day:
-  <name@example.com> <name@example.com> <name@example.com>
+  <% for friend in @friends %>
+    <%= friend.email %>
+  <% end %>
 </div>
 ￼

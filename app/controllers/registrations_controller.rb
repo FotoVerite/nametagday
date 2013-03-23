@@ -1,26 +1,34 @@
 class RegistrationsController < ApplicationController
 
   def new
-    @member = Member.new
+    @member = Member.new(:times => [])
   end
 
   def create
-    @member = Member.new(params[:member])
+    @member = Member.new
+    @member.times = []
+    @member.attributes = params[:member]
+    @friends = params[:friends][:emails].map do |email|
+      Friend.new(:email => email) unless email.blank?
+    end.compact unless params[:friends][:emails] == ['']
     if @member.save
+      session[:member_id] = @member.id
       flash[:notice] = "You've signed up"
-      gb = Gibbon.new(MAILCHIMP_API_KEY)
-      gb.list_subscribe({
-        :id => Rails.env == 'production' ? 'fill' : '7823cd6593',
-         :email_address => @member.email,
-         :merge_vars => {
-          :FNAME => @member.first_name,
-          :LNAME => @member.first_name
-        }
-      })
+      @member.delay.add_to_mailing_list
+      @friends.each do |friend|
+        friend.member_id = @member.id
+        friend.save
+      end
       redirect_to confirmation_registration_path
     else
       render('new')
     end
+  end
+
+  def confirmation
+    render_404 unless session[:member_id]
+    @member = Member.find(session[:member_id])
+    @friends = @member.friends
   end
 
 end
