@@ -1,8 +1,8 @@
 Nametagday::Application.routes.draw do
 
-  # if Rails.env.development?
-  #   mount MailPreview => 'mail_view'
-  # end
+  if Rails.env.development?
+    mount MailPreview => 'mail_view'
+  end
 
 
   root :to => 'static_pages#show', :name => "home"
@@ -10,6 +10,7 @@ Nametagday::Application.routes.draw do
   resource :registration, :except => [:destroy] do
     collection do
       get :confirmation
+      get 'friend_registration/:token' => "registrations#friend_registration", :as => "friend"
     end
   end
 

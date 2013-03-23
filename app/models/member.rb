@@ -7,7 +7,11 @@ class Member < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :times, :email, :phone, :leader
 
 
-  validates :first_name, :last_name, :times, :email, :phone, :presence => true
+  validates :first_name, :last_name, :times, :email, :presence => true
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 
   def add_to_mailing_list
     gb = Gibbon.new(MAILCHIMP_API_KEY)
