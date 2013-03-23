@@ -18,4 +18,8 @@ class Friend < ActiveRecord::Base
     self.registration_token = Friend.create_token(member.full_name)
   end
 
+  def send_invite
+    PostOffice.delay.invited_by_a_friend_email(self)
+  end
+
 end
