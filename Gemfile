@@ -17,6 +17,7 @@ gem 'friendly_id', '~>4.0.9'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', :branch => 'static'
 gem 'unicorn'
 gem 'gibbon'
+gem 'clear_eyes'
 
 group :development do
   gem 'annotate'

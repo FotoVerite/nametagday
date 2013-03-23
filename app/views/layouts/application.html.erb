@@ -14,20 +14,38 @@
   </head>
   <body class="staff">
     <div id="wrapper">
-      <header class="navbar">
+      <header class="navbar">	
         <div class="navbar-inner">
-          <div class="container-for-content">
-            <h1><%= BRAND %></h1>
-            <div class="nav-collapse">
-              <ul>
-                <li><%= link_to "Latest", "#" %></li>
-                <li><%= link_to "News Volunteer Instructions", "#" %></li>
-                <li><%= link_to "Additional Ways to Help", "#" %></li>
-                <li><%= link_to "Contact Us", static_page_path(:name => "contact") %></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+	      <div class="row">
+	      		<div class="span2" style="margin: 0 0 9px 0;">
+	      			<a class="header-logo" href="/"><%= r_image_tag('home-nametag.png', :size => "102x75", :style => 'vertical-align:middle;') %></a>
+	      		</div>
+	      		<div class="span10">
+	      			<ul>
+                		<li><%= link_to "Blog", "#" %></li>
+                		<!--<li><%= link_to "Volunteer Instructions", "#" %></li>-->
+                		<li><%= link_to "Request Nametags for Your Event", "#" %></li>
+						  <li class="dropdown">
+							<a class="dropdown-toggle"
+							   data-toggle="dropdown"
+							   href="#">
+								Other Cities
+								<b class="caret"></b>
+							  </a>
+							<ul class="dropdown-menu">
+							  <li><%= link_to "San Francisco", "#" %></li>
+							  <li><%= link_to "Sydney", "#" %></li>
+							  <li><%= link_to "Toronto", "#" %></li>							  
+							</ul>
+						  </li>                		
+                		
+                		<li><%= link_to "Contact Us", static_page_path(:name => "contact") %></li>
+                		<li><a class="twitter-link" href="http://twitter.com/NametagDay"><%= r_image_tag('twitter.png', :size => "16x16", :style => 'vertical-align:middle;') %></a> 
+                		<a class="facebook-link" href="http://www.facebook.com/NametagDay"><%= r_image_tag('facebook.png', :size => "16x16", :style => 'vertical-align:middle;') %></a></li>
+                	</ul>
+				</div>
+		  </div>
+	    </div>
       </header>
       <div>
         <div id="messages">
