@@ -6,6 +6,7 @@ Nametagday::Application.routes.draw do
 
 
   root :to => 'static_pages#show', :name => "home"
+  post 'site/send_contact_message' => 'static_pages#send_contact_message', :as => 'send_contact_message'
   get 'site/:name' => 'static_pages#show', :as => "static_page"
   resource :registration, :except => [:destroy] do
     collection do

@@ -4,13 +4,23 @@ class StaticPagesController < ApplicationController
 
   before_filter :ensure_valid, :only => [:show]
 
-  PAGES = ["about", "home"]
+  PAGES = ["about", "home", "contact"]
 
   NO_LAYOUT = []
 
   def show
     @page_title = current_page.titleize
     render(current_page.underscore)
+  end
+
+  def send_contact_message
+    @message = ContactMessage.new(params[:contact_message])
+    if @message.valid?
+      PostOffice.delay.contact_message(@message)
+      redirect_to static_page_path(:name => "email_sent")
+    else
+      render('static_pages/contact')
+    end
   end
 
   protected

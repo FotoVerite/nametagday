@@ -15,4 +15,14 @@ class PostOffice < ActionMailer::Base
     )
   end
 
+  def contact_message(message)
+    mail(
+      :content_type => "text/plain",
+      :to => "hello@nametagday.com",
+      :reply_to => %(#{message.full_name} <#{message.email}>),
+      :subject => "Contact Us Message",
+      :body => message.message
+    )
+  end
+
 end
