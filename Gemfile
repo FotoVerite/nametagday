@@ -5,7 +5,8 @@ gem 'rake'
 gem 'jquery-rails'
 gem 'dynamic_form'
 gem 'mysql2'
-gem 'delayed_job', '~> 2.1.4'
+gem 'delayed_job'
+gem 'delayed_job_active_record'
 gem 'nice_password'
 gem "will_paginate", "~> 3.0.0"
 gem 'paperclip', '~> 3.3.1'
@@ -15,6 +16,7 @@ gem 'uglifier'
 gem 'friendly_id', '~>4.0.9'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', :branch => 'static'
 gem 'unicorn'
+gem 'gibbon'
 
 group :development do
   gem 'annotate'

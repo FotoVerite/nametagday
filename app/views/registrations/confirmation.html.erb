@@ -1,0 +1,11 @@
+<h1>Thanks for Registering!</h1>
+
+<p>Mark your calendar for 2-4pm, June 1st. We'll email with additional information closer to Nametag Day. In the meantime, keep up with us through our blog, or on Twitter & Facebook.</p>
+
+<div>
+  We've also sent emails to the following friends inviting them to join you on Nametag Day:
+  <% for friend in @friends %>
+    <%= friend.email %>
+  <% end %>
+</div>
+￼
