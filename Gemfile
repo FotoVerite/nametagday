@@ -15,6 +15,7 @@ gem 'uglifier'
 gem 'friendly_id', '~>4.0.9'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', :branch => 'static'
 gem 'unicorn'
+gem 'gibbon'
 
 group :development do
   gem 'annotate'
