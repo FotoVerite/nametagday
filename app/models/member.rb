@@ -31,6 +31,18 @@ class Member < ActiveRecord::Base
       })
   end
 
+  def times_as_string
+    array = []
+    for time in times
+      array << Location::TIMES[time]
+    end
+    array.join(", ")
+  end
+
+  def friends_emails
+    friends.pluck(:email).join(", ")
+  end
+
   def self.create_token(string="")
     Digest::SHA1.hexdigest("Use the #{string} with #{Time.now}")
   end
