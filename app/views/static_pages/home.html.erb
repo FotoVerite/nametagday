@@ -1,39 +1,88 @@
 <div id="top">
-
   <div class="left-column">
-    <h1>
-      NAMETAG DAY – JUNE 1, NYC
-    </h1>
+    <div class="row">
+      <div class="span12">
+        <h1 class="main">NAMETAG DAY – JUNE 1, NYC</h1>
+      </div>
+    </div>
+    <div class="whitespace"></div>
 
-    <p>Imagine everyone in New York City wearing a
+    <div class="row">
+      <div class="span6">
+        <p class="lead">Imagine everyone in New York City wearing a
     nametag. On June 1st we're aiming to make
     that happen. We'll have distribution sites
     around the city and we'll need all the help we
     can get! Register by May 26 to be part of the
     fun.</p>
-
-    <%= link_to 'Register Now', new_registration_path, :class => 'btn' %>
-    <small>Already registered? <%= link_to "Modify your registration" %></small>
+        <div class="row">
+          <div class="span2 offset2">
+        <%= link_to 'Register Now', new_registration_path, { :class => "btn" } %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span4 offset1" style="padding:10px; text-align:center;">
+            <small>Already registered? <a href="somewhere" style="font-size: 13px;">Modify your registration</a></small>
+          </div>
+        </div>
+      </div>
+      <div class="pull-right">
+        <iframe class="img-polaroid" width="450" height="253" src="http://www.youtube.com/embed/RchV2AW0NAM?rel=0;showinfo=0;HD=1;controls=0" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
   </div>
-
-  <div class="right-column"></div>
 </div>
 
-<div id="twitter">
-  <h2>
-  Latest Nametag Day Updates from Twitter
-  <small><%= link_to "View more" %></small>
-  </h2>
+<div class="whitespace"></div>
+
+<div class="twitter">
+  <div class="row" style="padding:5px;">
+    <div class="span9">
+      <h5>
+        Latest Nametag Day Updates from Twitter&nbsp;&nbsp;&nbsp;&nbsp;
+        <small><a href="twitter" style="font-size: 14px;">View More</a></small>
+      </h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span4 tweet">I'M A TWEET</div>
+    <div class="span4 tweet">NO YOU'RE NOT</div>
+    <div class="span4 tweet">AM TOO</div>
+  </div>
 </div>
 
+<div class="whitespace"></div>
 
 <div id="bottom">
-
-  <div class="left-column">
-    <p>Meet Your Fellow New Yorkers
-    Ever wanted to connect with the millions of New Yorkers walking past you? Each day brings opportunities to make new friends and share experiences. All too often, we can forget to notice the people around us. Nametag Day aims to break this barrier and strengthen the human element of the New York experience, adding a bit of spontaneity and silliness to people's days.</p>
-    <p>Vehicula Cras Nullam Purus
-    Maecenas sed diam eget risus varius blandit sit amet non magna. Donec sed odio dui. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec id elit non mi porta gravida at eget metus.</p>
+  <div class="row">
+    <div class="span5">
+      <h4>Meet Your Fellow New Yorkers</h4>
+      <p>Ever wanted to connect with the millions of New Yorkers walking past you? Each day brings opportunities to make new friends and share experiences. All too often, we can forget to notice the people around us. Nametag Day aims to break this barrier and strengthen the human element of the New York experience, adding a bit of spontaneity and silliness to people's days.
+      </p>
+    </div>
+    <div class="span5 offset1">
+      INSERT PICTURE HERE
+    </div>
   </div>
 
+  <div class="whitespace"></div>
+
+  <div class="row">
+    <div class="span5">
+      INSERT PICTURE HERE
+    </div>
+    <div class="span5 offset1">
+      <h4>Meet Your Fellow New Yorkers</h4>
+      <p>Ever wanted to connect with the millions of New Yorkers walking past you? Each day brings opportunities to make new friends and share experiences. All too often, we can forget to notice the people around us. Nametag Day aims to break this barrier and strengthen the human element of the New York experience, adding a bit of spontaneity and silliness to people's days.
+      </p>
+    </div>
+  </div>
 </div>
+
+<div class="whitespace"/>
+
+<div id="bottom-button" align="center">
+<%= link_to 'Register Now', new_registration_path, { :class => "btn" } %>
+</div>
+
+<div class="whitespace"/>
