@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :correct_accept_headers
 
-  HTTP_AUTH_USERS = { 'careermob' => 'startupbus' }
+  HTTP_AUTH_USERS = { 'nametagday' => 'nametagday' }
 
   NO_AUTH_ENVS = ['development', 'test', 'production']
 
