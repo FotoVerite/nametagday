@@ -8,9 +8,8 @@ class RegistrationsController < ApplicationController
     @member = Member.new
     @member.times = []
     @member.attributes = params[:member]
-    @friends = params[:friends][:emails].map do |email|
-      Friend.new(:email => email) unless email.blank?
-    end.compact unless params[:friends][:emails].uniq == ['']
+    digest_friends(params[:friends])
+    @leader = Friend.find_by_registration_token(params[:registration_token]).member  if params[:registration_token].present?
     if @member.save
       session[:member_id] = @member.id
       flash[:notice] = "You've signed up"
@@ -21,8 +20,7 @@ class RegistrationsController < ApplicationController
       end
       redirect_to confirmation_registration_path
     else
-      if params[:registration_token].present?
-        @leader = Friend.find_by_registration_token(params[:registration_token]).member
+      if @leader
         render('friend_registration')
       else
         render('new')
@@ -31,8 +29,7 @@ class RegistrationsController < ApplicationController
   end
 
   def confirmation
-    return render_404 unless session[:member_id]
-    @member = Member.find(session[:member_id])
+    return render_404 unless @member = Member.find_by_id(session[:member_id])
     @friends = @member.friends
   end
 
@@ -40,6 +37,15 @@ class RegistrationsController < ApplicationController
     return render_404 unless friend = Friend.find_by_registration_token(params[:token])
     @member = Member.new(:times => [], :email => friend.email)
     @leader = friend.member
+  end
+
+ private
+
+  def digest_friends(friends)
+    return nil if (!friends || friends[:emails].uniq == [''])
+    @friends = params[:friends][:emails].map { |email|
+      Friend.new(:email => email) unless email.blank?
+    }.compact
   end
 
 end
