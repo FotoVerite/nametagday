@@ -4,6 +4,8 @@
 
 <%= form_for @member, :url => registration_path do |f| %>
 
+  <%= error_messages_for(f.object) %>
+
   <dl>
     <dt><%= f.label(:first_name, "First Name") %></dt>
     <dd><%= f.text_field(:first_name, :size => '60x10') %></dd>
@@ -35,10 +37,8 @@
 <% Location::TIMES.each do |value, text|  %>
   <ul class="checklist">
     <li class="">
-      <%= check_box_tag "member[times]", value, nil, :id => "member_times_#{value}"%>
+      <%= check_box_tag "member[times][]", value, @member.times.include?(value.to_s), :id => "member_times_#{value}"%>
       <%= label_tag "member[times][#{value}]", text, :id => "member_times_#{value}" %>
-      <a class="checkbox-select" href="#">Select</a>
-      <a class="checkbox-deselect" href="#">Cancel</a>
     </li>
   </ul>
 <% end %>
@@ -51,6 +51,14 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
+    $('.checklist input').each(function() {
+      if($(this).is(":checked")) {
+        $(this).siblings("label").addClass('checked');
+      }
+      else {
+       $(this).siblings("label").removeClass('checked');
+      }
+    });
     $('.checklist input').change(function() {
       if($(this).is(":checked")) {
         $(this).siblings("label").addClass('checked');

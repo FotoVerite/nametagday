@@ -7,7 +7,12 @@ Nametagday::Application.routes.draw do
 
   root :to => 'static_pages#show', :name => "home"
   get 'site/:name' => 'static_pages#show', :as => "static_page"
-  resource :registration, :except => [:destroy]
+  resource :registration, :except => [:destroy] do
+    collection do
+      get :confirmation
+    end
+  end
+
 
   namespace :staff do
 
