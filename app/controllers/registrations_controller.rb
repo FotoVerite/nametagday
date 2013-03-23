@@ -10,7 +10,7 @@ class RegistrationsController < ApplicationController
     @member.attributes = params[:member]
     @friends = params[:friends][:emails].map do |email|
       Friend.new(:email => email) unless email.blank?
-    end.compact unless params[:friends][:emails] == ['']
+    end.compact unless params[:friends][:emails].uniq == ['']
     if @member.save
       session[:member_id] = @member.id
       flash[:notice] = "You've signed up"
@@ -21,14 +21,25 @@ class RegistrationsController < ApplicationController
       end
       redirect_to confirmation_registration_path
     else
-      render('new')
+      if params[:registration_token].present?
+        @leader = Friend.find_by_registration_token(params[:registration_token]).member
+        render('friend_registration')
+      else
+        render('new')
+      end
     end
   end
 
   def confirmation
-    render_404 unless session[:member_id]
+    return render_404 unless session[:member_id]
     @member = Member.find(session[:member_id])
     @friends = @member.friends
+  end
+
+  def friend_registration
+    return render_404 unless friend = Friend.find_by_registration_token(params[:token])
+    @member = Member.new(:times => [], :email => friend.email)
+    @leader = friend.member
   end
 
 end
