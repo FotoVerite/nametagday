@@ -1,0 +1,71 @@
+<div id="contactform" class="site-page">
+  <div class="hgroup top">
+    <h1>Contact</h1>
+    <h2>We would love to hear from you</h2>
+  </div>
+  <div class="section">
+    <div class="maincol">
+      <div class="sect">
+        <h1>Send us an email</h1>
+        <p>Let us know if you'd like a batch of nametags for your own event, or if you have any other questions or comments.</p>
+      </div>
+      <div class="normform">
+        <div class="subsection">
+          <% @event_request ||= EventRequest.new %>
+          <%= form_for @event_request, :url => send_event_request_path do |f| %>
+            <%= error_messages_for(f.object) %>
+
+
+            <div class="short">
+                <%= f.label :email %>
+                <%= f.email_field :email, :required => true  %>
+            </div>
+
+            <div class="short">
+                <%= f.label :first_name, "First Name" %>
+                <%= f.text_field :first_name, :required => true  %>
+            </div>
+            <div class="short">
+                <%= f.label :last_name, "Last Name" %>
+                <%= f.text_field :last_name, :required => true  %>
+            </div>
+
+            <div class="short">
+                <%= f.label :phone %>
+                <%= f.phone_field :phone, :required => true  %>
+            </div>
+
+            <div class="short">
+                <%= f.label :amount %>
+                <%= f.select :amount, EventRequest::AMOUNT  %>
+            </div>
+
+            <div class="short">
+                <%= f.label :event_name, "Event Name" %>
+                <%= f.text_field :event_name, :required => true  %>
+            </div>
+
+            <div class="short">
+                <%= f.label :location %>
+                <%= f.text_field :location, :required => true  %>
+            </div>
+
+            <div class="short">
+                <%= f.label :organization %>
+                <%= f.text_field :organization, :required => true  %>
+            </div>
+
+
+            <span class="clear"></span>
+            <%= f.label :description %>
+            <%= f.text_area :description, :rows => 6, :required => true  %>
+            <%= f.label :notes %>
+            <%= f.text_area :notes, :rows => 6  %>
+            <%= f.submit "SEND", :class => "btn xl tl send" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

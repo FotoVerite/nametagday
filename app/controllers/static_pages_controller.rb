@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
 
   before_filter :ensure_valid, :only => [:show]
 
-  PAGES = ["about", "home", "contact"]
+  PAGES = ["about", "home", "contact", "event_request", "email_sent", "request_sent"]
 
   NO_LAYOUT = []
 
@@ -20,6 +20,16 @@ class StaticPagesController < ApplicationController
       redirect_to static_page_path(:name => "email_sent")
     else
       render('static_pages/contact')
+    end
+  end
+
+  def send_event_request
+    @request = EventRequest.new(params[:event_request])
+    if @request.valid?
+      PostOffice.delay.event_request(@request)
+      redirect_to static_page_path(:name => "request_sent")
+    else
+      render('static_pages/event_request')
     end
   end
 

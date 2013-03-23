@@ -8,4 +8,21 @@ class MailPreview < MailView
     PostOffice.invited_by_a_friend_email(friend)
   end
 
+  def event_request
+    event_request = EventRequest.new({
+        :first_name => "matthew",
+        :last_name => "bergman",
+        :email => "matthew@gmail.com",
+        :amount => 25,
+        :phone => "201-658-5727",
+        :organization => "NAMETAGDAY",
+        :event_name => "EVENT!",
+        :location => "Union Square",
+        :description => "I like turtles",
+        :notes => "also platypuses"
+      }
+      )
+    PostOffice.event_request(event_request)
+  end
+
 end

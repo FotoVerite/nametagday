@@ -25,4 +25,14 @@ class PostOffice < ActionMailer::Base
     )
   end
 
+  def event_request(event_request)
+    @event_request = event_request
+    mail(
+      :content_type => "text/plain",
+      :to => "hello@nametagday.com",
+      :reply_to => %(#{event_request.full_name} <#{event_request.email}>),
+      :subject => "Event Request"
+    )
+  end
+
 end
