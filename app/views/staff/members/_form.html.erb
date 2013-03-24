@@ -1,0 +1,51 @@
+<%= error_messages_for(f.object) %>
+
+<div class="center-form">  
+  <dl>
+    <dt><%= f.label 'first_name' %></dt>
+    <dd><%= f.text_field(:first_name) %></dd>
+  </dl>
+  <dl>
+    <dt><%= f.label 'last_name' %></dt>
+    <dd><%= f.text_field(:last_name) %></dd>
+  </dl>
+  <dl>
+    <dt><%= f.label 'company' %></dt>
+    <dd><%= f.text_field(:company_name) %></dd>
+  </dl>
+  <dl>
+    <dt><%= f.label 'zip_code' %></dt>
+    <dd><%= f.text_field(:zip) %></dd>
+  </dl>
+  <dl>
+    <dt><%= f.label 'email' %></dt>
+    <dd><%= f.text_field(:email) %></dd>
+  </dl>
+
+  <dl style="margin-top: 2em;">
+    <dt><%= f.label 'occupation' %></dt>
+    <dd><%= f.select(:occupation, Member::OCCUPATIONS.invert) %></dd>
+  </dl>
+  
+  <dl style="margin-top: 2em;">
+    <dt><%= f.label 'password' %></dt>
+    <dd><%= f.password_field(:password) %></dd>
+  </dl>
+  
+  <dl style="margin-top: 2em;">
+    <dt><%= f.label 'enabled' %></dt>
+    <dd><%= f.check_box(:enabled) %></dd>
+  </dl>
+  <dl>
+    <dt><%= f.label 'receive_email_updates', 'Receive email' %></dt>
+    <dd><%= f.check_box(:receive_email_updates) %></dd>
+  </dl>
+    
+  <div style="margin-top: 2em;">
+    <span><%=f.object.new_record? ?  "Having trouble picking a password?" : "Changing your password?" %></span><br />
+    May we suggest:
+    <span id="password_idea"><%= @password_idea %></span>&nbsp;&nbsp;
+    (<span id="get_idea"><a id ="password_idea_link" href="/staff/access/get_password_idea">get another idea</a></span><span id="getting_idea" style="display: none;">One moment...</span>)
+  </div>
+
+</div>

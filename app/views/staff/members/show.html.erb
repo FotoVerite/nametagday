@@ -1,0 +1,27 @@
+<% @page_title = "View Member: #{@member.full_name}" %>
+
+<%= link_to('&laquo; Back to List'.html_safe, staff_members_path, :class => 'back-link') %>
+
+<div class="members show">
+  <h1><%= @member.full_name %></h1>
+
+
+    <div class="clear">
+      <div class="left">
+        <div class="section">
+          <dl>
+            <dt>First Name</dt>
+            <dd><%= @member.first_name %></dd>
+          </dl>
+          <dl>
+            <dt>Last Name</dt>
+            <dd><%= @member.last_name %></dd>
+          </dl>
+          <dl>
+            <dt>Email</dt>
+            <dd><%= mail_to(@member.email) %></dd>
+          </dl>
+        </div>
+    </div>
+
+</div>

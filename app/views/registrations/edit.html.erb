@@ -1,0 +1,46 @@
+<h1>Update Your Time!</h1>
+>
+
+<%= form_for @member, :url => registration_path do |f| %>
+
+  <%= error_messages_for(f.object) %>
+
+  <% Location::TIMES.each do |value, text|  %>
+    <ul class="checklist">
+      <li class="">
+        <%= check_box_tag "member[times][]", value, @member.times.include?(value.to_s), :id => "member_times_#{value}"%>
+        <%= label_tag "member[times][#{value}]", text, :id => "member_times_#{value}" %>
+      </li>
+    </ul>
+  <% end %>
+
+<span class="clearfix"></span>
+
+<%= hidden_field_tag :registration_token, params[:token] %>
+
+<%= f.submit "Submit Registration" %>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    $('.checklist input').each(function() {
+      if($(this).is(":checked")) {
+        $(this).siblings("label").addClass('checked');
+      }
+      else {
+       $(this).siblings("label").removeClass('checked');
+      }
+    });
+    $('.checklist input').change(function() {
+      if($(this).is(":checked")) {
+        $(this).siblings("label").addClass('checked');
+      }
+      else {
+       $(this).siblings("label").removeClass('checked');
+      }
+    });
+  });
+</script>
+<% end %>
+￼￼￼

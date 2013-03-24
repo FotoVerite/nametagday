@@ -5,8 +5,10 @@ class CreateMembers < ActiveRecord::Migration
       t.string :last_name
       t.string :email
       t.string :login_token
+      t.string :accept_token
       t.string :phone
       t.boolean :leader, :default => false
+      t.string :times
       t.references :location
       t.timestamps
     end

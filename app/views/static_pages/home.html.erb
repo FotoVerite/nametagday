@@ -1,39 +1,119 @@
 <div id="top">
-
   <div class="left-column">
-    <h1>
-      NAMETAG DAY – JUNE 1, NYC
-    </h1>
 
-    <p>Imagine everyone in New York City wearing a
+	<div class="alert alertcustom">
+		<i class="icon-bullhorn" style="margin-right:7px;"></i>We're looking for an event coordinator! <a href="www.idealist.org/view/internship/fTJN948XTpw4/">Read more</a> and if you're interested, <a href="mailto:hello@nametagday.com">get in touch</a>.
+	</div>
+
+    <div class="row">
+      <div class="span12">
+        <h1 class="main" style="margin: 10px 0 0px; text-align:left;"><b>NAMETAG DAY</b><span style="float:right;">JUNE 1, NYC</span></h1>
+      </div>
+    </div>
+    <div class="whitespace"></div>
+
+
+    <div class="row">
+      <div class="span6">
+        <p class="lead" style="font-size: 24px; margin-bottom: 15px;">Imagine everyone in New York City wearing a
     nametag. On June 1st we're aiming to make
     that happen. We'll have distribution sites
-    around the city and we'll need all the help we
-    can get! Register by May 26 to be part of the
+    around the city and will need all the help we
+    can get! <b>Register by May 26</b> to be part of the
     fun.</p>
-
-    <%= link_to 'Register Now', new_registration_path, :class => 'btn' %>
-    <small>Already registered? <%= link_to "Modify your registration" %></small>
+         <div style="text-align: center; "><%= link_to 'Register Now!', new_registration_path, { :class => "btn btn-info btn-large", :style => "padding: 9px 73px;"  } %></div>
+          <div style="padding: 5px; text-align: center;">
+            <small>Already registered? <a href="somewhere">Modify your registration.</a></small>
+          </div>
+      </div>
+      <div class="pull-right">
+        <iframe class="img-polaroid" width="450" height="253" src="http://www.youtube.com/embed/RchV2AW0NAM?rel=0;showinfo=0;HD=1;controls=0" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
   </div>
-
-  <div class="right-column"></div>
 </div>
 
-<div id="twitter">
-  <h2>
-  Latest Nametag Day Updates from Twitter
-  <small><%= link_to "View more" %></small>
-  </h2>
+<div class="whitespace"></div>
+
+
+<div id="twitter-ticker"><a href="http://twitter.com/NametagDay"><%= image_tag('twitter_64.png', :size => "64x64") %></a>
+	<div id="tweet-container-container">
+	<div style="float:right;">
+		<a href="https://twitter.com/NametagDay" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @NametagDay</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</div>
+	<ul id="tweet-container"></ul>
+	</div>
 </div>
 
+<div class="whitespace clearfix"></div>
 
 <div id="bottom">
+  <div class="row" style="margin-bottom: 15px;">
+    <div class="span7">
+      <h4>Meet Your Fellow New Yorkers</h4>
+      <p>Ever wanted to connect with the millions of New Yorkers walking past you? Each day brings opportunities to make new friends and share experiences. All too often, we can forget to notice the people around us. Nametag Day aims to break this barrier and strengthen the human element of the New York experience, adding a bit of spontaneity and silliness to people's days.
+      </p>
 
-  <div class="left-column">
-    <p>Meet Your Fellow New Yorkers
-    Ever wanted to connect with the millions of New Yorkers walking past you? Each day brings opportunities to make new friends and share experiences. All too often, we can forget to notice the people around us. Nametag Day aims to break this barrier and strengthen the human element of the New York experience, adding a bit of spontaneity and silliness to people's days.</p>
-    <p>Vehicula Cras Nullam Purus
-    Maecenas sed diam eget risus varius blandit sit amet non magna. Donec sed odio dui. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec id elit non mi porta gravida at eget metus.</p>
+    </div>
+    <div class="span5">
+      <%= r_image_tag('image-kids.jpg', :size => "370x208", :style => 'vertical-align:middle;', :class => 'img-polaroid') %>
+    </div>
   </div>
 
+  <div class="whitespace"></div>
+
+  <div class="row" style="margin-bottom: 15px;">
+    <div class="span5">
+      <%= r_image_tag('image-dina.jpg', :size => "370x208", :style => 'vertical-align:middle;', :class => 'img-polaroid') %>
+    </div>
+    <div class="span7">
+      <h4>We're looking for a sponsor</h4>
+      <p>To help us run Nametag Day as a truly citywide event, we are looking for a single sponsor who wants to be a part of our mission. Let us know if you're interested! Please send sponsorship inquiries to <a href="mailto:hello@nametagday.com">hello@nametagday.com</a>.
+      </p>
+    </div>
+  </div>
 </div>
+
+  <div class="row" style="margin-bottom: 25px;">
+    <div class="span7">
+      <h4>How else can I get involved?</h4>
+      <p>Well how do you want to get involved? You can throw a Nametag Day-related event, and even though we probably can't partner with you, we'll do our best to spread the word. You can also <a href="#">request a bunch of nametags</a> to distribute at your own June 1 event, turning any party into a Nametag Day party.
+      </p>
+    </div>
+    <div class="span5">
+      <%= r_image_tag('image-chulo.jpg', :size => "370x208", :style => 'vertical-align:middle;', :class => 'img-polaroid') %>
+    </div>
+  </div>
+
+
+<div class="whitespace"/>
+
+<div id="bottom-button" align="center">
+<div style="text-align: center; "><%= link_to 'Register Now!', new_registration_path, { :class => "btn btn-info btn-large", :style => "padding: 9px 50px;"  } %></div>
+</div>
+
+<div class="whitespace" />
+	<script type="text/javascript">
+	function TweetTick(ob)
+	{
+	 var container=$('#tweet-container');
+	 container.html='';
+	 $(ob.results).each(function(el){
+	  
+	  var str = '<li class="rotating-item">'+formatTwitString(this.text)+'<br /><a href="https://twitter.com/NametagDay/status/'+this.id+'" class="twitterdate">'+relativeTime(this.created_at)+'</a></li>';
+	  container.append(str);
+  
+	 });
+	// $('#tweet-container li').hide();
+	//    InOut();
+	}
+	function formatTwitString(str)
+	{
+	 str=' '+str;
+	 str = str.replace(/((ftp|https?):\/\/([-\w\.]+)+(:\d+)?(\/([\w/_\.]*(\?\S+)?)?)?)/gm,'<a href="$1" target="_blank">$1</a>');
+	 str = str.replace(/([^\w])\@([\w\-]+)/gm,'$1@<a href="http://twitter.com/$2" target="_blank">$2</a>');
+	 str = str.replace(/([^\w])\#([\w\-]+)/gm,'$1<a href="http://twitter.com/search?q=%23$2" target="_blank">#$2</a>');
+	 return str;
+	}
+	</script>
