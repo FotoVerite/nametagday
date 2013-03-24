@@ -7,6 +7,7 @@ class RegistrationsController < ApplicationController
   def create
     @member = Member.new
     @member.times = []
+    @member.location_id = params[:location_id]
     @member.attributes = params[:member]
     digest_friends(params[:friends])
     @leader = Friend.find_by_registration_token(params[:registration_token]).member  if params[:registration_token].present?

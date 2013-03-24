@@ -15,7 +15,7 @@ function makeMarker(title, position, location_id, num_needed, map) {
 	marker.setValues({location_id: location_id});
 	
 	google.maps.event.addListener(marker, 'click', function() {
-		map.setZoom(13);
+		// todo: enlarge icon if selected
 		map.setCenter(marker.getPosition());
 		document.forms[0].elements["location_id"].value = marker.get("location_id");
 	});
@@ -47,7 +47,7 @@ function loadMarkers(map) {
 	marker1.push("40.73");
 	marker1.push("-73.99");
 	marker1.push("Washington Square");
-	marker1.push("marker1");
+	marker1.push("101");
 	marker1.push("3");
 	marker_descs.push(marker1);
 	
@@ -55,7 +55,7 @@ function loadMarkers(map) {
 	marker2.push("40.75");
 	marker2.push("-73.98");
 	marker2.push("Bryant Park");
-	marker2.push("marker2");
+	marker2.push("102");
 	marker2.push("10");
 	marker_descs.push(marker2);
 	
@@ -65,10 +65,6 @@ function loadMarkers(map) {
 		var title = marker_descs[i][2];
 		var location_id = marker_descs[i][3];
 		var num_needed = eval(marker_descs[i][4]);
-		console.log(position);
-		console.log(title);
-		console.log(location_id);
-		console.log(num_needed);
 		markers.push(makeMarker(title, position, location_id, num_needed, map));
 	}
 	
