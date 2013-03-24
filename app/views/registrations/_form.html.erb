@@ -58,9 +58,13 @@
 <span class="clearfix"></span>
 
 <%= hidden_field_tag :registration_token, params[:token] %>
+<%= hidden_field_tag :location_id, '' %>
 
 <%= f.submit "Submit Registration" %>
 
+<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3H-4R18HiHxjI6X-Kr2CLGAwn7C679Sk&sensor=false&msid=213507925858041545730.0004d89bb157ad658e66c&ie=UTF8&ll=37.0625,-95.677068&spn=23.875,57.630033&t=m&z=8&output=embed"> 
+</script>
 
 <script type="text/javascript">
   $(document).ready(function() {
@@ -86,67 +90,6 @@
       }
     });
   });
-  
-  
-</script>
 
-<script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3H-4R18HiHxjI6X-Kr2CLGAwn7C679Sk&sensor=false&msid=213507925858041545730.0004d89bb157ad658e66c&ie=UTF8&ll=37.0625,-95.677068&spn=23.875,57.630033&t=m&z=8&output=embed">
-</script>
-<script type="text/javascript">
-	// Adds a marker to the map with the specified title and location.
-	function addMarker(map, title, location) {	
-		// todo: change fill color based on number of available spots
-		var blueCircle = {
-        	path: google.maps.SymbolPath.CIRCLE,
-	        fillColor: "blue",
-    	    fillOpacity: 0.8,
-        	scale: 5,
-	        strokeWeight: 0.5
-    	}
-		var marker = new google.maps.Marker({
-    		position: location,
-    		title: title,
-    		icon: blueCircle,
-    		map: map
-    	});
-    	
-    	google.maps.event.addListener(marker, 'click', function() {
-		    map.setZoom(13);
-	    	map.setCenter(marker.getPosition());
-	    	// todo: here populate some input with these fields:
-	    	//   marker.getPosition().getLat()
-	    	//   marker.getPosition().getLong()
-	    	//   marker.getTitle()
-		});
-	}
-
-	function initialize() {
-	    console.log("INITIALIZING");
-		var mapOptions = {
-        	center: new google.maps.LatLng(40.7257, -74.0047),
-          	zoom: 11,
-          	mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        
-        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-        // add ALL THE MARKERS (todo: put this into a file somewhere instead)
-        
-        // Manhattan
-        addMarker(map, "Washington Square", new google.maps.LatLng(40.730869, -73.997726));
-        addMarker(map, "Bryant Park", new google.maps.LatLng(40.753564, -73.982878));
-        addMarker(map, "Union Square", new google.maps.LatLng(40.735551, -73.990345));
-        addMarker(map, "Tompkins Square Park", new google.maps.LatLng(40.726576, -73.981848));
-        addMarker(map, "Morningside Heights", new google.maps.LatLng(40.806468, -73.958502));
-        addMarker(map, "Fort Tryon Park", new google.maps.LatLng(40.862836, -73.931465));
-        addMarker(map, "Upper West Side", new google.maps.LatLng(40.785676, -73.970604));
-        addMarker(map, "Great Lawn", new google.maps.LatLng(40.781256, -73.966527));
-        addMarker(map, "Columbus Circle Area", new google.maps.LatLng(40.768029, -73.981977));
-        addMarker(map, "Midtown East", new google.maps.LatLng(40.751386, -73.976011));
-        addMarker(map, "Lower Manhattan", new google.maps.LatLng(40.712947, -74.005923));
-        
-        
-	}
-	
-    google.maps.event.addDomListener(window, 'load', initialize);
+  google.maps.event.addDomListener(window, 'load', initializeMap);
 </script>
