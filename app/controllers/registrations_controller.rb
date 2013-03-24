@@ -14,9 +14,11 @@ class RegistrationsController < ApplicationController
       session[:member_id] = @member.id
       flash[:notice] = "You've signed up"
       @member.delay.add_to_mailing_list
-      @friends.each do |friend|
-        friend.member_id = @member.id
-        friend.save
+      unless @friends.nil?
+      	@friends.each do |friend|
+          friend.member_id = @member.id
+          friend.save
+        end
       end
       redirect_to confirmation_registration_path
     else
