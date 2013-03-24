@@ -145,12 +145,21 @@ div.main.container.centered {
 }
 
 footer.footer {
-  text-align: center;
-  width: 100%;
-  height: 63px;
-  border-top: 2px solid #3c6;
-  background-color: #333335;
-  color: #ddd;
+background-color: #cf0000;
+border-bottom-left-radius: 40px;
+border-bottom-right-radius: 40px;
+color: white;
+font-size: 15px;
+padding: 8px 40px 10px 0;
+text-align: right;
+border-bottom: 1px solid #af0404;
+border-left: 1px solid #af0404;
+border-right: 1px solid #af0404;
+margin: 0 1px;
+}
+
+.footer-container {
+background-color: #fff;
 }
 
 div.flex {
