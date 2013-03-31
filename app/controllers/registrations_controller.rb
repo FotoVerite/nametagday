@@ -69,6 +69,17 @@ class RegistrationsController < ApplicationController
     return render_404 unless @member = Member.find_by_id(session[:member_id])
   end
 
+  def dynamic_locations
+    locations = Location.find(:all)
+    locations.each do |loc|
+      loc.members_count = loc.members.length
+    end
+    respond_to do |format|
+      format.json { render json: locations}
+    end
+  end
+
+
  private
 
   def digest_friends(friends)
@@ -77,5 +88,7 @@ class RegistrationsController < ApplicationController
       Friend.new(:email => email) unless email.blank?
     }.compact
   end
+
+
 
 end
