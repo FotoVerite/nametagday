@@ -1,3 +1,4 @@
+
 class RegistrationsController < ApplicationController
 
   def new
@@ -9,8 +10,9 @@ class RegistrationsController < ApplicationController
     @member.times = []
     @member.location_id = params[:location_id]
     @member.attributes = params[:member]
+    @member.times = [2,3]
     digest_friends(params[:friends])
-    @leader = Friend.find_by_registration_token(params[:registration_token]).member  if params[:registration_token].present?
+    @leader = Friend.find_by_registration_token(params[:registration_token]).member if params[:registration_token].present?
     if @member.save
       session[:member_id] = @member.id
       flash[:notice] = "You've signed up"
@@ -59,7 +61,7 @@ class RegistrationsController < ApplicationController
 
   def cancel_reservation
     return render_404 unless @member = Member.find_by_reservation_token(params[:token])
-    @member.update_attribute(:canceled, true)
+    @member.mark_cancelled
     session[:member_id] = @member.id
     redirect_to reservation_canceled_registration_path
   end
@@ -72,16 +74,12 @@ class RegistrationsController < ApplicationController
     return render_404 unless @member = Member.find_by_id(session[:member_id])
   end
 
-  def dynamic_locations
+  def locations
     locations = Location.find(:all)
-    locations.each do |loc|
-      loc.members_count = loc.members.length
-    end
     respond_to do |format|
-      format.json { render json: locations}
+      format.json { render json: {"locations" => locations, "times" => Location::TIMES}}
     end
   end
-
 
  private
 

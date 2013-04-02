@@ -24,13 +24,27 @@ ActiveRecord::Base.connection.execute("TRUNCATE admins")
 FactoryGirl.create(:admin, :first_name => 'Matt', :last_name => 'Bergman', :email => "matt@novafabrica.com", :password => "password", :password_confirmation => "password", :enabled => true)
 
 ActiveRecord::Base.connection.execute("TRUNCATE locations")
-100.times do
-  locations << FactoryGirl.create(:location)
-end
+empty_times = {}
+Location::TIMES.keys.each {|t| empty_times[t] = 0}
+locations << FactoryGirl.create(:location,
+								:name => "Union Square",
+								:lat => 40.7361,
+								:lng => -73.9901,
+								:time_counts => empty_times)
+locations << FactoryGirl.create(:location,
+								:name => "Washington Square Park",
+								:lat => 40.7308,
+								:lng => -73.9975,
+								:time_counts => empty_times)
+locations << FactoryGirl.create(:location,
+								:name => "Times Square",
+								:lat => 40.7566,
+								:lng => -73.9863,
+								:time_counts => empty_times)
 
 ActiveRecord::Base.connection.execute("TRUNCATE members")
 1000.times do
-  members << FactoryGirl.create(:member, :location => random(locations))
+  members << FactoryGirl.create(:member, :location => random(locations), :times => [1])
 end
 
 ActiveRecord::Base.connection.execute("TRUNCATE friends")

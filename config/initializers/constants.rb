@@ -1,6 +1,6 @@
 STANDARD_EMAIL_REGEX = /\A([a-z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-z0-9\-]+\.)+))([a-z]{2,4}|[0-9]{1,3})(\]?)\z/i
 
-BRAND = "Name Tag Day"
+BRAND = "Nametag Day"
 
 MAILCHIMP_API_KEY = "e0885ebff6b29d682dd8f03668302d2d-us6"
 

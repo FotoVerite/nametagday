@@ -4,8 +4,7 @@ class Member < ActiveRecord::Base
 
   serialize :times
 
-  attr_accessible :first_name, :last_name, :times, :email, :phone, :leader
-
+  attr_accessible :first_name, :last_name, :times, :email, :phone, :leader, :times
 
   validates :first_name, :last_name, :times, :email, :presence => true
 
@@ -14,6 +13,23 @@ class Member < ActiveRecord::Base
   ) unless search.nil? }
 
   before_create :create_registration_token
+  after_create {|member|  member.update_location_time_counts 1}
+
+  def mark_canceled
+    update_attribute(:canceled, true)
+    update_location_time_counts(-1)
+  end
+
+  def update_location_time_counts(amount)
+    self.times.each do |t|
+      Location.transaction do
+        loc = Location.lock(true).find(self.location_id)
+        loc.time_counts[t] += amount
+        loc.save!
+      end
+    end
+  end
+
 
   def full_name
     "#{first_name} #{last_name}"
@@ -52,6 +68,5 @@ class Member < ActiveRecord::Base
   def create_registration_token
     self.reservation_token = Member.create_token(full_name)
   end
-
 
 end
