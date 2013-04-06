@@ -98,7 +98,7 @@ function validateForm() {
     return false;
   }
   
-  // iterate through buttons to see which are active
+  // iterate through buttons to see which are active, set times input
   var times = '';
   $('.btn-group button').each(function() {
     if ($(this).hasClass('active')) {
