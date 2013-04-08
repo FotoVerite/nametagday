@@ -8,12 +8,11 @@ class Location < ActiveRecord::Base
   serialize :time_counts
 
   TIMES = {
-    1 => "9-11",
-    2 => "11-1",
-    3 => "1-3",
-    4 => "3-5",
-    5 => "coordinator:9-1",
-    6 => "coordinator:1-5",
+    1 => "11-1",
+    2 => "1-3",
+    3 => "3-5",
+    4 => "coordinator:9-1",
+    5 => "coordinator:1-5",
   }
 
 end

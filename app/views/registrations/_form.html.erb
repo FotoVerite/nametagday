@@ -1,23 +1,22 @@
 
   <%= error_messages_for(f.object) %>
   <div id="map-canvas" style="height: 300px; width: 500px;"></div>
-  
+    
   <label class="checkbox">
     <input id="member_leader" name="member[leader]" type="checkbox"> I want to lead a nametag distribution station!
   </label>
   
   <!-- TODO: add an on-submit check that a button value is one of the times in the db -->
 <div class="btn-group" id="worker-group">
-  <button id="slot1" type="button" class="btn empty" value="1">9-11</button>
-  <button id="slot2" type="button" class="btn empty" value="2">11-1</button>
-  <button id="slot3" type="button" class="btn empty" value="3">1-3</button>
-  <button id="slot4" type="button" class="btn empty" value="4">3-5</button>
+  <button id="slot1" type="button" class="btn empty" value="1">11-1</button>
+  <button id="slot2" type="button" class="btn empty" value="2">1-3</button>
+  <button id="slot3" type="button" class="btn empty" value="3">3-5</button>
 </div>
 
 <!-- Should only be visible if user clicks the "wanna be a leader" bit. -->
 <div class="btn-group" id="leader-group" style="display: none;">
-  <button id="leader_slot1" type="button" class="btn empty" value="5">9-1</button>
-  <button id="leader_slot2" type="button" class="btn empty" value="6">1-5</button>
+  <button id="leader_slot1" type="button" class="btn empty" value="4">9-1</button>
+  <button id="leader_slot2" type="button" class="btn empty" value="5">1-5</button>
 </div>
 
   <dl>

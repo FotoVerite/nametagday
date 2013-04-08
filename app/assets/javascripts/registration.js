@@ -20,7 +20,7 @@ function makeIcon(timeMap) {
     var ratio = 0;
     for (var time in timeMap) {
       if (timeMap[time] == min) ratio += 0.5*timeMap[time];
-      else ratio += 0.1*timeMap[time];
+      else ratio += 0.125*timeMap[time];
     }
 
 	var strokeWeight;
