@@ -63,6 +63,7 @@ function resetButtons() {
     $(this).removeClass("middle");
     $(this).removeClass("full");
     $(this).removeClass("reallyfull");
+    $(this).removeAttr("disabled");
   });
 }
 
