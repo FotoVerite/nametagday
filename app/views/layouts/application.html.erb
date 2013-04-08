@@ -20,8 +20,11 @@
 	      		<div class="span2" style="margin: 0 0 9px 0;">
 	      			<a class="header-logo" href="/"><%= r_image_tag('home-nametag.png', :size => "102x75", :style => 'vertical-align:middle;') %></a>
 	      		</div>
+
 	      		<div class="span10">
+              
 	      			<ul>
+              <%if false %>
                 		<li><%= link_to "Blog", "#" %></li>
                 		<!--<li><%= link_to "Volunteer Instructions", "#" %></li>-->
                 		<li><%= link_to "Request Nametags for Your Event", "#" %></li>
@@ -37,11 +40,16 @@
 							  <li><%= link_to "Sydney", "#" %></li>
 							  <li><%= link_to "Toronto", "#" %></li>							  
 							</ul>
-						  </li>                		
+						  </li>
+              <% end %>        		
                 		
-                		<li><%= link_to "Contact Us", static_page_path(:name => "contact") %></li>
-                		<li><a class="twitter-link" href="http://twitter.com/NametagDay"><%= r_image_tag('twitter.png', :size => "16x16", :style => 'vertical-align:middle;') %></a> 
-                		<a class="facebook-link" href="http://www.facebook.com/NametagDay"><%= r_image_tag('facebook.png', :size => "16x16", :style => 'vertical-align:middle;') %></a></li>
+                		<% if false %>
+                       <li><%= link_to "Contact Us", static_page_path(:name => "contact") %></li>
+                    <% else %>
+                      <li><%=  mail_to("hello@nametagday.com", "Email us") %></li>
+                    <% end %>
+                		<li><a class="twitter-link" href="http://twitter.com/NametagDay"><%= r_image_tag('twitter@2x.png', :size => "16x16", :style => 'vertical-align:middle;') %></a> 
+                		<a class="facebook-link" href="http://www.facebook.com/NametagDay"><%= r_image_tag('facebook@2x.png', :size => "16x16", :style => 'vertical-align:middle;') %></a></li>
                 	</ul>
 				</div>
 		  </div>

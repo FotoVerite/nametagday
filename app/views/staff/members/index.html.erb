@@ -16,6 +16,8 @@
       <th>First Name</th>
       <th>Last Name</th>
       <th>Email</th>
+      <th>Location</th>
+      <th>Times</th>
       <th>&nbsp;</th>
     </tr>
 
@@ -24,6 +26,8 @@
       <td><%= member.first_name %></td>
       <td><%= member.last_name %></td>
       <td><%= member.email %></td>
+      <td><%= member.location.name %></td>
+      <td><%= member.times_as_string %></td>
       <td><%= link_to('View', staff_member_path(member), :class => 'action') %></td>
     </tr>
     <% end %>

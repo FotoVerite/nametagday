@@ -22,6 +22,8 @@ friends = []
 
 ActiveRecord::Base.connection.execute("TRUNCATE admins")
 FactoryGirl.create(:admin, :first_name => 'Matt', :last_name => 'Bergman', :email => "matt@novafabrica.com", :password => "password", :password_confirmation => "password", :enabled => true)
+FactoryGirl.create(:admin, :first_name => 'Tim', :last_name => 'O\'Donnell', :email => "timodonnell@gmail.com", :password => "password", :password_confirmation => "password", :enabled => true)
+
 
 ActiveRecord::Base.connection.execute("TRUNCATE locations")
 empty_times = {}

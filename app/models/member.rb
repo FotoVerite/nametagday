@@ -42,7 +42,7 @@ class Member < ActiveRecord::Base
          :email_address => email,
          :merge_vars => {
           :FNAME => first_name,
-          :LNAME => first_name
+          :LNAME => last_name
         }
       })
   end
