@@ -8,8 +8,8 @@ var reallyfull = 1.0;
 var full = 0.85;
 var middle = 0.1;
 
-// Returns an icon based on volunteer availability. There are 6 time slots, takes the number
-// in the least-filled time slot and weights it 50%; the rest are 10% each. Color decided
+// Returns an icon based on volunteer availability. There are 5 time slots, takes the number
+// in the least-filled time slot and weights it 50%; the rest are 12.5% each. Color decided
 // based on the weighted amount.
 function makeIcon(timeMap) {
 	var min = 10;    
@@ -76,6 +76,7 @@ function makeMarker(title, position, locationId, fractionsFull) {
 	
 	google.maps.event.addListener(marker, 'click', function() {
 		$('#location_id').val(marker.get("location_id"));
+		$('#location_title').replaceWith("<div id='location_title'>Station chosen: " + marker.getTitle() + "</div>");
 		var timeMap = spots[marker.get("location_id")];
 		// make the selected marker large, all others smaller
 		for (i in markers) {
