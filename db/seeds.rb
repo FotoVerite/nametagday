@@ -101,7 +101,7 @@ locations << FactoryGirl.create(:location,
 
 ActiveRecord::Base.connection.execute("TRUNCATE members")
 1000.times do
-  members << FactoryGirl.create(:member, :location => random(locations), :times => [1])
+  members << FactoryGirl.create(:member, :location => random(locations), :times => [random([1,2,3,4,5,6])])
 end
 
 ActiveRecord::Base.connection.execute("TRUNCATE friends")
