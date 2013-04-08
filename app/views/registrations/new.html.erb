@@ -1,8 +1,6 @@
-<h1>Register!</h1>
+<h1>Where can you help us hand out nametags?</h1>
 
-<p>Register to distribute nametags at one of our distribution sites.
-Pick an area of the city, pick a time, and invite friends to join you.
-Registration deadline is May 26.</p>
+<p>We'll be handing out nametags in teams at popular spots across the city. At this point, we just need to know the general area you can help. Pick a point on the map below, or <%=  mail_to("hello@nametagday.com", "email us") %> if you'd like to help out somewhere that isn't on our map.</p>
 
 <%= form_for @member, :url => registration_path, :html => { :onsubmit => "return validateForm();" } do |f| %>
   <%= render :partial => 'form', :locals => {:f => f} %>

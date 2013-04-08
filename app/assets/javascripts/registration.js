@@ -76,6 +76,7 @@ function makeMarker(title, position, locationId, fractionsFull) {
 	marker.setValues({location_id: locationId, permScale: mapDotScaleUnselected});
 	
 	google.maps.event.addListener(marker, 'click', function() {
+		$("#form_times").show();
 		$('#location_id').val(marker.get("location_id"));
 		$('#location_title').replaceWith("<div id='location_title'>Station chosen: " + marker.getTitle() + "</div>");
 		var timeMap = spots[marker.get("location_id")];
@@ -199,6 +200,7 @@ function setUpButtons() {
     $('.btn-group button').click(function(e) {
       $(this).toggleClass('active');
       console.log($(this).attr('class'));
+      $('#form_details').show();
     });
     
     // todo: make the waitlist button "hover"
