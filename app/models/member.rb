@@ -52,7 +52,7 @@ class Member < ActiveRecord::Base
     for time in times
       array << Location::TIMES[time]
     end
-    array.join(", ")
+    array.to_sentence
   end
 
   def friends_emails
