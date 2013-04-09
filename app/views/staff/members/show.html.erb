@@ -25,6 +25,27 @@
             <dt>Times</dt>
             <dd><%= @member.times_as_string %></dd>
           </dl>
+          <dl>
+            <dt>Manage</dt>
+            <dd>
+              <%= link_to("Edit Registration",
+                            :controller => "/registrations",
+                            :action => "edit" , 
+                            :token => @member.reservation_token)                              
+              %>
+              </dd>
+              <dd>
+              <%= button_to "Cancel Registration",
+                            {:controller => "/registrations",
+                              :action => "cancel_reservation" , 
+                              :token => @member.reservation_token,
+                            },
+                              :method => :delete
+              %>
+
+            </dd>
+          </dl>
+
         </div>
     </div>
 
