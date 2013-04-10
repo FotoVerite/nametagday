@@ -2,7 +2,7 @@
   <div class="left-column">
 
 	<div class="alert alertcustom">
-		<i class="icon-bullhorn" style="margin-right:7px;"></i>We're looking for an event coordinator! <a href="http://www.idealist.org/view/internship/fTJN948XTpw4/">Read more</a> and if you're interested, <a href="mailto:hello@nametagday.com">get in touch</a>.
+		<i class="icon-bullhorn" style="margin-right:7px;"></i>We're looking for an event coordinator! <%= link_to("Read more", "http://www.idealist.org/view/internship/fTJN948XTpw4/") %> and if you're interested, <a href="mailto:hello@nametagday.com">get in touch</a>.
 	</div>
 
     <div class="row">
@@ -23,7 +23,7 @@
     <p class="lead" style="font-size: 24px; margin-bottom: 15px;"><b>Register by May 26</b> and be part of the
     fun.</p>
          <div style="text-align: center; "><%= link_to 'Register Now!', new_registration_path, { :class => "btn btn-info btn-large", :style => "padding: 9px 73px;"  } %></div>
-         <%# 
+         <%#
           <div style="padding: 5px; text-align: center;">
             <small>Already registered? <a href="somewhere">Modify your registration.</a></small>
           </div>
@@ -103,10 +103,10 @@
 	 var container=$('#tweet-container');
 	 container.html='';
 	 $(ob.results).each(function(el){
-	  
+
 	  var str = '<li class="rotating-item">'+formatTwitString(this.text)+'<br /><a href="https://twitter.com/NametagDay/status/'+this.id+'" class="twitterdate">'+relativeTime(this.created_at)+'</a></li>';
 	  container.append(str);
-  
+
 	 });
 	// $('#tweet-container li').hide();
 	//    InOut();

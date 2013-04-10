@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitterwidget
+//= require registration
 //= require_tree .
 //= require clear_eyes
