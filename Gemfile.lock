@@ -251,6 +251,7 @@ DEPENDENCIES
   capistrano-novafabrica!
   capybara
   clear_eyes
+  daemons
   database_cleaner
   delayed_job
   delayed_job_active_record
