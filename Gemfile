@@ -18,10 +18,6 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem 'unicorn'
 gem 'gibbon'
 gem 'clear_eyes'
-gem 'factory_girl_rails'
-gem 'ffaker'
-
-
 
 group :development do
   gem 'annotate'
@@ -31,7 +27,7 @@ end
 group :development, :test do
   gem 'thin'
   gem "steak"
-  gem 'capistrano', '2.8.0'
+  gem 'capistrano'
   gem 'capistrano-ext'
   #gem 'pry-rails'
   gem 'factory_girl_rails'

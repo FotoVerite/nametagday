@@ -15,7 +15,7 @@ GIT
 
 GIT
   remote: https://github.com/novafabrica/nf-cap-plugin
-  revision: 520d6e90850e5b24db6cdea01c6138dd8693efd2
+  revision: 3db2750a619b9a11d540a44f0af696d132a07796
   specs:
     capistrano-novafabrica (1.0.6)
 
@@ -58,7 +58,7 @@ GEM
     bourne (1.4.0)
       mocha (~> 0.13.2)
     builder (3.0.4)
-    capistrano (2.8.0)
+    capistrano (2.14.2)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
@@ -246,7 +246,7 @@ PLATFORMS
 DEPENDENCIES
   annotate
   bcrypt-ruby
-  capistrano (= 2.8.0)
+  capistrano
   capistrano-ext
   capistrano-novafabrica!
   capybara
