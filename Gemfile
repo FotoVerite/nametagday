@@ -19,8 +19,9 @@ gem 'unicorn'
 gem 'gibbon'
 gem 'clear_eyes'
 #BECAUSE SEED
- gem 'factory_girl_rails'
-  gem 'ffaker'
+gem 'factory_girl_rails'
+gem 'ffaker'
+gem 'daemons'
 
 group :development do
   gem 'annotate'

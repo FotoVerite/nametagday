@@ -1,7 +1,7 @@
 require 'capistrano/ext/multistage'
 require 'bundler/capistrano'
 require 'capistrano/novafabrica/base'
-#require 'capistrano/novafabrica/dj'
+require 'capistrano/novafabrica/dj'
 require 'capistrano/novafabrica/unicorn'
 
 default_run_options[:pty] = true
