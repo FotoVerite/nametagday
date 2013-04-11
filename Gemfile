@@ -18,9 +18,12 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem 'unicorn'
 gem 'gibbon'
 gem 'clear_eyes'
+gem 'factory_girl_rails'
+
 
 group :development do
   gem 'annotate'
+  gem 'capistrano-novafabrica', :git => 'https://github.com/novafabrica/nf-cap-plugin'
 end
 
 group :development, :test do
