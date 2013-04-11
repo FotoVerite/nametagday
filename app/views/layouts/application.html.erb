@@ -24,10 +24,11 @@
 	      		<div class="span10">
 
 	      			<ul>
-              <%if false %>
-                		<li><%= link_to "Blog", "#" %></li>
+                		<li><%= link_to "Blog", "http://blog.nametagday.com" %></li>
                 		<!--<li><%= link_to "Volunteer Instructions", "#" %></li>-->
                 		<li><%= link_to "Request Nametags for Your Event", static_page_path(:event_request) %></li>
+                                  <%if false %>
+
 						  <li class="dropdown">
 							<a class="dropdown-toggle"
 							   data-toggle="dropdown"
@@ -43,13 +44,17 @@
 						  </li>
               <% end %>
 
-        		<% if false %>
-               <li><%= link_to "Contact Us", static_page_path(:name => "contact") %></li>
-            <% else %>
-              <li><%=  mail_to("hello@nametagday.com", "Email us") %></li>
-            <% end %>
-        		<li><a class="twitter-link" href="http://twitter.com/NametagDay"><%= image_tag('twitter.png', :size => "16x16", :style => 'vertical-align:middle;') %></a>
-        		<a class="facebook-link" href="http://www.facebook.com/NametagDay"><%= image_tag('facebook.png', :size => "16x16", :style => 'vertical-align:middle;') %></a></li>
+            <li>
+              <%= link_to "Contact Us", static_page_path(:name => "contact") %>
+            </li>
+        		<li>
+              <a class="twitter-link" href="http://twitter.com/NametagDay">
+                <%= image_tag('twitter.png', :size => "16x16", :style => 'vertical-align:middle;') %>
+              </a>
+        		  <a class="facebook-link" href="http://www.facebook.com/NametagDay">
+                <%= image_tag('facebook.png', :size => "16x16", :style => 'vertical-align:middle;') %>
+              </a>
+            </li>
 
         	</ul>
 				</div>
