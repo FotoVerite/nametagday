@@ -19,6 +19,8 @@ gem 'unicorn'
 gem 'gibbon'
 gem 'clear_eyes'
 gem 'factory_girl_rails'
+gem 'ffaker'
+
 
 
 group :development do
@@ -29,7 +31,7 @@ end
 group :development, :test do
   gem 'thin'
   gem "steak"
-  gem 'capistrano'
+  gem 'capistrano', '2.8.0'
   gem 'capistrano-ext'
   #gem 'pry-rails'
   gem 'factory_girl_rails'
