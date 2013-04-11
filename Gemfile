@@ -22,6 +22,7 @@ gem 'clear_eyes'
 gem 'factory_girl_rails'
 gem 'ffaker'
 gem 'daemons'
+gem 'mailjet'
 
 group :development do
   gem 'annotate'
