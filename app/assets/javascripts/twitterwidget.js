@@ -11,7 +11,7 @@ $(document).ready(function(){
  var fileref = document.createElement('script');
  
  fileref.setAttribute("type","text/javascript");
- fileref.setAttribute("src", "http://search.twitter.com/search.json?q="+buildString+"&callback=TweetTick&rpp=50");
+ fileref.setAttribute("src", "http://search.twitter.com/search.json?q="+buildString+"&callback=TweetTick&rpp=1");
  
  document.getElementsByTagName("head")[0].appendChild(fileref);
 });
