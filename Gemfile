@@ -18,6 +18,9 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem 'unicorn'
 gem 'gibbon'
 gem 'clear_eyes'
+#BECAUSE SEED
+ gem 'factory_girl_rails'
+  gem 'ffaker'
 
 group :development do
   gem 'annotate'
