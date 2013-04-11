@@ -19,6 +19,7 @@ gem 'unicorn'
 gem 'gibbon'
 gem 'clear_eyes'
 
+
 group :development do
   gem 'annotate'
   gem 'capistrano-novafabrica', :git => 'https://github.com/novafabrica/nf-cap-plugin'
