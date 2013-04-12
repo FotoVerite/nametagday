@@ -215,6 +215,7 @@ function setUpButtons() {
       $(this).toggleClass('active');
       console.log($(this).attr('class'));
       $('#form_details').removeClass("disabled");
+      $('#member_first_name').focus();
     });
     
     // todo: make the waitlist button "hover"
