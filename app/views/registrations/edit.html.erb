@@ -1,5 +1,12 @@
-<h1>Update Your Time!</h1>
->
+<h1><%= possify @member.first_name %> Registration</h1>
+<p>You're signed up to help out near <b><%= @member.location.name %></b> at <b><%= @member.times_as_string %></b> on June 1st.</p>
+<p>You can change the </p>
+
+<h2>Update Your Time</h2>
+<label class="checkbox">
+    <input id="member_leader" name="member[leader]" type="checkbox">I'd like to be a <b>coordinator</b>.
+  </label>
+<p class="undertimetext">This means a longer shift and extra leadership. Morning coordinators will meet at distribution centers to collect nametags.</p>
 
 <%= form_for @member, :url => registration_path do |f| %>
 
@@ -8,7 +15,7 @@
   <% Location::TIMES.each do |value, text|  %>
     <ul class="checklist">
       <li class="">
-        <%= check_box_tag "member[times][]", value, @member.times.include?(value.to_s), :id => "member_times_#{value}"%>
+        <%= check_box_tag "member[times][]", value, @member.times.include?(value), :id => "member_times_#{value}"%>
         <%= label_tag "member[times][#{value}]", text, :id => "member_times_#{value}" %>
       </li>
     </ul>
@@ -18,7 +25,18 @@
 
 <%= hidden_field_tag :registration_token, params[:token] %>
 
-<%= f.submit "Submit Registration" %>
+<%= f.submit "Update Registration" %>
+
+
+<h2>Cancel Your Registration</h2>
+
+<%= button_to "Cancel Registration",
+                            {:controller => "/registrations",
+                              :action => "cancel_reservation" , 
+                              :token => @member.reservation_token,
+                            },
+                              :method => :delete
+ %>
 
 
 <script type="text/javascript">
