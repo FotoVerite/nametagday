@@ -1,7 +1,7 @@
 var markers = [];
 var mapDotScaleSelected = 13;
 var mapDotScaleUnselected = 8;
-var mapDotScaleHover = 10;
+var mapDotScaleHover = 9.5;
 
 // Lower bounds for "full" ratios for locations.
 var reallyfull = 1.0;
@@ -27,29 +27,29 @@ function makeIcon(timeMap) {
 	var fillColor;
 	if (ratio >= reallyfull) {
 	  fillColor = "black";
-	  strokeWeight = 5;
+	  strokeWeight = 3;
 	  strokeColor = "black";
 	}
 	else if (ratio >= full) {
-	  fillColor = "blue";
-	  strokeWeight = 5;
-	  strokeColor = "blue";
+	  fillColor = "#10a2cd";
+	  strokeWeight = 3;
+	  strokeColor = "#10a2cd";
 	}
 	else if (ratio >= middle) {
-	  fillColor = "gray";
-	  strokeWeight = 5;
-	  strokeColor = "blue";
+	  fillColor = "#c4c4c4";
+	  strokeWeight = 3;
+	  strokeColor = "#10a2cd";
 	}
 	else {
-	  fillColor = "gray";
-	  strokeWeight = 5;
-	  strokeColor = "gray";
+	  fillColor = "#bdbdbd";
+	  strokeWeight = 3;
+	  strokeColor = "#bdbdbd";
 	}
 	var icon = {
 		path: google.maps.SymbolPath.CIRCLE,
 		fillColor: fillColor,
 		fillOpacity: 0.8,
-		strokeOpacity: 0.6,
+		strokeOpacity: 0.7,
 		scale: mapDotScaleUnselected,
 		strokeWeight: strokeWeight,
 		strokeColor: strokeColor
@@ -76,9 +76,10 @@ function makeMarker(title, position, locationId, fractionsFull) {
 	marker.setValues({location_id: locationId, permScale: mapDotScaleUnselected});
 	
 	google.maps.event.addListener(marker, 'click', function() {
-		$("#form_times").show();
+		$("#form_times").removeClass("disabled");
 		$('#location_id').val(marker.get("location_id"));
-		$('#location_title').replaceWith("<div id='location_title'>Station chosen: " + marker.getTitle() + "</div>");
+		$('#location_title_hover').hide();
+		$('#location_title').replaceWith("<div id='location_title'>Area chosen: " + marker.getTitle() + "</div>");
 		var timeMap = spots[marker.get("location_id")];
 		// make the selected marker large, all others smaller
 		for (i in markers) {
@@ -98,7 +99,7 @@ function makeMarker(title, position, locationId, fractionsFull) {
 		  // assign class based on fraction
 		  if (fraction >= reallyfull) {
 		    $(this).addClass("reallyfull");
-		    $(this).attr('title', 'This location is full - waitlist!');
+		    $(this).attr('title', 'This location is pretty full, but you can sgn up for the waitlist.');
 		  }
 		  else if (fraction >= full) $(this).addClass("full");
 		  else if (fraction >= middle) $(this).addClass("middle");
@@ -120,6 +121,19 @@ function makeMarker(title, position, locationId, fractionsFull) {
 		marker.setIcon(icon);
 	});
 	
+	// show location title on mouseover
+	google.maps.event.addListener(marker, 'mouseover', function() {
+		$('#location_title_hover').replaceWith("<div id='location_title_hover'>Click to select: " + marker.getTitle() + "</div>");
+		$('#location_title').hide();
+		$('#location_title_hover').show();
+	});
+	
+	// hide location title on mouseout
+	google.maps.event.addListener(marker, 'mouseout', function() {
+		$('#location_title_hover').hide();
+		$('#location_title').show();
+	});
+
 	return marker;
 }
 
@@ -200,7 +214,7 @@ function setUpButtons() {
     $('.btn-group button').click(function(e) {
       $(this).toggleClass('active');
       console.log($(this).attr('class'));
-      $('#form_details').show();
+      $('#form_details').removeClass("disabled");
     });
     
     // todo: make the waitlist button "hover"

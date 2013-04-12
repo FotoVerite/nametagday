@@ -14,11 +14,11 @@
 
     <div class="row">
       <div class="span6">
-        <p class="lead" style="font-size: 24px; margin-bottom: 15px;">Imagine everyone in New York City wearing a
+        <p class="lead" style="margin-top: 12px;">Imagine everyone in New York City wearing a
     nametag. On June 1st we'll be handing them out at distribution sites all around the city, and will need all the help we can get!</p>
-    <p class="lead" style="font-size: 24px; margin-bottom: 15px;"><b>Register by May 26</b> to be part of the
+    <p class="lead" style="margin-bottom: 20px;"><b>Register by May 26</b> to be part of the
     fun.</p>
-         <div style="text-align: center; "><%= link_to 'Register Now!', new_registration_path, { :class => "btn btn-info btn-large", :style => "padding: 9px 73px;"  } %></div>
+         <div style="text-align: center; "><%= link_to 'Register Now!', new_registration_path, { :class => "btn btn-info btn-large", :style => "padding: 0 73px; line-height: 44px; font-size: 20px;"  } %></div>
          <%#
           <div style="padding: 5px; text-align: center;">
             <small>Already registered? <a href="somewhere">Modify your registration.</a></small>
@@ -34,9 +34,46 @@
 
 <div class="whitespace"></div>
 
-	<div class="alert alertcustom">
-		<i class="icon-bullhorn" style="margin-right:7px;"></i>We're looking for an event coordinator! <a href="http://www.idealist.org/view/internship/fTJN948XTpw4/">Read the posting</a> and if you're interested, <a href="mailto:hello@nametagday.com">get in touch</a>.
+
+
+<a href="https://www.crowdtilt.com/campaigns/test-campaign-55218799" class="nolinkylook">
+	<div class="alert alert-block alertcustom fundraisebox">
+		<!-- <h4>$1,500 raised so far!</h4> -->
+		<!-- <p>We've got $1,000 more to go before this event's gonna happen. <br /><b>Click here to join 23 others and pitch in.</b></p> -->
+		<h4>$4,500 raised so far from 55 contributors!</h4>
+		<p>For $10 you'll be putting a nametag on 80 people. <b>Click here to pitch in.</b> </p>
+
+		<div class="progress progress-warning">
+		  <div class="bar" style="width: 8.3%"></div>
+		</div>
+		
+		<div class="xticker">
+			<div class="first">$1k</div>
+			<div>$2k</div>
+			<div>$3k</div>
+			<div>$4k</div>
+			<div>$5k</div>
+			<div>$6k</div>
+			<div>$7k</div>
+			<div>$8k</div>
+			<div>$9k</div>
+			<div>$10k</div>
+			<div>$11k</div>
+			<div>$12k</div>
+			<div>$13k</div>
+			<div>$14k</div>
+			<div>$15k</div>
+		</div>
+		<%= r_image_tag('target_under2.5k.png', :size => "784x72", :style => 'margin-left: 21px; margin-bottom:8px;') %>
+		<div class="clearfix"></div>
+
+		
 	</div>
+</a>
+
+<!--	<div class="alert alertcustom">
+		<i class="icon-bullhorn" style="margin-right:7px;"></i>We're looking for an event coordinator! <a href="http://www.idealist.org/view/internship/fTJN948XTpw4/">Read the posting</a> and if you're interested, <a href="mailto:hello@nametagday.com">get in touch</a>.
+	</div> -->
 
 <div class="whitespace clearfix"></div>
 
@@ -60,8 +97,10 @@
       <%= r_image_tag('image-dina.jpg', :size => "370x208", :style => 'vertical-align:middle;', :class => 'img-polaroid') %>
     </div>
     <div class="span7">
-      <h4>We're looking for a sponsor</h4>
-      <p>To help us run Nametag Day as a truly citywide event, we are looking for a single sponsor who wants to be a part of our mission. Let us know if you're interested! Please send sponsorship inquiries to <a href="mailto:hello@nametagday.com">hello@nametagday.com</a>.
+      <h4>How can I get involved?</h4>
+      <p>We always need more volunteers! Invite friends to be on a team with you.</p>
+      <p>If you have event planning, volunteer coordination, or PR skills and want to work with our core team, <%= link_to "send us a message", static_page_path(:name => "contact") %>.</p>
+      <p>If you're on a listserv, send out an email encouraging others to volunteer with you.</p><p>Or throw a Nametag Day-themed event. If you tell us about it, we'll do our best to spread the word. You can even <a href="#">request nametags from us</a> for it!
       </p>
     </div>
   </div>
@@ -72,23 +111,45 @@
 
   <div class="row" style="margin-bottom: 25px;">
     <div class="span7">
-      <h4>How can I get involved?</h4>
-      <p>We always need more volunteers! You can also throw a Nametag Day-related event on June 1 and we'll do our best to spread the word. You can even <a href="#">request nametags from us</a> for it!
-      </p>
+      <h4>I want to make a documentary about this</h4>
+      <p>Let's all make a documentary together. If you're interested, film a story or three about the day. Be as creative as you like. We'll provide a dropbox to send the footage and then we'll crowd-edit it into a citywide interactive documentary.</p>
+      <p>You can also tweet or share with us on YouTube, Instagram, and Vine, and we'll feature them on our site.</p>
     </div>
     <div class="span5">
       <%= r_image_tag('image-chulo.jpg', :size => "370x208", :style => 'vertical-align:middle;', :class => 'img-polaroid') %>
     </div>
   </div>
 
+  <div class="whitespace"></div>
 
-<div class="whitespace"/>
+  <div class="row">
+    <div class="span5">
+      <%= r_image_tag('image-us.jpg', :size => "370x208", :style => 'vertical-align:middle;', :class => 'img-polaroid') %>
+    </div>
+    <div class="span7">
+      <h4>Who are you?</h4>
+      <p>We're a group of friends with organizing experience who decided this would be a great way to spend our time. But we're just a few facilitators. Anyone who puts on a nametag is part of Team Nametag Day.</p>
+      </p>
+      <h4>What are you selling?</h4>
+      <p>Nothing! We are totally non-commercial. Not even t-shirts.</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="whitespace"></div>
+
+
+
 
 <div id="bottom-button" align="center">
 <div style="text-align: center; "><%= link_to 'Register Now!', new_registration_path, { :class => "btn btn-info btn-large", :style => "padding: 9px 50px;"  } %></div>
 </div>
 
-<div class="whitespace" />
+<div class="whitespace"></div>
 
+    <div class="poem">"We cannot live only for ourselves. A thousand fibers connect us with our fellow men; and among those fibers, as sympathetic threads, our actions run as causes, and they come back to us as effects."<br />- Herman Melville</div>
+    
+<div class="whitespace"></div>
 
 

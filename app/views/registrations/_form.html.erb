@@ -1,62 +1,69 @@
 
   <%= error_messages_for(f.object) %>
-  <div id="map-canvas" style="height: 300px; width: 500px;"></div>
+  <div id="map-container" style="height: 350px; width: 600px;" class="img-polaroid">
+  <div id="map-canvas" style="height: 350px; width: 600px;"></div>
+  </div>
 
-<div id="location_title"></div>
+<div id="location_title" style="font-style:italic; color:#999;">No area chosen.</div>
+<div id="location_title_hover" style="display:none;"></div>
 
-<div id="form_times" style="display:none">
-    <h2>Great! When can you help?</h2>
-    <p>Sign up for as many two-hour shifts as you like. Trust us, two hours making friends and wishing everyone &#8220;Happy Nametag Day!&#8221; goes really fast!</p>
+<div id="form_times" class="disabled">
 
-    <p>If you have a bit more time, be a <b>coordinator</b>. This means you'll work a four-hour shift and come collect nametags from one of our distribution centers. Want to do that?</p>
   <label class="checkbox">
-    <input id="member_leader" name="member[leader]" type="checkbox">Yes, I'll help coordinate!
+    <input id="member_leader" name="member[leader]" type="checkbox">I'd like to be a <b>coordinator</b>.
   </label>
+<p class="undertimetext">This means a longer shift and extra leadership. Morning coordinators will meet at distribution centers to collect nametags.</p>
 
+    <h4>Shifts available:</h4>
   
   <!-- TODO: add an on-submit check that a button value is one of the times in the db -->
 <div class="btn-group" id="worker-group">
-  <button id="slot1" type="button" class="btn empty" value="1" disabled="1">11am - 1pm</button>
-  <button id="slot2" type="button" class="btn empty" value="2" disabled="1">1 - 3pm</button>
-  <button id="slot3" type="button" class="btn empty" value="3" disabled="1">3 - 5pm</button>
+  <button id="slot1" type="button" class="btn empty" value="1" disabled="1">11a - 1p</button>
+  <button id="slot2" type="button" class="btn empty" value="2" disabled="1">1p - 3p</button>
+  <button id="slot3" type="button" class="btn empty" value="3" disabled="1">3p - 5p</button>
 </div>
 
 <!-- Should only be visible if user clicks the "wanna be a leader" bit. -->
 <div class="btn-group" id="leader-group" style="display: none;">
-  <button id="leader_slot1" type="button" class="btn empty" value="4" disabled="1">9am - 1pm</button>
-  <button id="leader_slot2" type="button" class="btn empty" value="5" disabled="1">1 - 5pm</button>
+  <button id="leader_slot1" type="button" class="btn empty" value="4" disabled="1">9a - 1p</button>
+  <button id="leader_slot2" type="button" class="btn empty" value="5" disabled="1">1p - 5p</button>
 </div>
 
-</div>
-<div id="form_details" style="display:none">
-  <h2>And one more thing...</h2>
-  <p>We haven't met yet. What's your name?</p>
+<p class="undertimetext">Sign up for as many shifts as you like. Trust us, a few hours of wishing people &#8220;Happy Nametag Day!&#8221; goes by fast!
+<br><b>Please be at your shift 15 minutes early and plan to leave 15 minutes after.</b></p>
 
-  <dl>
+</div>
+<div id="form_details" class="disabled">
+  <h4>We haven't met yet...what's your name?</h4>
+
+  <div class="short shorter">
     <dt><%= f.label(:first_name, "First Name") %></dt>
     <dd><%= f.text_field(:first_name, :size => '60x10', :required => 'true') %></dd>
-  </dl>
+  </div>
 
-  <dl>
+  <div class="short shorter">
     <dt><%= f.label(:last_name, "Last Name") %></dt>
     <dd><%= f.text_field(:last_name, :size => '60x10', :required => 'true') %></dd>
-  </dl>
+  </div>
 
-  <dl>
+  <div class="short shorter">
     <dt><%= f.label(:email) %></dt>
     <dd><%= f.email_field(:email, :required => 'true') %></dd>
-  </dl>
+  </div>
 
 
-  <dl>
+  <div class="short shorter">
     <dt><%= f.label(:phone) %></dt>
     <dd><%= f.phone_field(:phone) %></dd>
-  </dl>
+  </div>
 
   <%= fields_for "friends" do |friend| %>
-    Invite some friends! We'll let them know about Nametag Day, and do our best to have you all working at the same spot on June 1.
+   
+    <h4>Now invite some friends!</h4>
+    <p>We'll send them an email with an option to join your group and do our best to put you together on June 1st.</p>
     <span class="clearfix"></span>
-    <div id="friends-emails">
+    <div class="input-append">
+    <span id="friends-emails">
       <% unless @friends %>
       <%= friend.email_field "emails", :name => 'friends[emails][]', :placeholder => "Friend's email" %>
       <% else %>
@@ -64,9 +71,10 @@
             <%= friend.email_field "emails", :name => 'friends[emails][]', :value => friends_email.email %>
           <% end %>
       <% end %>
+    </span>
+    <%= link_to '+ add another', '#', :class => 'btn', :id => 'add-email' %>
     </div>
     <span class="clearfix"></span>
-    <%= link_to 'Add Another Friend', '#', :class => 'btn', :id => 'add-email' %>
   <% end %>
 
 <span class="clearfix"></span>
@@ -75,7 +83,7 @@
 <%= hidden_field_tag :location_id, '' %>
 <input type="hidden" id="times" name="times" value="1" />
 
-<%= f.submit "I'm in!" %>
+<%= f.submit "Sign me up!", :class => "btn btn-info btn-large", :style => "line-height: 52px; height: 54px; padding: 0 80px; font-size: 22px; margin-top: 4px;" %>
 
 </div>
 

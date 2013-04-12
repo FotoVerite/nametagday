@@ -6,8 +6,20 @@
     <meta http-equiv="content-script-type" content="text/javascript">
     <meta name="copyright" content="Copyright <%= Time.now.year %>, <%= BRAND %>" />
     <meta name="robots" content="nofollow,noindex" />
+
+	<meta property="og:title" content="Nametag Day!"/>
+	<meta property="og:image" content="http://nametagday.com/256.png"/>
+	
+	<link href="57.png" rel="apple-touch-icon-precomposed" />
+	<link href="72.png" rel="apple-touch-icon-precomposed" sizes="72x72" />
+	<link href="114.png" rel="apple-touch-icon-precomposed" sizes="114x114" />
+	<link href="144.png" rel="apple-touch-icon-precomposed" sizes="144x144" />
+
+	<meta name="description" content="On June 1st, wear a free nametag and make new friends all around the city. Sign up and volunteer!"/>
+	<meta property="og:description" content="On June 1st, wear a free nametag and make new friends all around the city. Sign up and volunteer!"/>
+
     <%= csrf_meta_tag %>
-    <%= favicon_link_tag %>
+    <%= favicon_link_tag '/assets/favicon.ico' %>
     <%= stylesheet_link_tag('application', :media => 'all') %>
     <%= javascript_include_tag('application') %>
     <%= yield :head %>
@@ -48,11 +60,17 @@
               <%= link_to "Contact Us", static_page_path(:name => "contact") %>
             </li>
         		<li>
-              <a class="twitter-link" href="http://twitter.com/NametagDay">
-                <%= image_tag('twitter.png', :size => "16x16", :style => 'vertical-align:middle;') %>
+              <!-- <a class="firstsocial-link" href="http://twitter.com/NametagDay">
+                <%= image_tag('vine.png', :size => "16x16", :style => 'vertical-align:middle;') %>
+              </a> -->
+        	  <a class="firstsocial-link" href="http://instagram.com/nametagday">
+                <%= image_tag('instagram.png', :size => "16x16", :style => 'vertical-align:middle;') %>
               </a>
-        		  <a class="facebook-link" href="http://www.facebook.com/NametagDay">
-                <%= image_tag('facebook.png', :size => "16x16", :style => 'vertical-align:middle;') %>
+        	  <a class="social-link" href="http://www.facebook.com/NametagDay">
+                <%= r_image_tag('facebook.png', :size => "16x16", :style => 'vertical-align:middle;') %>
+              </a>
+        	  <a class="social-link" href="http://twitter.com/NametagDay">
+                <%= image_tag('twitter.png', :size => "16x16", :style => 'vertical-align:middle;') %>
               </a>
             </li>
 
@@ -76,9 +94,26 @@
 
 	<div class="footer-container">
     <footer class='footer'>
-       Licensed under <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons</a>. Hey, we're open source <a href="https://github.com/FotoVerite/nametagday">on Github</a>!
+       Licensed under <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons</a>. Hey, we're open source on <a href="https://github.com/FotoVerite/nametagday">Github</a>!
+    <div style="text-align:center; opacity:.6; margin-top:6px; font-size:12px;">Nametag Day is an idea, not an organization or legal entity. No communication, on this site or anywhere else, represents a legal contract, commitment, or indication of employment.</div>
     </footer>
     </div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38542552-1']);
+  _gaq.push(['_setDomainName', 'nametagday.com']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 
   </body>
 </html>

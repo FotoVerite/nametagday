@@ -39,12 +39,16 @@ padding-top: 8px;
   padding: 0 13px;
 }
 
-a.facebook-link {
-  padding: 0 0 0 3px;
+a.social-link {
+  padding: 0 0 0 5px;
 }
 
-a.twitter-link {
-  padding: 0 3px 0 15px;
+a.firstsocial-link {
+  padding: 0 1px 0 15px;;
+}
+
+a.firstsocial-link:hover, a.social-link:hover {
+text-decoration:none;
 }
 
 a.header-logo {
@@ -331,7 +335,7 @@ button.middle {
   background-image: -webkit-linear-gradient(top, #f4f4f4, #c1c1c1);
   background-image: -o-linear-gradient(top, #f4f4f4, #c1c1c1);
   background-image: linear-gradient(#f4f4f4, #c1c1c1);
-  border-color: blue;
+  border-color: #10a2cd;
   border-width: 3px;
   color: #333 !important;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
@@ -374,4 +378,210 @@ button.reallyfull {
   color: #fff !important;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.33);
   -webkit-font-smoothing: antialiased;
+}
+
+#form_times .btn-group > .btn:first-child {
+border-right-width: 2px;
+}
+
+#form_times .btn-group > .btn:last-child {
+border-left-width: 2px;
+}
+
+
+.short {
+padding: 4px 0;
+}
+
+.short label {
+position:absolute;
+margin: 0;
+line-height: 28px;
+}
+
+.short textarea {
+width: 300px;
+}
+
+.short input, .short select, .short textarea {
+margin-left: 156px;
+}
+
+.shorter input, .shorter select, .shorter textarea {
+margin-left: 94px;
+}
+
+input[type="submit"].btn {
+margin: 0 auto;
+padding: 9px 40px;
+height: 36px;
+border: 1px solid #bbbbbb;
+  *border: 0;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  border-bottom-color: #a2a2a2;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+
+.formbuttoncontainer {
+width: 470px;
+padding-top: 6px;
+}
+
+.alert h4 {
+margin: 0 0 5px;
+}
+
+.alert-block > p, .alert-block > ul {
+margin-bottom: 5px;
+}
+
+.nolinkylook:hover {
+text-decoration: none;
+}
+
+a div.alertcustom:hover {
+background-color: #ffe4cc;
+}
+
+.alert .progress {
+  width:784px;
+  margin-left:21px;
+  margin-top: 8px;
+  margin-bottom: 0;
+  background-color: #ededed;
+  background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.45)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.45)), color-stop(0.75, rgba(255, 255, 255, 0.45)), color-stop(0.75, transparent), to(transparent));
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.45) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.45) 50%, rgba(255, 255, 255, 0.45) 75%, transparent 75%, transparent);
+  background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.45) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.45) 50%, rgba(255, 255, 255, 0.45) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.45) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.45) 50%, rgba(255, 255, 255, 0.45) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.45) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.45) 50%, rgba(255, 255, 255, 0.45) 75%, transparent 75%, transparent);
+  -webkit-background-size: 40px 40px;
+     -moz-background-size: 40px 40px;
+       -o-background-size: 40px 40px;
+          background-size: 40px 40px;
+  -webkit-animation: progress-bar-stripes 8s linear infinite reverse;
+     -moz-animation: progress-bar-stripes 8s linear infinite reverse;
+      -ms-animation: progress-bar-stripes 8s linear infinite reverse;
+       -o-animation: progress-bar-stripes 8s linear infinite reverse;
+          animation: progress-bar-stripes 8s linear infinite reverse;
+}
+
+.xticker {
+position:absolute;
+}
+
+.xticker div {
+display: block;
+float: left;
+width: 49px;
+font-size: 10px;
+text-align: center;
+background: url("/assets/blackline.gif") no-repeat center top;
+padding-top: 2px;
+}
+
+.xticker div.first {
+margin-left: 45px;
+}
+
+.fundraisebox h4, .fundraisebox p {
+text-align:center;
+}
+
+.fundraisebox {
+
+padding-bottom: 4px;
+width: 825px;
+margin: 5px auto;
+padding-right: 14px;
+}
+
+.lead {
+margin-bottom: 16px;
+font-size: 24px;
+font-weight: 200;
+line-height: 30px;
+}
+
+.poem {
+text-align: center;
+font-style: italic;
+color: #888;
+width: 580px;
+margin: 0 auto;
+}
+
+#location_title_hover {
+width: 600px;
+text-align: center;
+font-style: italic;
+}
+
+#location_title {
+width: 600px;
+text-align: center;
+}
+
+input[type="checkbox"] {
+margin: 4px 0 4px -18px;
+height: auto;
+}
+
+label.checkbox {
+margin-top: 18px;
+}
+
+.undertimetext {
+font-size: 12px;
+line-height: 15px;
+margin-top: 5px;
+}
+
+#form_times .btn-group {
+margin-left: 0;
+}
+
+#form_details .input-append {
+width: 450px;
+}
+
+#worker-group button {
+width: 140px;
+padding: 8px 0;
+}
+
+#leader-group button {
+width: 209px;
+padding: 8px 0;
+}
+
+form h4 {
+margin-top: 18px;
+}
+
+#friends-emails {
+white-space: normal;
+}
+
+.input-append input, .input-append select, .input-append .uneditable-input {
+border-radius: 3px;
+margin-bottom: 12px;
+}
+
+.input-append input:last-child {
+border-radius: 3px 0 0 3px;
+}
+
+.input-append .btn {
+width: 90px;
+}
+
+.input-append input {
+width: 284px;
+}
+
+.disabled {
+opacity: .4;
 }

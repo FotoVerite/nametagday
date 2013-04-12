@@ -1,13 +1,11 @@
 <div id="contactform" class="site-page">
   <div class="hgroup top">
-    <h1>Contact</h1>
-    <h2>We would love to hear from you</h2>
+    <h2>Host your own Nametag Day event!</h2>
   </div>
   <div class="section">
     <div class="maincol">
       <div class="sect">
-        <h1>Send us an email</h1>
-        <p>Let us know if you'd like a batch of nametags for your own event, or if you have any other questions or comments.</p>
+        <p>Want to ride around on your unicycle giving out nametags? Want to throw a Nametag Day party? Then we want to give you nametags.</p>
       </div>
       <div class="normform">
         <div class="subsection">
@@ -15,6 +13,34 @@
           <%= form_for @event_request, :url => send_event_request_path do |f| %>
             <%= error_messages_for(f.object) %>
 
+	        <p><b>Tell us more about your event:</b></p>
+
+            <div class="short">
+                <%= f.label :event_name, "Event Name" %>
+                <%= f.text_field :event_name, :required => true, :autofocus=>true  %>
+            </div>
+
+            <div class="short">
+            <%= f.label :description %>
+            <%= f.text_area :description, :rows => 6, :required => true  %>
+            </div>
+            
+            <div class="short">
+                <%= f.label :location %>
+                <%= f.text_field :location, :required => true  %>
+            </div>
+
+            <div class="short">
+                <%= f.label :amount, "How many nametags?" %>
+                <%= f.select :amount, EventRequest::AMOUNT  %>
+            </div>
+
+            <div class="short">
+                <%= f.label :organization %>
+                <%= f.text_field :organization, :required => true  %>
+            </div>
+
+	        <p><b><br>And now, just a little bit about yourself:</b></p>
 
             <div class="short">
                 <%= f.label :email %>
@@ -35,37 +61,27 @@
                 <%= f.phone_field :phone  %>
             </div>
 
-            <div class="short">
-                <%= f.label :amount %>
-                <%= f.select :amount, EventRequest::AMOUNT  %>
-            </div>
+	        <p><b><br />Anything else?</b></p>
 
             <div class="short">
-                <%= f.label :event_name, "Event Name" %>
-                <%= f.text_field :event_name, :required => true  %>
-            </div>
-
-            <div class="short">
-                <%= f.label :location %>
-                <%= f.text_field :location, :required => true  %>
-            </div>
-
-            <div class="short">
-                <%= f.label :organization %>
-                <%= f.text_field :organization, :required => true  %>
-            </div>
-
-
-            <span class="clear"></span>
-            <%= f.label :description %>
-            <%= f.text_area :description, :rows => 6, :required => true  %>
             <%= f.label :notes %>
             <%= f.text_area :notes, :rows => 6  %>
-            <%= f.submit "SEND", :class => "btn xl tl send" %>
+            </div>
+            
+            <div class="formbuttoncontainer">
+            <%= f.submit "Get us dem nametags!", :class => "btn btn-info btn-large", :style => "padding: 9px 50px;" %>
+            </div>
           <% end %>
         </div>
       </div>
     </div>
+    
+<div class="whitespace"></div>
+
+    <div class="poem">"One of the secrets of life is that all that is really worth the doing is what we do for others."<br />- Lewis Caroll</div>
+    
+<div class="whitespace"></div>    
+    
   </div>
 </div>
 

@@ -1,7 +1,14 @@
-<h1>Where can you help us hand out nametags?</h1>
+<h1>Sign up to hand out nametags!</h1>
 
-<p>We'll be handing out nametags in teams at popular spots across the city. At this point, we just need to know the general area you can help. Pick a point on the map below, or <%=  mail_to("hello@nametagday.com", "email us") %> if you'd like to help out somewhere that isn't on our map.</p>
+<p>We'll be handing out nametags in teams at popular spots across the city. Pick a general area and we'll give you a specific location later. <%= link_to "Send us a message", static_page_path(:name => "contact") %> if you'd like to help somewhere else.</p>
+<p><b>Click an area below:</b></p>
 
 <%= form_for @member, :url => registration_path, :html => { :onsubmit => "return validateForm();" } do |f| %>
   <%= render :partial => 'form', :locals => {:f => f} %>
 <% end %>
+
+<div class="whitespace"></div>
+
+    <div class="poem">"Do stuff. be clenched, curious. Not waiting for inspiration's shove or society's kiss on your forehead. Pay attention. It's all about paying attention. attention is vitality. It connects you with others. It makes you eager. Stay eager."<br>- Susan Sontag</div>
+    
+<div class="whitespace"></div>
