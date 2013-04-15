@@ -1,0 +1,8 @@
+<p>We've marked you as cancelled. You can reactivate your registration anytime before <b>May 26</b> by visiting the following link.</p>
+
+<p><%= url_for(
+                            :controller => "/registrations",
+                            :action => "edit" , 
+                            :token => @member.reservation_token)                              
+    %>
+</p>

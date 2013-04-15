@@ -1,46 +1,46 @@
-<h1>Update Your Time!</h1>
->
+<h1><%= possify @member.first_name %> Registration</h1>
+<% if @member.canceled? %>
+  <p>Your registration is marked as <b>cancelled</b>.</p>
+  <%= button_to "Reactivate Me",
+                              {:controller => "/registrations",
+                                :action => "reactivate_reservation" , 
+                                :token => @member.reservation_token,
+                              },
+                                :method => :post
+   %>
+<% else %>
+  <p>You're signed up to help out near <b><%= @member.location.name %></b> at <b><%= @member.times_as_string %></b> on June 1st.</p>
+  <p> 
+    <%= button_to "Cancel Registration",
+                              {:controller => "/registrations",
+                                :action => "cancel_reservation" , 
+                                :token => @member.reservation_token,
+                              },
+                                :method => :delete
+   %>
+  </p>
 
-<%= form_for @member, :url => registration_path do |f| %>
+<h4>Location and Time</h4>
+<% if @friends %>
+<p>If you change your location, you may get separated from the friends you've invited.</p>
+<% end %>
+
+<%= form_for @member, :url => 'update', :method => 'post' do |f| %>
 
   <%= error_messages_for(f.object) %>
 
-  <% Location::TIMES.each do |value, text|  %>
-    <ul class="checklist">
-      <li class="">
-        <%= check_box_tag "member[times][]", value, @member.times.include?(value.to_s), :id => "member_times_#{value}"%>
-        <%= label_tag "member[times][#{value}]", text, :id => "member_times_#{value}" %>
-      </li>
-    </ul>
-  <% end %>
+  <%= render :partial => 'form', :locals => {:f => f, :editing => true} %>
 
 <span class="clearfix"></span>
 
 <%= hidden_field_tag :registration_token, params[:token] %>
 
-<%= f.submit "Submit Registration" %>
-
-
 <script type="text/javascript">
   $(document).ready(function() {
 
-    $('.checklist input').each(function() {
-      if($(this).is(":checked")) {
-        $(this).siblings("label").addClass('checked');
-      }
-      else {
-       $(this).siblings("label").removeClass('checked');
-      }
-    });
-    $('.checklist input').change(function() {
-      if($(this).is(":checked")) {
-        $(this).siblings("label").addClass('checked');
-      }
-      else {
-       $(this).siblings("label").removeClass('checked');
-      }
-    });
+    $('#form_details').removeClass("disabled");
   });
 </script>
 <% end %>
 ￼￼￼
+<% end %>

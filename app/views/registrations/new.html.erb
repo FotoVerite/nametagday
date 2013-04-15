@@ -4,7 +4,7 @@
 <p><b>Click an area below.</b></p>
 
 <%= form_for @member, :url => registration_path, :html => { :onsubmit => "return validateForm();" } do |f| %>
-  <%= render :partial => 'form', :locals => {:f => f} %>
+  <%= render :partial => 'form', :locals => {:f => f, :editing => false} %>
 <% end %>
 
 <div class="whitespace"></div>
