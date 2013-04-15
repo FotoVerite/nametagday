@@ -61,9 +61,16 @@ class RegistrationsController < ApplicationController
 
   def cancel_reservation
     return render_404 unless @member = Member.find_by_reservation_token(params[:token])
-    @member.mark_cancelled
+    @member.mark_canceled
     session[:member_id] = @member.id
-    redirect_to reservation_canceled_registration_path
+    redirect_to :back
+  end
+
+  def reactivate_reservation
+    return render_404 unless @member = Member.find_by_reservation_token(params[:token])
+    @member.reactivate
+    session[:member_id] = @member.id
+    redirect_to :back
   end
 
   def reservation_updated

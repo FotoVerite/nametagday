@@ -34,7 +34,7 @@
 
 </div>
 <div id="form_details" class="disabled">
-  <h4>We haven't met yet... what's your name?</h4>
+  <h4><%= editing ? "Contact Details" : "We haven't met yet... what's your name?"%></h4>
 
   <div class="short shorter">
     <dt><%= f.label(:first_name, "First Name") %></dt>
@@ -59,8 +59,19 @@
 
   <%= fields_for "friends" do |friend| %>
    
-    <h4>Now invite some friends!</h4>
-    <p>We'll send them an email with an option to join your group and do our best to put you together on June 1st.</p>
+    <h4>Invite some friends!</h4>
+    <% if @friends %>
+      Previously invited friends:
+      <ul>
+        <% for friends_email in @friends %>
+          <li><%= friends_email.email %></li>
+                <%= friend.email_field "emails", :name => 'friends[emails][]', :value => friends_email.email %>
+        <% end %>
+     </ul>
+    <% else %>
+    <% end %>
+     <p>We'll send them an email with an option to join your group and do our best to put you together on June 1st.</p>
+
     <span class="clearfix"></span>
     <div class="input-append">
     <span id="friends-emails">
@@ -83,8 +94,9 @@
 <%= hidden_field_tag :location_id, '' %>
 <input type="hidden" id="times" name="times" value="1" />
 
-<%= f.submit "Sign me up!", :class => "btn btn-info btn-large", :style => "line-height: 52px; height: 54px; padding: 0 80px; font-size: 22px; margin-top: 4px;" %>
-
+<%= f.submit(editing ? "Update" : "Sign me up!",
+    :class => "btn btn-info btn-large",
+    :style => "line-height: 52px; height: 54px; padding: 0 80px; font-size: 22px; margin-top: 4px;") %>
 </div>
 
 
