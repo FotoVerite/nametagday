@@ -586,3 +586,18 @@ width: 284px;
 .disabled {
 opacity: .4;
 }
+
+#mapkey {
+font-size: 12px;
+line-height: 16px;
+margin-bottom: 4px;
+}
+
+#mapkey img {
+vertical-align: middle;
+margin: -2px 1px 0 16px;;
+}
+
+#mapkey img:first-child {
+margin: -2px 1px 0 0;
+}
