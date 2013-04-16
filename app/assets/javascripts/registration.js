@@ -1,11 +1,11 @@
 // Check for POST variables and open up the form
-if() {
-  $("#form_times").removeClass("disabled");
-  $('#form_details').removeClass("disabled");
-  $('.btn-group button').each(function() {
-    $(this).removeAttr("disabled");
-  });
-}
+// if() {
+//   $("#form_times").removeClass("disabled");
+//   $('#form_details').removeClass("disabled");
+//   $('.btn-group button').each(function() {
+//     $(this).removeAttr("disabled");
+//   });
+// }
 
 var markers = [];
 var mapDotScaleSelected = 13;
