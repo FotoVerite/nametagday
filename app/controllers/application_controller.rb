@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   NO_AUTH_ENVS = ['development', 'test', 'production']
 
-  unless ['development', 'test'].include?(Rails.env)
+  unless NO_AUTH_ENVS.include?(Rails.env)
     before_filter :http_authenticate
   end
 
