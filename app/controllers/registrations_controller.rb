@@ -12,10 +12,12 @@ class RegistrationsController < ApplicationController
     @member.attributes = params[:member]
     digest_friends(params[:friends])
     @leader = Friend.find_by_registration_token(params[:registration_token]).member if params[:registration_token].present?
+    @member.referer = @leader
     if @member.save
       session[:member_id] = @member.id
       flash[:notice] = "You've signed up"
       @member.delay.add_to_mailing_list
+      PostOffice.delay.signed_up(@member)
       unless @friends.nil?
       	@friends.each do |friend|
           friend.member_id = @member.id

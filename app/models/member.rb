@@ -1,6 +1,7 @@
 class Member < ActiveRecord::Base
   belongs_to :location
   has_many :friends
+  belongs_to :referer, :class_name => "Member"
 
   serialize :times
 

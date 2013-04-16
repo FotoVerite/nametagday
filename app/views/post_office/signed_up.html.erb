@@ -540,14 +540,17 @@
 
 <p>Thanks for signing up. We're excited to have you onboard!</p>
 
-<p>We have you down for <strong><%= @member.location.name %> at <%= @member.times_as_string %></strong> on June 1[, as part of Matthew Bregman's team].[<br>
+<p>We have you down for <strong><%= @member.location.name %> at <%= @member.times_as_string %></strong> on June 1<%- if @member.referer %>, as part of Matthew Bregman's team.
+  <% end  %><br />
 <strong>If you end up assigned as a location leader, we'll let you know about a very short training about a week before the event.</strong>]</p>
 
 <p>The location is approximate and things can change, so look out for an email around May 30 with exact details. To be sure you receive the email, add hello@nametagday.com to your address book.</p>
 
-<p>[IF THEY INVITED OTHERS]You've also sent invitations to the following people. When they confirm, they'll be added to your group:
-LIST OF PEOPLE<br>
-Each on a separate line</p>
+<p><% unless @member.friends.empty? %>
+  You've also sent invitations to the following people. When they confirm, they'll be added to your group:
+<%= @member.friends.map {|f| f.email}.to_sentence %><br />
+<% end %>
+</p>
 
 <p>Click here to cancel or change times. You can always do so by entering your email address on our website.</p>
 
