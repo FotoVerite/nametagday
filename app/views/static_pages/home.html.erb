@@ -14,14 +14,27 @@
 
     <div class="row">
       <div class="span6">
-        <p class="lead" style="margin-top: 12px;">Imagine everyone in New York City wearing a nametag. On June 1st we'll be handing out nametags throughout city, and we will need your help!</p>
-    <p class="lead" style="margin-bottom: 20px;"><b>Register by May 26</b> and be part of the fun.</p>
-         <div style="text-align: center; "><%= link_to 'Register Now!', new_registration_path, { :class => "btn btn-info btn-large", :style => "padding: 0 73px; line-height: 44px; font-size: 20px;"  } %></div>
-         <%#
-          <div style="padding: 5px; text-align: center;">
+        <p class="lead">Imagine everyone in New York City wearing a nametag. On June 1st we'll be giving people nametags throughout the city, and we need your help!</p>
+    <p class="lead" style="margin-bottom: 16px;"><b>Sign up now</b> to volunteer handing out nametags!</p>
+    
+        <form name="input" action="http://nametagday.us6.list-manage.com/subscribe/post?u=af4a58c9e3e36485fdd561e78&amp;id=d53c0b3cb8" method="post" id="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div class="email">
+          <input type="text" name="EMAIL" id="email">
+        </div>
+        <div class="submit-button">
+        <input type="submit" id="submit" value="Sign me up!" />
+        </div>
+        </form>
+      </div>
+      <div class="nametag-bottom"></div>
+    </div>    
+    
+         <div style="text-align: center; "><%= link_to 'Register now!', new_registration_path, { :class => "btn btn-info btn-large", :style => "padding: 0 70px; line-height: 44px; font-size: 23px;"  } %></div>
+         
+          <div style="padding: 4px; text-align: center;">
             <small>Already registered? <a href="somewhere">Modify your registration.</a></small>
           </div>
-           %>
+        
       </div>
       <div class="pull-right">
         <iframe class="img-polaroid" width="450" height="253" src="http://www.youtube.com/embed/RchV2AW0NAM?rel=0;showinfo=0;HD=1;controls=0" frameborder="0" allowfullscreen></iframe>

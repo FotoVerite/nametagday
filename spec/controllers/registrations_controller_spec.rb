@@ -82,6 +82,10 @@ describe RegistrationsController do
 
   describe "POST 'create'" do
 
+    before(:each) do
+      @location = FactoryGirl.create(:location)
+    end
+
     context "successful" do
 
       it "should create a new member" do
@@ -199,8 +203,11 @@ describe RegistrationsController do
     def post_create(options = {})
       post :create,
         {
-          :member => FactoryGirl.attributes_for(:member),
-          :friends => {:emails => ["matthew@gmail.com"]}
+          :member =>  FactoryGirl.attributes_for(:member).merge(
+            :location_id => @location.id
+          ),
+          :friends => {:emails => ["matthew@gmail.com"]},
+          :times => '1,2,3'
         }.merge(options)
     end
 
@@ -375,12 +382,13 @@ describe RegistrationsController do
 
       it "redirects to reservation_canceled_registration_path" do
         delete_cancel_reservation
-        response.should redirect_to(reservation_canceled_registration_path)
+        response.should redirect_to('http://test.com/sessions/new')
       end
     end
 
 
     def delete_cancel_reservation(options={})
+      @request.env['HTTP_REFERER'] = 'http://test.com/sessions/new'
       delete :cancel_reservation, {:token => @member.reservation_token}.merge(options)
     end
 

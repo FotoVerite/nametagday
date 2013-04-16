@@ -1,10 +1,11 @@
 class Member < ActiveRecord::Base
   belongs_to :location
   has_many :friends
+  belongs_to :referer, :class_name => "Member"
 
   serialize :times
 
-  attr_accessible :first_name, :last_name, :times, :email, :phone, :leader, :times, :canceled, :reservation_token
+  attr_accessible :first_name, :last_name, :times, :email, :phone, :leader, :times, :canceled, :reservation_token, :location_id
 
   validates :first_name, :last_name, :times, :email, :presence => true
 
@@ -13,7 +14,7 @@ class Member < ActiveRecord::Base
   ) unless search.nil? }
 
   before_create :create_registration_token
-  after_create {|member|  member.update_location_time_counts 1}
+  after_create :update_location_time_counts
 
   def canceled?
     canceled == "1"
@@ -27,15 +28,15 @@ class Member < ActiveRecord::Base
   def reactivate
     if canceled
       update_attribute(:canceled, false)
-      update_location_time_counts(1)
+      update_location_time_counts
     end
   end
 
-  def update_location_time_counts(amount)
+  def update_location_time_counts(amount=1)
     self.times.each do |t|
       Location.transaction do
         loc = Location.lock(true).find(self.location_id)
-        loc.time_counts[t] += amount
+        loc.time_counts[t.to_i] += amount
         loc.save!
       end
     end

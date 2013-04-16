@@ -68,5 +68,7 @@ Nametagday::Application.configure do
     :host => "test.nametagday.com",
     :only_path => false
   }
+  config.action_mailer.delivery_method = :mailjet
+
 
 end

@@ -10,13 +10,16 @@ class RegistrationsController < ApplicationController
     @member.times = []
     @member.location_id = params[:location_id]
     @member.attributes = params[:member]
-    @member.times = params[:times].split(',').collect{|val| val.strip.to_i}.select{|val| Location::TIMES.has_key? val }
     digest_friends(params[:friends])
+        @member.times = params[:times].split(',').collect{|val| val.strip.to_i}.select{|val| Location::TIMES.has_key? val }
+
     @leader = Friend.find_by_registration_token(params[:registration_token]).member if params[:registration_token].present?
+    @member.referer = @leader
     if @member.save
       session[:member_id] = @member.id
       flash[:notice] = "You've signed up"
       @member.delay.add_to_mailing_list
+      PostOffice.delay.signed_up(@member)
       unless @friends.nil?
       	@friends.each do |friend|
           friend.member_id = @member.id
