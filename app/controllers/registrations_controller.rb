@@ -11,6 +11,8 @@ class RegistrationsController < ApplicationController
     @member.location_id = params[:location_id]
     @member.attributes = params[:member]
     digest_friends(params[:friends])
+        @member.times = params[:times].split(',').collect{|val| val.strip.to_i}.select{|val| Location::TIMES.has_key? val }
+
     @leader = Friend.find_by_registration_token(params[:registration_token]).member if params[:registration_token].present?
     @member.referer = @leader
     if @member.save
