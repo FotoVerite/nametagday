@@ -71,7 +71,7 @@ class Member < ActiveRecord::Base
   end
 
   def self.create_token(string="")
-    Digest::SHA1.hexdigest("Use the #{string} with #{Time.now}")
+    Digest::SHA1.hexdigest("Use the #{string} with #{Time.now} #{rand}")
   end
 
   private
