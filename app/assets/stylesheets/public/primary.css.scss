@@ -498,11 +498,22 @@ margin: 5px auto;
 padding-right: 14px;
 }
 
+/*
 .lead {
 margin-bottom: 16px;
 font-size: 21px;
 font-weight: 200;
 line-height: 27px;
+}
+*/
+
+.lead {
+margin-top: 18px;
+margin-bottom: 16px;
+font-size: 21px;
+font-weight: 200;
+line-height: 28px;
+margin-right: -10px;
 }
 
 .poem {
@@ -600,4 +611,21 @@ margin: -2px 1px 0 16px;;
 
 #mapkey img:first-child {
 margin: -2px 1px 0 0;
+}
+
+#mc-embedded-subscribe-form input[type='text'] {
+font-size: 21px;
+color: #444;
+height: 26px;
+width: 314px;
+margin-bottom: 8px;
+border-radius: 3px;
+}
+
+#mc-embedded-subscribe-form .btn {
+padding: 0 30px;
+line-height: 32px;
+font-size: 14px;
+height: 32px;
+width: 150px;
 }
