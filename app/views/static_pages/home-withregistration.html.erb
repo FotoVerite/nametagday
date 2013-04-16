@@ -14,23 +14,15 @@
 
     <div class="row">
       <div class="span6">
-        <p class="lead" style="margin-top:18px; ">Imagine everyone in New York City wearing a nametag. On June 1st we'll be giving nametags to people throughout the city, and we need your help!</p>
-    <p class="lead" style="margin-bottom: 20px;"><b>Sign up now</b> to volunteer and hand out nametags!</p>
-    
-        <form name="input" action="http://nametagday.us6.list-manage.com/subscribe/post?u=af4a58c9e3e36485fdd561e78&amp;id=d53c0b3cb8" method="post" id="mc-embedded-subscribe-form" class="validate" target="_blank" style="text-align:center;" novalidate>
-        
-        <input type="text" name="EMAIL" id="email" placeholder="Enter email">
-        <input type="submit" id="submit" class="btn btn-info btn-large" value="Sign me up!" />
-        
-        </form>
-        <script>
-        	var text_input = document.getElementById ('email');
-			text_input.focus ();
-			text_input.select ();
-		</script>
+        <p class="lead">Imagine everyone in New York City wearing a nametag. On June 1st we'll be giving people nametags throughout the city, and we need your help!</p>
+    <p class="lead" style="margin-bottom: 16px;"><b>Register by May 26</b> to hand out nametags and be part of the fun.</p>
+         <div style="text-align: center; "><%= link_to 'Register now!', new_registration_path, { :class => "btn btn-info btn-large", :style => "padding: 0 70px; line-height: 44px; font-size: 23px;"  } %></div>
+         
+          <div style="padding: 4px; text-align: center;">
+            <small>Already registered? <a href="somewhere">Modify your registration.</a></small>
+          </div>
         
       </div>
-
       <div class="pull-right">
         <iframe class="img-polaroid" width="450" height="253" src="http://www.youtube.com/embed/RchV2AW0NAM?rel=0;showinfo=0;HD=1;controls=0" frameborder="0" allowfullscreen></iframe>
       </div>
@@ -46,13 +38,11 @@
 	<div class="alert alert-block alertcustom fundraisebox">
 		<!-- <h4>$1,500 raised so far!</h4> -->
 		<!-- <p>We've got $1,000 more to go before this event's gonna happen. <br /><b>Click here to join 23 others and pitch in.</b></p> -->
-		<h4>$<%= File.open('/tmp/amount_raised.txt', 'rb') { |file| file.read
-} %> raised so far!</h4>
+		<h4>$4,500 raised so far from 55 contributors!</h4>
 		<p>For $10 you'll be putting a nametag on 60 people. <b>Click here to pitch in.</b> </p>
 
 		<div class="progress progress-warning">
-		  <div class="bar" style="width: <%= File.open('/tmp/amount_raised.txt', 'rb') { |file| file.read
-}.to_f / 160 %>%"></div>
+		  <div class="bar" style="width: 8.3%"></div>
 		</div>
 		
 		<div class="xticker">
@@ -73,7 +63,7 @@
 			<div>$15k</div>
 		</div>
 		<%= r_image_tag('target_under2.5k.png', :size => "784x72", :style => 'margin-left: 21px; margin-bottom:8px;') %>
-		<p style="font-size:10px;">Funds raised go directly to making Nametag Day happen. Any unspent money will be reserved for Nametag Day 2014.</p>
+		<p style="font-size:10px;">Funds raised go to nametags and logistics, not salaries. Any unspent money will be reserved for Nametag Day 2014.</p>
 		<div class="clearfix"></div>
 
 		
