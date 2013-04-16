@@ -10,7 +10,6 @@ class RegistrationsController < ApplicationController
     @member.times = []
     @member.location_id = params[:location_id]
     @member.attributes = params[:member]
-    @member.times = params[:times].split(',').collect{|val| val.strip.to_i}.select{|val| Location::TIMES.has_key? val }
     digest_friends(params[:friends])
     @leader = Friend.find_by_registration_token(params[:registration_token]).member if params[:registration_token].present?
     if @member.save

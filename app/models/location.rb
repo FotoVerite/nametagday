@@ -7,6 +7,8 @@ class Location < ActiveRecord::Base
 
   serialize :time_counts
 
+  before_create :institate_times_hash
+
   TIMES = {
     1 => "11am - 1pm",
     2 => "1 - 3pm",
@@ -21,5 +23,11 @@ class Location < ActiveRecord::Base
   	4 => true,
   	5 => true,
   }
+
+  def institate_times_hash
+    self.time_counts = TIMES.keys.inject({}) {|hash, e| hash[e.to_i] = 0; hash;}
+  end
+
+
 
 end

@@ -7,5 +7,6 @@ FactoryGirl.define do
     last_name Faker::Name.first_name
     times [1]
     email Faker::Internet.email
+    association :location
   end
 end
