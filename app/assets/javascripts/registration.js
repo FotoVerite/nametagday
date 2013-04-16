@@ -159,6 +159,10 @@ function loadMarkers() {
 
 		var marker = makeMarker(markerTitle, position, locationId, fractionsFull);
 		markers.push(marker);
+
+		if (locationId == INITIAL_LOCATION_ID) {
+			google.maps.event.trigger(marker, 'click');
+		}
 	  }
     });
 }

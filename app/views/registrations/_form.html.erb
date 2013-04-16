@@ -19,7 +19,8 @@
 <div id="form_times" class="disabled">
 
   <label class="checkbox">
-    <input id="member_leader" name="member[leader]" type="checkbox">I'd like to be a <b>coordinator</b>.
+    <%= check_box_tag('member[leader]', "1", editing && Location::IS_COORDINATOR_TIME[@member.times[0]], :id => "member_leader") %>
+    I'd like to be a <b>coordinator</b>.
   </label>
 <p class="undertimetext">This means a four-hour shift and extra leadership. Morning coordinators will meet at distribution centers to collect nametags.</p>
 

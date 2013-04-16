@@ -1,5 +1,19 @@
 class MailPreview < MailView
 
+  def signed_up
+    location = FactoryGirl.build(:location)
+    referer = FactoryGirl.build(:member)
+    member = FactoryGirl.build(:member,
+      :friends => [
+          FactoryGirl.build(:friend),
+          FactoryGirl.build(:friend)
+        ],
+      :location => location,
+      :referer => referer
+    )
+    PostOffice.signed_up(member)
+  end
+
   def invited_by_a_friend_email
     member = FactoryGirl.build(:member)
     friend = FactoryGirl.build(:friend)

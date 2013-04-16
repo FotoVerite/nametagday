@@ -4,6 +4,14 @@ class PostOffice < ActionMailer::Base
 
   default :from => "hello@nametagday.com"
 
+  def signed_up(member)
+    @member = member
+    mail(
+      :to => @member.email,
+      :subject => "#{BRAND} - Thanks for signing up!"
+    )
+  end
+
 
   def invited_by_a_friend_email(friend)
     @member = friend.member

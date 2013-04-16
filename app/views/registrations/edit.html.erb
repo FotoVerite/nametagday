@@ -36,8 +36,8 @@
 <%= hidden_field_tag :registration_token, params[:token] %>
 
 <script type="text/javascript">
+  var INITIAL_LOCATION_ID = <%= @member.location_id %>;
   $(document).ready(function() {
-
     $('#form_details').removeClass("disabled");
   });
 </script>
