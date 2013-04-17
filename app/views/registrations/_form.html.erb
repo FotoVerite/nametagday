@@ -16,10 +16,19 @@
 <div id="location_title" style="font-style:italic; color:#999;">No area chosen.</div>
 <div id="location_title_hover" style="display:none;"></div>
 
+<%
+coordinating = editing && Location::IS_COORDINATOR_TIME[@member.times[0]]
+
+def active_if_time(time_num)
+  @member.times.include?(time_num) ? "active" : ''
+end
+
+%>
+
 <div id="form_times" class="disabled">
 
   <label class="checkbox">
-    <%= check_box_tag('member[leader]', "1", editing && Location::IS_COORDINATOR_TIME[@member.times[0]], :id => "member_leader") %>
+    <%= check_box_tag('member[leader]', "1", coordinating, :id => "member_leader") %>
     I'd like to be a <b>coordinator</b>.
   </label>
 <p class="undertimetext">This means a four-hour shift and extra leadership. Morning coordinators will meet at distribution centers to collect nametags.</p>
@@ -27,16 +36,17 @@
     <h4>Shifts available:</h4>
   
   <!-- TODO: add an on-submit check that a button value is one of the times in the db -->
-<div class="btn-group" id="worker-group">
-  <button id="slot1" type="button" class="btn empty" value="1" disabled="1">11a - 1p</button>
-  <button id="slot2" type="button" class="btn empty" value="2" disabled="1">1p - 3p</button>
-  <button id="slot3" type="button" class="btn empty" value="3" disabled="1">3p - 5p</button>
+<div class="btn-group" id="worker-group" <%=raw coordinating ? 'style="display: none;"' : '' %> >
+  <% {1 => "11a - 1p", 2 => "1p - 3p", 3 => "3p - 5p"}.each do |num, label| %>
+   <%= button_tag label, :disabled => true, :value => num, :type => "button", :class => "btn empty " + (@member.times.include?(num) ? 'active' : '') %>
+  <% end %>
 </div>
 
 <!-- Should only be visible if user clicks the "wanna be a leader" bit. -->
-<div class="btn-group" id="leader-group" style="display: none;">
-  <button id="leader_slot1" type="button" class="btn empty" value="4" disabled="1">9:30a - 1:30p</button>
-  <button id="leader_slot2" type="button" class="btn empty" value="5" disabled="1">1:30p - 5:30p</button>
+<div class="btn-group" id="leader-group" <%=raw coordinating ? '' : 'style="display: none;"' %>>
+   <% {4 => "9:30a - 1:30p", 5 => "1:30p - 5:30p"}.each do |num, label| %>
+   <%= button_tag label, :disabled => true, :value => num, :type => "button", :class => "btn empty " + (@member.times.include?(num) ? 'active' : '') %>
+  <% end %>
 </div>
 
 <p class="undertimetext">Sign up for as many shifts as you like. Trust us, a few hours of wishing people &#8220;Happy Nametag Day!&#8221; goes by fast!
