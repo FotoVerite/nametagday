@@ -1,14 +1,14 @@
 
   <%= error_messages_for(f.object) %>
-  
+
   <div id="mapkey">
   <%= r_image_tag('circle_empty.png', :size => "14x14") %> Not many people registered
   <%= r_image_tag('circle_partfull.png', :size => "14x14") %> Some people
   <%= r_image_tag('circle_full.png', :size => "14x14") %> A lot of people
-  <%= r_image_tag('circle_waitlist.png', :size => "14x14") %> Probably full. You can still sign up, but we may put you at a different location. 
-  
+  <%= r_image_tag('circle_waitlist.png', :size => "14x14") %> Probably full. You can still sign up, but we may put you at a different location.
+
   </div>
-  
+
   <div id="map-container" style="height: 350px; width: 600px;" class="img-polaroid">
   <div id="map-canvas" style="height: 350px; width: 600px;"></div>
   </div>
@@ -25,7 +25,7 @@ end
 
 %>
 
-<div id="form_times" class="disabled">
+<div id="form_times" class="<%= "disabled" unless !f.object.errors.empty? %>">
 
   <label class="checkbox">
     <%= check_box_tag('member[leader]', "1", coordinating, :id => "member_leader") %>
@@ -34,18 +34,18 @@ end
 <p class="undertimetext">This means a four-hour shift and extra leadership. Morning coordinators will meet at distribution centers to collect nametags.</p>
 
     <h4>Shifts available:</h4>
-  
+
   <!-- TODO: add an on-submit check that a button value is one of the times in the db -->
 <div class="btn-group" id="worker-group" <%=raw coordinating ? 'style="display: none;"' : '' %> >
   <% {1 => "11a - 1p", 2 => "1p - 3p", 3 => "3p - 5p"}.each do |num, label| %>
-   <%= button_tag label, :disabled => true, :value => num, :type => "button", :class => "btn empty " + (@member.times.include?(num) ? 'active' : '') %>
+   <%= button_tag label, :disabled => (f.object.errors.empty? ? true : false), :value => num, :type => "button", :class => "btn empty " + (@member.times.include?(num) ? 'active' : '') %>
   <% end %>
 </div>
 
 <!-- Should only be visible if user clicks the "wanna be a leader" bit. -->
 <div class="btn-group" id="leader-group" <%=raw coordinating ? '' : 'style="display: none;"' %>>
    <% {4 => "9:30a - 1:30p", 5 => "1:30p - 5:30p"}.each do |num, label| %>
-   <%= button_tag label, :disabled => true, :value => num, :type => "button", :class => "btn empty " + (@member.times.include?(num) ? 'active' : '') %>
+   <%= button_tag label, :disabled => (f.object.errors.empty? ? true : false), :value => num, :type => "button", :class => "btn empty " + (@member.times.include?(num) ? 'active' : '') %>
   <% end %>
 </div>
 
@@ -53,7 +53,7 @@ end
 <br><b>Please be at your shift 20 minutes early and plan to leave 20 minutes after.</b></p>
 
 </div>
-<div id="form_details" class="disabled">
+<div id="form_details" class="<%= "disabled" unless !f.object.errors.empty? %>">
   <h4><%= editing ? "Contact Details" : "We haven't met yet... what's your name?"%></h4>
 
   <div class="short shorter">
@@ -78,7 +78,7 @@ end
   </div>
 
   <%= fields_for "friends" do |friend| %>
-   
+
     <h4>Invite some friends!</h4>
     <% if @friends %>
       Previously invited friends:
@@ -121,7 +121,7 @@ end
 
 
 <script type="text/javascript"
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3H-4R18HiHxjI6X-Kr2CLGAwn7C679Sk&sensor=false&msid=213507925858041545730.0004d89bb157ad658e66c&ie=UTF8&ll=37.0625,-95.677068&spn=23.875,57.630033&t=m&z=8&output=embed"> 
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3H-4R18HiHxjI6X-Kr2CLGAwn7C679Sk&sensor=false&msid=213507925858041545730.0004d89bb157ad658e66c&ie=UTF8&ll=37.0625,-95.677068&spn=23.875,57.630033&t=m&z=8&output=embed">
 </script>
 
 <script type="text/javascript">
@@ -130,10 +130,11 @@ end
       $('#friends-emails').append("<input id='friends_emails' name='friends[emails][]' placeholder=\"Friend's email\" size='30' type='email'>")
       return false
     });
-    
+
   });
-  
+
+
+  google.maps.event.addDomListener(window, 'load', initializeMap);
   setUpButtons();
   loadMarkers();
-  google.maps.event.addDomListener(window, 'load', initializeMap);
-</script> 
+</script>

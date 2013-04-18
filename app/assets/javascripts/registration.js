@@ -21,11 +21,11 @@ var middle = 0.1;
 // in the least-filled time slot and weights it 50%; the rest are 12.5% each. Color decided
 // based on the weighted amount.
 function makeIcon(timeMap) {
-	var min = 10;    
+	var min = 10;
     for (var time in timeMap) {
       if (timeMap[time] < min) min = timeMap[time];
     }
-    
+
     var ratio = 0;
     for (var time in timeMap) {
       if (timeMap[time] == min) ratio += 0.5*timeMap[time];
@@ -83,7 +83,7 @@ function makeMarker(title, position, locationId, fractionsFull) {
 		icon: makeIcon(fractionsFull)
 	});
 	marker.setValues({location_id: locationId, permScale: mapDotScaleUnselected});
-	
+
 	google.maps.event.addListener(marker, 'click', function() {
 		$("#form_times").removeClass("disabled");
 		$('#location_id').val(marker.get("location_id"));
@@ -99,7 +99,7 @@ function makeMarker(title, position, locationId, fractionsFull) {
 			markers[i].set("permScale", scale);
 			markers[i].setIcon(icon);
 		}
-		
+
 		// update buttons
 		resetButtons();
 		$('.btn-group button').each(function() {
@@ -115,28 +115,28 @@ function makeMarker(title, position, locationId, fractionsFull) {
 		  else $(this).addClass("empty");
         });
 	});
-	
+
 	// make icon slightly larger on mouseover
 	google.maps.event.addListener(marker, 'mouseover', function() {
 		icon = marker.getIcon();
 		icon.scale = mapDotScaleHover;
 		marker.setIcon(icon);
 	});
-	
+
 	// return to original size
 	google.maps.event.addListener(marker, 'mouseout', function() {
 		icon = marker.getIcon();
 		icon.scale = marker.get("permScale");
 		marker.setIcon(icon);
 	});
-	
+
 	// show location title on mouseover
 	google.maps.event.addListener(marker, 'mouseover', function() {
 		$('#location_title_hover').replaceWith("<div id='location_title_hover'>Click to select: " + marker.getTitle() + "</div>");
 		$('#location_title').hide();
 		$('#location_title_hover').show();
 	});
-	
+
 	// hide location title on mouseout
 	google.maps.event.addListener(marker, 'mouseout', function() {
 		$('#location_title_hover').hide();
@@ -151,7 +151,7 @@ var spots = {}
 
 // Populates markers array.
 function loadMarkers() {
-	$.getJSON('locations.json', function(data) {
+	$.getJSON('/registration/locations.json', function(data) {
 	  var places = data['locations']
 	  var times = data['times'];
 	  for (i in places) {
@@ -187,7 +187,7 @@ function initializeMap() {
 		streetViewControl: false,
 		mapTypeControl: false
 	};
-	
+
 	var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 	for (i in markers) {
 		markers[i].setMap(map);
@@ -200,7 +200,7 @@ function validateForm() {
     alert('Please specify a location');
     return false;
   }
-  
+
   // iterate through buttons to see which are active
   var times = '';
   if ($('#leader-group').is(':visible')) {
@@ -219,7 +219,7 @@ function validateForm() {
     });
   }
   $('#times').val(times);
-  
+
   return true;
 }
 
@@ -230,9 +230,9 @@ function setUpButtons() {
       $('#form_details').removeClass("disabled");
       $('#member_first_name').focus();
     });
-    
+
     // todo: make the waitlist button "hover"
-    
+
     // todo: this doesn't work if someone hits "back"
     $('#member_leader').change(function() {
       if (this.checked) {
