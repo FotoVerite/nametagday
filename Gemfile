@@ -26,7 +26,6 @@ gem 'mailjet'
 
 group :development do
   gem 'annotate'
-  gem 'capistrano-novafabrica', :git => 'https://github.com/novafabrica/nf-cap-plugin'
 end
 
 group :development, :test do
