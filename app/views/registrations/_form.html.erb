@@ -85,23 +85,16 @@ end
       <ul>
         <% for friends_email in @friends %>
           <li><%= friends_email.email %></li>
-                <%= friend.email_field "emails", :name => 'friends[emails][]', :value => friends_email.email %>
+                <%= friend.hidden_field "emails", :name => 'friends[emails][]', :value => friends_email.email %>
         <% end %>
      </ul>
-    <% else %>
     <% end %>
      <p>We'll send them an email with an option to join your group and do our best to put you together on June 1st.</p>
 
     <span class="clearfix"></span>
     <div class="input-append">
     <span id="friends-emails">
-      <% unless @friends %>
-      <%= friend.email_field "emails", :name => 'friends[emails][]', :placeholder => "Friend's email" %>
-      <% else %>
-          <% for friends_email in @friends %>
-            <%= friend.email_field "emails", :name => 'friends[emails][]', :value => friends_email.email %>
-          <% end %>
-      <% end %>
+      <%= email_field_tag "friends", nil, :name => 'friends[emails][]', :placeholder => "Friend's email" %>
     </span>
     <%= link_to '+ add another', '#', :class => 'btn', :id => 'add-email' %>
     </div>
