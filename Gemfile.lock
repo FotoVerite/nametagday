@@ -13,12 +13,6 @@ GIT
       actionpack (>= 3.1)
       railties (>= 3.1)
 
-GIT
-  remote: https://github.com/novafabrica/nf-cap-plugin
-  revision: 3db2750a619b9a11d540a44f0af696d132a07796
-  specs:
-    capistrano-novafabrica (1.0.6)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -250,7 +244,6 @@ DEPENDENCIES
   bcrypt-ruby
   capistrano
   capistrano-ext
-  capistrano-novafabrica!
   capybara
   clear_eyes
   daemons
