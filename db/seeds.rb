@@ -5,15 +5,15 @@ require 'open-uri'
 
 
 def random(array, number=1)
-  array.shuffle[0..(number - 1)].first
+	array.shuffle[0..(number - 1)].first
 end
 
 def rand_in_range(from, to)
-  rand * (to - from) + from
+	rand * (to - from) + from
 end
 
 def rand_time(from, to)
-  Time.at(rand_in_range(from.to_f, to.to_f))
+	Time.at(rand_in_range(from.to_f, to.to_f))
 end
 
 members = []
@@ -286,12 +286,12 @@ locations << FactoryGirl.create(:location,
 
 ActiveRecord::Base.connection.execute("TRUNCATE members")
 1000.times do
-  members << FactoryGirl.create(:member, :location => random(locations), :times => [random([1,2,3,4,5])])
+	members << FactoryGirl.create(:member, :location => random(locations), :times => [random([1,2,3,4,5])])
 end
 
 ActiveRecord::Base.connection.execute("TRUNCATE friends")
 members.each do |member|
-  random([0,1,2,3]).times do
-   friends << FactoryGirl.create(:friend, :member => member)
- end
+	random([0,1,2,3]).times do
+		friends << FactoryGirl.create(:friend, :member => member)
+	end
 end
