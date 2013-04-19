@@ -35,14 +35,14 @@ function makeIcon(timeMap) {
 	var strokeWeight;
 	var fillColor;
 	if (ratio >= reallyfull) {
-	  fillColor = "black";
+	  fillColor = "#444444";
 	  strokeWeight = 3;
-	  strokeColor = "black";
+	  strokeColor = "#222222";
 	}
 	else if (ratio >= full) {
-	  fillColor = "#10a2cd";
+	  fillColor = "#43a8c6";
 	  strokeWeight = 3;
-	  strokeColor = "#10a2cd";
+	  strokeColor = "#097494";
 	}
 	else if (ratio >= middle) {
 	  fillColor = "#c4c4c4";
@@ -52,7 +52,7 @@ function makeIcon(timeMap) {
 	else {
 	  fillColor = "#bdbdbd";
 	  strokeWeight = 3;
-	  strokeColor = "#bdbdbd";
+	  strokeColor = "#a7a7a7";
 	}
 	var icon = {
 		path: google.maps.SymbolPath.CIRCLE,
@@ -86,6 +86,7 @@ function makeMarker(title, position, locationId, fractionsFull) {
 
 	google.maps.event.addListener(marker, 'click', function() {
 		$("#form_times").removeClass("disabled");
+		$("#member_leader").removeAttr("disabled");
 		$('#location_id').val(marker.get("location_id"));
 		$('#location_title_hover').hide();
 		$('#location_title').replaceWith("<div id='location_title'>Area chosen: " + marker.getTitle() + "</div>");
@@ -201,25 +202,42 @@ function validateForm() {
     return false;
   }
 
+  return true;
+}
+
+function enableDisableFormDetails() {
+	if( ($('#times').val()=="1") || ($('#times').val()=="") ) {
+		$('#form_details').addClass("disabled");
+		$('#form_details :input').attr('disabled', true);
+	}
+	else {
+		$('#form_details').removeClass("disabled");
+		$('#form_details :input').removeAttr('disabled');
+		
+	}
+	return true;
+}
+
+function setTimesVall() {
   // iterate through buttons to see which are active
   var times = '';
   if ($('#leader-group').is(':visible')) {
 	$('#leader-group').children().each(function() {
-      console.log($(this).val());
-      if ($(this).hasClass('active')) {
-        times += $(this).val() + ',';
-      }
-    });
+	  console.log($(this).val());
+	  if ($(this).hasClass('active')) {
+		times += $(this).val() + ',';
+	  }
+	});
   } else {
-    $('#worker-group').children().each(function() {
-      console.log($(this).val());
-      if ($(this).hasClass('active')) {
-        times += $(this).val() + ',';
-      }
-    });
+	$('#worker-group').children().each(function() {
+	  console.log($(this).val());
+	  if ($(this).hasClass('active')) {
+		times += $(this).val() + ',';
+	  }
+	});
   }
   $('#times').val(times);
-
+  
   return true;
 }
 
@@ -227,8 +245,10 @@ function setUpButtons() {
     $('.btn-group button').click(function(e) {
       $(this).toggleClass('active');
       console.log($(this).attr('class'));
-      $('#form_details').removeClass("disabled");
       $('#member_first_name').focus();
+	  setTimesVal();
+	  enableDisableFormDetails();
+
     });
 
     // todo: make the waitlist button "hover"
@@ -242,5 +262,7 @@ function setUpButtons() {
         $('#leader-group').hide();
         $('#worker-group').show();
       }
+      setTimesVal();
+      enableDisableFormDetails();
     });
 }

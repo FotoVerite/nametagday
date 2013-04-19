@@ -5,7 +5,7 @@
   <%= r_image_tag('circle_empty.png', :size => "14x14") %> Not many people registered
   <%= r_image_tag('circle_partfull.png', :size => "14x14") %> Some people
   <%= r_image_tag('circle_full.png', :size => "14x14") %> A lot of people
-  <%= r_image_tag('circle_waitlist.png', :size => "14x14") %> Probably full. You can still sign up, but we may put you at a different location.
+  <%= r_image_tag('circle_waitlist.png', :size => "14x14") %> Might be full
 
   </div>
 
@@ -28,7 +28,7 @@ end
 <div id="form_times" class="<%= "disabled" unless !f.object.errors.empty? %>">
 
   <label class="checkbox">
-    <%= check_box_tag('member[leader]', "1", coordinating, :id => "member_leader") %>
+    <%= check_box_tag('member[leader]', "1", coordinating, :id => "member_leader", :disabled => "disabled", :style => "cursor:pointer;") %>
     I'd like to be a <b>coordinator</b>.
   </label>
 <p class="undertimetext">This means a four-hour shift and extra leadership. Morning coordinators will meet at distribution centers to collect nametags.</p>
@@ -58,17 +58,17 @@ end
 
   <div class="short shorter">
     <dt><%= f.label(:first_name, "First Name") %></dt>
-    <dd><%= f.text_field(:first_name, :size => '60x10', :required => 'true') %></dd>
+    <dd><%= f.text_field(:first_name, :size => '60x10', :required => 'true', :disabled => "disabled") %></dd>
   </div>
 
   <div class="short shorter">
     <dt><%= f.label(:last_name, "Last Name") %></dt>
-    <dd><%= f.text_field(:last_name, :size => '60x10', :required => 'true') %></dd>
+    <dd><%= f.text_field(:last_name, :size => '60x10', :required => 'true', :disabled => "disabled") %></dd>
   </div>
 
   <div class="short shorter">
     <dt><%= f.label(:email) %></dt>
-    <dd><%= f.email_field(:email, :required => 'true') %></dd>
+    <dd><%= f.email_field(:email, :required => 'true', :disabled => "disabled") %></dd>
   </div>
 
 
