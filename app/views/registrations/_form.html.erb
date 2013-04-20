@@ -118,17 +118,15 @@ end
 </script>
 
 <script type="text/javascript">
+  google.maps.event.addDomListener(window, 'load', initializeMap);
+  loadMarkers();
+
   $(document).ready(function() {
     $('#add-email').click(function(){
       $('#friends-emails').append("<input id='friends_emails' name='friends[emails][]' placeholder=\"Friend's email\" size='30' type='email'>")
       return false
     });
-
+    setUpButtons();
   });
-
-
-  google.maps.event.addDomListener(window, 'load', initializeMap);
-  setUpButtons();
-  loadMarkers();
 </script>
 <% end %>
