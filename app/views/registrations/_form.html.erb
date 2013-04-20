@@ -112,7 +112,7 @@ end
     :style => "line-height: 52px; height: 54px; padding: 0 80px; font-size: 22px; margin-top: 4px;") %>
 </div>
 
-
+<%= content_for :head do %>
 <script type="text/javascript"
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3H-4R18HiHxjI6X-Kr2CLGAwn7C679Sk&sensor=false&msid=213507925858041545730.0004d89bb157ad658e66c&ie=UTF8&ll=37.0625,-95.677068&spn=23.875,57.630033&t=m&z=8&output=embed">
 </script>
@@ -131,3 +131,4 @@ end
   setUpButtons();
   loadMarkers();
 </script>
+<% end %>
