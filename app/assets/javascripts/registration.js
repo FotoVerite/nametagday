@@ -213,7 +213,7 @@ function enableDisableFormDetails() {
 	else {
 		$('#form_details').removeClass("disabled");
 		$('#form_details :input').removeAttr('disabled');
-		
+
 	}
 	return true;
 }
@@ -237,7 +237,7 @@ function setTimesVal() {
 	});
   }
   $('#times').val(times);
-  
+
   return true;
 }
 
