@@ -25,7 +25,7 @@
 <p>If you change your location, you may get separated from the friends you've invited.</p>
 <% end %>
 
-<%= form_for @member, :url => 'update', :method => 'post' do |f| %>
+<%= form_for @member, :url => registration_path, :method => 'put' do |f| %>
 
   <%= error_messages_for(f.object) %>
 
@@ -33,7 +33,7 @@
 
 <span class="clearfix"></span>
 
-<%= hidden_field_tag :registration_token, params[:token] %>
+<%= hidden_field_tag :token, params[:token] %>
 
 <script type="text/javascript">
   var INITIAL_LOCATION_ID = <%= @member.location_id %>;
