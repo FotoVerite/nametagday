@@ -54,9 +54,10 @@ class RegistrationsController < ApplicationController
   end
 
   def update
-    return render_404 unless @member = Member.find_by_reservation_token(params[:token])
+    return render_404 unless @member = Member.find_by_reservation_token(params[:registration_token])
     if @member.update_attributes(params[:member])
-      flash[:notice] = "Member was successfully updated."
+       @member.times = params[:times].split(',').collect{|val| val.strip.to_i}.select{|val| Location::TIMES.has_key? val }
+      flash[:notice] = "Your registration has been updated. See you on June 1!"
       redirect_to reservation_updated_registration_path
     else
       render('edit')
