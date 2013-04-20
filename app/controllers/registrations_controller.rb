@@ -43,8 +43,9 @@ class RegistrationsController < ApplicationController
 
   def friend_registration
     return render_404 unless friend = Friend.find_by_registration_token(params[:token])
-    @member = Member.new(:times => [], :email => friend.email)
     @leader = friend.member
+    @member = Member.new(:times => [], :email => friend.email)
+    @member.location = @leader.location
   end
 
   def edit
