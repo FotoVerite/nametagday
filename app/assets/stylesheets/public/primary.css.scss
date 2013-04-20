@@ -43,6 +43,12 @@ padding-top: 8px;
   padding: 0 13px;
 }
 
+.navbar .headerbubble a {
+  padding:0;
+  text-decoration:none;
+  color:#888;
+}
+
 a.social-link {
   padding: 0 0 0 5px;
 }
@@ -637,4 +643,24 @@ line-height: 32px;
 font-size: 14px;
 height: 32px;
 width: 150px;
+}
+
+.headerbubble {
+position: absolute;
+font-size: 11px;
+text-align: center;
+line-height: 13px;
+right: 450px;
+top: 13px;
+background: url("/assets/speechbubble.png");
+width: 155px;
+height: 53px;
+display: table;
+padding: 10px;
+opacity: .9;
+}
+
+.headerbubble div {
+display: table-cell;
+vertical-align: middle;
 }

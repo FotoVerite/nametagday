@@ -1,7 +1,7 @@
 <div id="top">
   <div class="left-column">
 
-   <div class="row">
+    <div class="row">
       <div class="span12">
         <h1 class="main">
         	<span class="citytop">Saturday, June 1<br />New York City</span>
@@ -14,15 +14,23 @@
 
     <div class="row">
       <div class="span6">
-        <p class="lead">Imagine everyone in New York City wearing a nametag. On June 1st we'll be giving people nametags throughout the city, and we need your help!</p>
-    <p class="lead" style="margin-bottom: 16px;"><b>Register by May 26</b> to hand out nametags and be part of the fun.</p>
-         <div style="text-align: center; "><%= link_to 'Register now!', new_registration_path, { :class => "btn btn-info btn-large", :style => "padding: 0 70px; line-height: 44px; font-size: 23px;"  } %></div>
-         
-          <div style="padding: 4px; text-align: center;">
-            <small>Already registered? <a href="somewhere">Modify your registration.</a></small>
-          </div>
+        <p class="lead" style="margin-top:18px; ">Imagine everyone in New York City wearing a nametag. On June 1st we'll be giving nametags to people throughout the city, and we need your help!</p>
+    <p class="lead" style="margin-bottom: 20px;"><b>Sign up now</b> to volunteer and hand out nametags!</p>
+    
+        <form name="input" action="http://nametagday.us6.list-manage.com/subscribe/post?u=af4a58c9e3e36485fdd561e78&amp;id=d53c0b3cb8" method="post" id="mc-embedded-subscribe-form" class="validate" target="_blank" style="text-align:center;" novalidate>
+        
+        <input type="text" name="EMAIL" id="email" placeholder="Enter email">
+        <input type="submit" id="submit" class="btn btn-info btn-large" value="Sign me up!" />
+        
+        </form>
+        <script>
+        	var text_input = document.getElementById ('email');
+			text_input.focus ();
+			text_input.select ();
+		</script>
         
       </div>
+
       <div class="pull-right">
         <iframe class="img-polaroid" width="450" height="253" src="http://www.youtube.com/embed/RchV2AW0NAM?rel=0;showinfo=0;HD=1;controls=0" frameborder="0" allowfullscreen></iframe>
       </div>
@@ -34,15 +42,17 @@
 
 
 
-<a href="https://www.crowdtilt.com/campaigns/test-campaign-55218799" class="nolinkylook">
+<a href="https://www.crowdtilt.com/campaigns/nametag-day" class="nolinkylook">
 	<div class="alert alert-block alertcustom fundraisebox">
 		<!-- <h4>$1,500 raised so far!</h4> -->
 		<!-- <p>We've got $1,000 more to go before this event's gonna happen. <br /><b>Click here to join 23 others and pitch in.</b></p> -->
-		<h4>$4,500 raised so far from 55 contributors!</h4>
+		<h4>$<%= File.open('/tmp/amount_raised.txt', 'rb') { |file| file.read
+} %> raised so far!</h4>
 		<p>For $10 you'll be putting a nametag on 60 people. <b>Click here to pitch in.</b> </p>
 
 		<div class="progress progress-warning">
-		  <div class="bar" style="width: 8.3%"></div>
+		  <div class="bar" style="width: <%= File.open('/tmp/amount_raised.txt', 'rb') { |file| file.read
+}.to_f / 160 %>%"></div>
 		</div>
 		
 		<div class="xticker">
@@ -63,7 +73,7 @@
 			<div>$15k</div>
 		</div>
 		<%= r_image_tag('target_under2.5k.png', :size => "784x72", :style => 'margin-left: 21px; margin-bottom:8px;') %>
-		<p style="font-size:10px;">Funds raised go to nametags and logistics, not salaries. Any unspent money will be reserved for Nametag Day 2014.</p>
+		<p style="font-size:10px;">Funds raised go directly to making Nametag Day happen. Any unspent money will be reserved for Nametag Day 2014.</p>
 		<div class="clearfix"></div>
 
 		
@@ -110,10 +120,9 @@
 
   <div class="row" style="margin-bottom: 25px;">
     <div class="span7">
-      <h4>Help document the day!</h4>
-      <p>Tweet us your photos and videos from YouTube and Instagram, and we'll feature them on our site.</p>
-      <p>And let's make a documentary together. Film a story or three about the day, being as creative as you like. We'll provide a dropbox to send the footage and then we can crowd-edit it into a citywide interactive documentary.</p>
-
+      <h4>Will there be a documentary?</h4>
+      <p>The entire city will be making one together. If you want to participate, film a story or three about the day. Be as creative as you like. We'll provide a dropbox to send the footage and then we'll crowd-edit it into a citywide interactive documentary.</p>
+      <p>You can also tweet or share with us on YouTube and Instagram, and we'll feature them on our site.</p>
     </div>
     <div class="span5">
       <%= r_image_tag('image-chulo.jpg', :size => "370x208", :style => 'vertical-align:middle;', :class => 'img-polaroid') %>
@@ -139,14 +148,6 @@
 
 <div class="whitespace"></div>
 
-
-
-
-<div id="bottom-button" align="center">
-<div style="text-align: center; "><%= link_to 'Register Now!', new_registration_path, { :class => "btn btn-info btn-large", :style => "padding: 9px 50px;"  } %></div>
-</div>
-
-<div class="whitespace"></div>
 
     <div class="poem">"We cannot live only for ourselves. A thousand fibers connect us with our fellow men; and among those fibers, as sympathetic threads, our actions run as causes, and they come back to us as effects."<br />- Herman Melville</div>
     
