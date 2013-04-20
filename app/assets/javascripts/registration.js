@@ -218,7 +218,7 @@ function enableDisableFormDetails() {
 	return true;
 }
 
-function setTimesVall() {
+function setTimesVal() {
   // iterate through buttons to see which are active
   var times = '';
   if ($('#leader-group').is(':visible')) {
