@@ -25,7 +25,7 @@ end
 
 %>
 
-<div id="form_times" class="<%= "disabled" unless !f.object.errors.empty? %>">
+<div id="form_times" class="<%= "disabled" if f.object.errors.empty? && !editing  %>">
 
   <label class="checkbox">
     <%= check_box_tag('member[leader]', "1", coordinating, :id => "member_leader", :disabled => "disabled", :style => "cursor:pointer;") %>
@@ -38,14 +38,14 @@ end
   <!-- TODO: add an on-submit check that a button value is one of the times in the db -->
 <div class="btn-group" id="worker-group" <%=raw coordinating ? 'style="display: none;"' : '' %> >
   <% {1 => "11a - 1p", 2 => "1p - 3p", 3 => "3p - 5p"}.each do |num, label| %>
-   <%= button_tag label, :disabled => (f.object.errors.empty? ? true : false), :value => num, :type => "button", :class => "btn empty " + (@member.times.include?(num) ? 'active' : '') %>
+   <%= button_tag label, :disabled => (f.object.errors.empty? && !editing), :value => num, :type => "button", :class => "btn empty " + (@member.times.include?(num) ? 'active' : '') %>
   <% end %>
 </div>
 
 <!-- Should only be visible if user clicks the "wanna be a leader" bit. -->
 <div class="btn-group" id="leader-group" <%=raw coordinating ? '' : 'style="display: none;"' %>>
    <% {4 => "9:30a - 1:30p", 5 => "1:30p - 5:30p"}.each do |num, label| %>
-   <%= button_tag label, :disabled => (f.object.errors.empty? ? true : false), :value => num, :type => "button", :class => "btn empty " + (@member.times.include?(num) ? 'active' : '') %>
+   <%= button_tag label, :disabled => (f.object.errors.empty? && !editing), :value => num, :type => "button", :class => "btn empty " + (@member.times.include?(num) ? 'active' : '') %>
   <% end %>
 </div>
 
@@ -58,23 +58,23 @@ end
 
   <div class="short shorter">
     <dt><%= f.label(:first_name, "First Name") %></dt>
-    <dd><%= f.text_field(:first_name, :size => '60x10', :required => 'true', :disabled => "disabled") %></dd>
+    <dd><%= f.text_field(:first_name, :size => '60x10', :required => 'true', :disabled => (f.object.errors.empty? && !editing)) %></dd>
   </div>
 
   <div class="short shorter">
     <dt><%= f.label(:last_name, "Last Name") %></dt>
-    <dd><%= f.text_field(:last_name, :size => '60x10', :required => 'true', :disabled => "disabled") %></dd>
+    <dd><%= f.text_field(:last_name, :size => '60x10', :required => 'true', :disabled => (f.object.errors.empty? && !editing)) %></dd>
   </div>
 
   <div class="short shorter">
     <dt><%= f.label(:email) %></dt>
-    <dd><%= f.email_field(:email, :required => 'true', :disabled => "disabled") %></dd>
+    <dd><%= f.email_field(:email, :required => 'true', :disabled => (f.object.errors.empty? && !editing)) %></dd>
   </div>
 
 
   <div class="short shorter">
     <dt><%= f.label(:phone) %></dt>
-    <dd><%= f.phone_field(:phone) %></dd>
+    <dd><%= f.phone_field(:phone, :disabled => (f.object.errors.empty? && !editing)) %></dd>
   </div>
 
   <%= fields_for "friends" do |friend| %>

@@ -8,9 +8,9 @@
 // }
 
 var markers = [];
-var mapDotScaleSelected = 13;
-var mapDotScaleUnselected = 8;
-var mapDotScaleHover = 9.5;
+var mapDotScaleSelected = 17;
+var mapDotScaleUnselected = 10;
+var mapDotScaleHover = 13;
 
 // Lower bounds for "full" ratios for locations.
 var reallyfull = 1.0;
