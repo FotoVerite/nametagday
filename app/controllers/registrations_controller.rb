@@ -68,7 +68,7 @@ class RegistrationsController < ApplicationController
   end
 
   def update
-    return render_404 unless @member = Member.find_by_reservation_token(params[:registration_token])
+    return render_404 unless @member = Member.find_by_reservation_token(params[:token])
     @member.attributes = (params[:member])
     @member.location_id = params[:location_id]
     @member.times = params[:times].split(',').collect{|val| val.strip.to_i}.select{|val| Location::TIMES.has_key? val }

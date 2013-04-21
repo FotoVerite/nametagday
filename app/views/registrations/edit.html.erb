@@ -1,19 +1,19 @@
 <h1><%= possify @member.first_name %> Registration</h1>
 <% if @member.canceled? %>
-  <p>Your registration is marked as <b>cancelled</b>.</p>
+  <p>Your registration is marked as <b>canceled</b>.</p>
   <%= button_to "Reactivate Me",
                               {:controller => "/registrations",
-                                :action => "reactivate_reservation" , 
+                                :action => "reactivate_reservation" ,
                                 :token => @member.reservation_token,
                               },
                                 :method => :post
    %>
 <% else %>
   <p>You're signed up to help out near <b><%= @member.location.name %></b> at <b><%= @member.times_as_string %></b> on June 1st.</p>
-  <p> 
+  <p>
     <%= button_to "Cancel Registration",
                               {:controller => "/registrations",
-                                :action => "cancel_reservation" , 
+                                :action => "cancel_reservation" ,
                                 :token => @member.reservation_token,
                               },
                                 :method => :delete

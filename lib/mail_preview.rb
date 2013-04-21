@@ -4,6 +4,7 @@ class MailPreview < MailView
     location = FactoryGirl.build(:location)
     referer = FactoryGirl.build(:member)
     member = FactoryGirl.build(:member,
+      :reservation_token => 'token',
       :friends => [
           FactoryGirl.build(:friend),
           FactoryGirl.build(:friend)

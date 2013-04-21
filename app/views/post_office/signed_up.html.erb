@@ -33,6 +33,9 @@
     a{
       word-wrap:break-word !important;
     }
+    a.no-red-line {
+      text-decoration: none
+    }
     img{
       border:0;
       height:auto;
@@ -171,11 +174,7 @@
       line-height:150%;
       text-align:left;
     }
-    .leftColumnContainer .mcnTextContent a,.leftColumnContainer .mcnTextContent a:link,.leftColumnContainer .mcnTextContent a:visited,.leftColumnContainer .mcnTextContent a .yshortcuts {
-      color:#EB4102;
-      font-weight:normal;
-      text-decoration:underline;
-    }
+
     .rightColumnContainer .mcnTextContent{
       color:#505050;
       font-family:Helvetica;
@@ -544,7 +543,7 @@
   <% end  %><br />
 <strong>If you end up assigned as a location leader, we'll let you know about a very short training about a week before the event.</strong>]</p>
 
-<p>The location is approximate and things can change, so look out for an email around May 30 with exact details. To be sure you receive the email, add hello@nametagday.com to your address book.</p>
+<p>The location is approximate and things can change, so look out for an email around May 30 with exact details. To be sure you receive the email, add <%= mail_to "hello@nametagday.com" %> to your address book.</p>
 
 <p><% unless @member.friends.empty? %>
   You've also sent invitations to the following people. When they confirm, they'll be added to your group:
@@ -552,7 +551,7 @@
 <% end %>
 </p>
 
-<p>Click here to cancel or change times. You can always do so by entering your email address on our website.</p>
+<p><%= link_to "click", edit_registration_url(:token => @member.reservation_token) %> to cancel or change times. You can always do so by entering your email address on our website.</p>
 
                         </td>
                     </tr>
@@ -596,9 +595,13 @@
 <h3 style="text-align: center;display: block;font-family: Helvetica;font-size: 16px;font-style: italic;font-weight: normal;line-height: 100%;letter-spacing: normal;margin: 0;color: #606060 !important;">
   <span style="font-size:12px;">If we get more signups we give more nametags!</span></h3>
 <p>
-  <img align="none" height="16" src="https://d2q0qd5iz04n9u.cloudfront.net/_ssl/proxy.php/http/gallery.mailchimp.com/af4a58c9e3e36485fdd561e78/images/facebook.png" style="vertical-align: middle;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;display: inline;" width="16">&nbsp;Tell friends on Facebook<br>
-  <img align="none" height="16" src="https://d2q0qd5iz04n9u.cloudfront.net/_ssl/proxy.php/http/gallery.mailchimp.com/af4a58c9e3e36485fdd561e78/images/twitter.png" style="vertical-align: middle;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;display: inline;" width="16">&nbsp;Or how about the Twitter?<br>
-  <img align="none" height="16" src="https://d2q0qd5iz04n9u.cloudfront.net/_ssl/proxy.php/http/gallery.mailchimp.com/af4a58c9e3e36485fdd561e78/images/email2.png" style="vertical-align: middle;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;display: inline;" width="16">&nbsp;Invite friends over email</p>
+  <a class="no-red-line" href="https://www.facebook.com/nametagday">
+    <img align="none" height="16" src="https://d2q0qd5iz04n9u.cloudfront.net/_ssl/proxy.php/http/gallery.mailchimp.com/af4a58c9e3e36485fdd561e78/images/facebook.png" style="vertical-align: middle;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;display: inline;" width="16">
+  </a>&nbsp;Tell friends on Facebook<br>
+  <a class="no-red-line" href="https://www.twitter.com/nametagday">
+    <img align="none" height="16" src="https://d2q0qd5iz04n9u.cloudfront.net/_ssl/proxy.php/http/gallery.mailchimp.com/af4a58c9e3e36485fdd561e78/images/twitter.png" style="vertical-align: middle;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;display: inline;" width="16">
+  </a>&nbsp;Or how about the Twitter?<br>
+</p>
 
                         </td>
                     </tr>
