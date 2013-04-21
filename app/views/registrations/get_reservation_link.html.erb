@@ -1,8 +1,10 @@
-
-<% if @show_signup_link %>
-<p>If you haven't signed up yet, <a href="/registration/new">register here</a>.</p>
+<h1>Modify your registration</h1>
+<% if false && @show_signup_link %>
+<p style="width: 672px;">If you haven't signed up yet, <a href="/registration/new">register here</a>.</p>
 <% end %>
-<p>Keep us posted if your Nametag Day plans change. Enter your email below and we'll send you a link to use to modify your registration.</p>
+<p style="width: 672px;">
+
+Change your location or let us know if you can't make it.<br>Enter the email you used to sign up and we'll send you a link to modify your registration.</p>
 
 <%= form_tag resend_reservation_token_registration_path do  %>
   <%= email_field_tag :email, nil, :placeholder => "Your Email" %>
