@@ -3,16 +3,16 @@
 # Table name: admins
 #
 #  id                        :integer          not null, primary key
-#  adminname                  :string(255)
 #  first_name                :string(255)
 #  last_name                 :string(255)
 #  email                     :string(255)
 #  hashed_password           :string(255)
 #  remember_token            :string(255)
+#  password_token            :string(255)
 #  enabled                   :boolean
 #  remember_token_expires_at :datetime
-#  created_at                :datetime
-#  updated_at                :datetime
+#  created_at                :datetime         not null
+#  updated_at                :datetime         not null
 #
 
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')

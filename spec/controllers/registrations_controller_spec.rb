@@ -343,7 +343,10 @@ describe RegistrationsController do
 
 
     def put_update(options={})
-      put :update, {:token => @member.reservation_token, :member => {:times => [1,2]}}.merge(options)
+      put :update, {
+        :token => @member.reservation_token,
+        :times => '1,2,3'
+      }.merge(options)
     end
 
   end
