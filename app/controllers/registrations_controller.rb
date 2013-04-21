@@ -53,13 +53,17 @@ class RegistrationsController < ApplicationController
 
   def resend_reservation_token
     @member = Member.find_by_email(params[:email])
+    
     if @member
       PostOffice.delay.signed_up(@member)
-      flash.now[:notice] = "Email Sent"
+      flash.now[:notice] = "All set!"
+      render(:reservation_link_sent)
     else
-      flash.now[:error] = "Email Not Found"
+      flash.now[:error] = "We couldn't find that email address. Are you sure you're signed up?"
+      @show_signup_link = true
+      render(:get_reservation_link)
     end
-    render(:get_reservation_link)
+    
   end
 
   def edit

@@ -1,10 +1,13 @@
-COPY COP COPY
+
+<% if @show_signup_link %>
+<p>If you haven't signed up yet, <a href="/registration/new">register here</a>.</p>
+<% end %>
+<p>Keep us posted if your Nametag Day plans change. Enter your email below and we'll send you a link to use to modify your registration.</p>
 
 <%= form_tag resend_reservation_token_registration_path do  %>
-  <%= label_tag :email %>
-  <%= email_field_tag :email %>
+  <%= email_field_tag :email, nil, :placeholder => "Your Email" %>
 
-  <%= submit_tag("Resend Reservation Email",
+  <%= submit_tag("Send Link",
     :class => "btn btn-info btn-large",
     :style => "line-height: 52px; height: 54px; padding: 0 80px; font-size: 22px; margin-top: 4px;") %>
 <% end %>
