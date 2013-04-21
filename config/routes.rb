@@ -14,6 +14,8 @@ Nametagday::Application.routes.draw do
     get 'locations'
     collection do
       get :confirmation
+      get :get_reservation_link
+      post :resend_reservation_token
       get 'friend_registration/:token' => "registrations#friend_registration", :as => "friend"
       get 'reservation_updated'
       get 'reservation_canceled'

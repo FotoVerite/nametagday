@@ -47,6 +47,21 @@ class RegistrationsController < ApplicationController
     @member.location = @leader.location
   end
 
+  def get_reservation_link
+    #Text Only
+  end
+
+  def resend_reservation_token
+    @member = Member.find_by_email(params[:email])
+    if @member
+      PostOffice.delay.signed_up(@member)
+      flash.now[:notice] = "Email Sent"
+    else
+      flash.now[:error] = "Email Not Found"
+    end
+    render(:get_reservation_link)
+  end
+
   def edit
     return render_404 unless @member = Member.find_by_reservation_token(params[:token])
     session[:member_id] = @member.id

@@ -1,0 +1,10 @@
+COPY COP COPY
+
+<%= form_tag resend_reservation_token_registration_path do  %>
+  <%= label_tag :email %>
+  <%= email_field_tag :email %>
+
+  <%= submit_tag("Resend Reservation Email",
+    :class => "btn btn-info btn-large",
+    :style => "line-height: 52px; height: 54px; padding: 0 80px; font-size: 22px; margin-top: 4px;") %>
+<% end %>
