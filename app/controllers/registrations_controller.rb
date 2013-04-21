@@ -57,8 +57,15 @@ class RegistrationsController < ApplicationController
     @member.attributes = (params[:member])
     @member.location_id = params[:location_id]
     @member.times = params[:times].split(',').collect{|val| val.strip.to_i}.select{|val| Location::TIMES.has_key? val }
+    digest_friends(params[:friends])
     if @member.save
       flash[:notice] = "Your registration has been updated. See you on June 1!"
+      unless @friends.nil?
+        @friends.each do |friend|
+          friend.member_id = @member.id
+          friend.save
+        end
+      end
       redirect_to reservation_updated_registration_path
     else
       render('edit')
