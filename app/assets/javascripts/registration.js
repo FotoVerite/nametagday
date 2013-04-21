@@ -68,7 +68,7 @@ function makeIcon(timeMap) {
 
 function resetButtons() {
   $('.btn-group button').each(function() {
-    $(this).removeClass("active");
+    // $(this).removeClass("active");
     $(this).removeClass("middle");
     $(this).removeClass("full");
     $(this).removeClass("reallyfull");

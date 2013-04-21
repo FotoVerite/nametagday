@@ -11,7 +11,6 @@ class RegistrationsController < ApplicationController
     @member.location_id = params[:location_id]
     @member.attributes = params[:member]
     @member.times = params[:times].split(',').collect{|val| val.strip.to_i}.select{|val| Location::TIMES.has_key? val }
-
     digest_friends(params[:friends])
     @leader = Friend.find_by_registration_token(params[:registration_token]).member if params[:registration_token].present?
     @member.referer = @leader
@@ -55,8 +54,10 @@ class RegistrationsController < ApplicationController
 
   def update
     return render_404 unless @member = Member.find_by_reservation_token(params[:registration_token])
+    @member.attributes = (params[:member])
+    @member.location_id = params[:location_id]
     @member.times = params[:times].split(',').collect{|val| val.strip.to_i}.select{|val| Location::TIMES.has_key? val }
-    if @member.update_attributes(params[:member])
+    if @member.save
       flash[:notice] = "Your registration has been updated. See you on June 1!"
       redirect_to reservation_updated_registration_path
     else
