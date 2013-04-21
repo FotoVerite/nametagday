@@ -17,11 +17,11 @@
         <p class="lead">Imagine everyone in New York City wearing a nametag. On June 1st we'll be giving people nametags throughout the city, and we need your help!</p>
     <p class="lead" style="margin-bottom: 16px;"><b>Register by May 26</b> to hand out nametags and be part of the fun.</p>
          <div style="text-align: center; "><%= link_to 'Register now!', new_registration_path, { :class => "btn btn-info btn-large", :style => "padding: 0 70px; line-height: 44px; font-size: 23px;"  } %></div>
-         
+
           <div style="padding: 4px; text-align: center;">
-            <small>Already registered? <a href="somewhere">Modify your registration.</a></small>
+            <small>Already registered? <%= link_to "Modify my registration", get_reservation_link_registration_path %></small>
           </div>
-        
+
       </div>
       <div class="pull-right">
         <iframe class="img-polaroid" width="450" height="253" src="http://www.youtube.com/embed/RchV2AW0NAM?rel=0;showinfo=0;HD=1;controls=0" frameborder="0" allowfullscreen></iframe>
@@ -44,7 +44,7 @@
 		<div class="progress progress-warning">
 		  <div class="bar" style="width: 8.3%"></div>
 		</div>
-		
+
 		<div class="xticker">
 			<div class="first">$1k</div>
 			<div>$2k</div>
@@ -66,7 +66,7 @@
 		<p style="font-size:10px;">Funds raised go to nametags and logistics, not salaries. Any unspent money will be reserved for Nametag Day 2014.</p>
 		<div class="clearfix"></div>
 
-		
+
 	</div>
 </a>
 
@@ -121,7 +121,7 @@
   </div>
 
   <div class="whitespace"></div>
- 
+
   <div class="row">
     <div class="span5">
       <%= r_image_tag('image-us.jpg', :size => "370x208", :style => 'vertical-align:middle;', :class => 'img-polaroid') %>
@@ -149,6 +149,6 @@
 <div class="whitespace"></div>
 
     <div class="poem">"We cannot live only for ourselves. A thousand fibers connect us with our fellow men; and among those fibers, as sympathetic threads, our actions run as causes, and they come back to us as effects."<br />- Herman Melville</div>
-    
+
 <div class="whitespace"></div>
 

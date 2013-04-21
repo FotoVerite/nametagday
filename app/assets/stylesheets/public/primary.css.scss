@@ -4,6 +4,10 @@ input[disabled], select[disabled], textarea[disabled], input[readonly], select[r
 cursor: default !important;
 }
 
+.navbar {
+  margin-bottom:0px;
+}
+
 .navbar-inverse {
   background-image: -webkit-gradient(linear, 0 0, 0 150%, from(#3f7bc7), to(#2a404b));
   color: white;
@@ -28,13 +32,13 @@ padding-top: 8px;
   float: right;
   margin-top: 10px;
 }
- 
+
 .navbar li {
   float: left;
   margin-right: 0px;
   border-right: 1px solid #aaa;
 }
- 
+
 .navbar li:last-child {
   border-right: none;
 }
