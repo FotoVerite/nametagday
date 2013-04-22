@@ -548,7 +548,9 @@
 
 <p><% unless @member.friends.empty? %>
   You also sent invitations to the following people. When they confirm, they'll be added to your group:
-<%= @member.friends.map {|f| f.email}.to_sentence %><br />
+  <ul>
+<%= @member.friends.map {|f| "<li>#{f.email}</li>"}.join('').html_safe %><br />
+  </ul>
 <% end %>
 </p>
 

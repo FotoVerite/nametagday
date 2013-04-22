@@ -326,13 +326,13 @@ locations << FactoryGirl.create(:location,
 								:target_distribution_sites => 5)
 
 ActiveRecord::Base.connection.execute("TRUNCATE members")
-1000.times do
-	members << FactoryGirl.create(:member, :location => random(locations), :times => [random([1,2,3,4,5])])
-end
+# 1000.times do
+# 	members << FactoryGirl.create(:member, :location => random(locations), :times => [random([1,2,3,4,5])])
+# end
 
 ActiveRecord::Base.connection.execute("TRUNCATE friends")
-members.each do |member|
-	random([0,1,2,3]).times do
-		friends << FactoryGirl.create(:friend, :member => member)
-	end
-end
+# members.each do |member|
+# 	random([0,1,2,3]).times do
+# 		friends << FactoryGirl.create(:friend, :member => member)
+# 	end
+# end
