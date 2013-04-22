@@ -1,0 +1,16 @@
+
+<% @page_title = "Edit Location: #{@location.name}" %>
+
+<%= link_to('&laquo; Back to List'.html_safe, staff_location_path, :class => 'back-link') %>
+
+<div class="member edit">
+  <h1><%= @page_title %></h1>
+
+  <%= form_for([:staff, @location]) do |f| %>
+    <%= render(:partial => "form", :locals => {:f => f}) %>
+    <div id="operations">
+      <%= submit_tag("Update Location") %>
+      <%= cancel_button(staff_locations_path) %>
+    </div>
+  <% end %>
+</div>

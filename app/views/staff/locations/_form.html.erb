@@ -1,0 +1,13 @@
+<%= error_messages_for(f.object) %>
+
+<div class="center-form">
+  <dl>
+    <dt><%= f.label 'name' %></dt>
+    <dd><%= f.text_field(:name) %></dd>
+  </dl>
+  <dl>
+    <dt><%= f.label 'target_distribution_sites' %></dt>
+    <dd><%= f.text_field(:target_distribution_sites) %></dd>
+  </dl>
+
+</div>

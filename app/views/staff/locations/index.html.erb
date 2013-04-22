@@ -1,0 +1,30 @@
+<% @page_title = "Locations" %>
+
+<div class="locations listing">
+  <h1><%= @page_title %></h1>
+
+  <table class="list">
+    <tr>
+      <th>lat</th>
+      <th>lng</th>
+      <th>target distribution sites</th>
+      <th>Times / People</th>
+      <th>&nbsp;</th>
+    </tr>
+
+    <% @locations.each do |location| %>
+    <tr>
+      <td><%= location.lat %></td>
+      <td><%= location.lng %></td>
+      <td><%= location.target_distribution_sites %></td>
+      <td><%= location.show_people_per_time %></td>
+      <td><%= link_to('Edit', edit_staff_location_path(location), :class => 'action') %></td>
+    </tr>
+    <% end %>
+  </table>
+
+  <div class="pagination">
+    <%= will_paginate(@locations, :class => 'apple_pagination') %>
+  </div>
+
+</div>

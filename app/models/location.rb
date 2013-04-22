@@ -20,10 +20,11 @@
 
 require 'json'
 
-
 class Location < ActiveRecord::Base
 
   has_many :members
+
+  attr_accessible :name, :target_distribution_sites
 
   serialize :time_counts
 
@@ -46,6 +47,25 @@ class Location < ActiveRecord::Base
 
   def institate_times_hash
     self.time_counts = TIMES.keys.inject({}) {|hash, e| hash[e.to_i] = 0; hash;}
+  end
+
+  def show_people_per_time
+    output = ""
+    time_counts.each do |k, v|
+      output += TIMES[k] + ": #{v}<br />"
+    end
+    return output.html_safe
+  end
+
+  def full_address
+    output = ""
+    output << "#{address}<br />" unless address.blank?
+    output << "#{suite}<br />" unless suite.blank?
+    output << "#{city}, " unless city.blank?
+    output << "#{state} " unless state.blank?
+    output << "#{zip}<br />" unless zip.blank?
+    output << "#{country}" unless country.blank?
+    return output.html_safe
   end
 
 

@@ -1,0 +1,30 @@
+<% @page_title = "View Location: #{@location.name}" %>
+
+<%= link_to('&laquo; Back to List'.html_safe, staff_locations_path, :class => 'back-link') %>
+
+<div class="location show">
+  <h1><%= @location.name %></h1>
+
+
+    <div class="clear">
+      <div class="left">
+        <div class="section">
+          <dl>
+            <dt> Name</dt>
+            <dd><%= @location.name %></dd>
+          </dl>
+            <dt>Target Distribution Sites</dt>
+            <dd><%= @location.target_distribution_sites %></dd>
+          </dl>
+          <dl>
+            <dt>Manage</dt>
+            <dd>
+              <%= link_to("Edit Location", edit_staff_location_path(@location))
+              %>
+              </dd>
+          </dl>
+
+        </div>
+    </div>
+
+</div>
