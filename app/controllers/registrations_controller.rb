@@ -28,6 +28,7 @@ class RegistrationsController < ApplicationController
       end
       redirect_to confirmation_registration_path
     else
+      set_locations
       if @leader
         render('friend_registration')
       else
@@ -46,6 +47,7 @@ class RegistrationsController < ApplicationController
     @leader = friend.member
     @member = Member.new(:times => [], :email => friend.email)
     @member.location = @leader.location
+    set_locations
   end
 
   def get_reservation_link
@@ -70,6 +72,7 @@ class RegistrationsController < ApplicationController
   def edit
     return render_404 unless @member = Member.find_by_reservation_token(params[:token])
     session[:member_id] = @member.id
+    set_locations
   end
 
   def update
@@ -88,6 +91,7 @@ class RegistrationsController < ApplicationController
       end
       redirect_to reservation_updated_registration_path
     else
+      set_locations
       render('edit')
     end
   end
