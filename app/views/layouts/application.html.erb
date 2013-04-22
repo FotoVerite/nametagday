@@ -15,8 +15,8 @@
 	<link href="114.png" rel="apple-touch-icon-precomposed" sizes="114x114" />
 	<link href="144.png" rel="apple-touch-icon-precomposed" sizes="144x144" />
 
-	<meta name="description" content="On June 1st, wear a free nametag and make new friends all around the city. Sign up and volunteer!"/>
-	<meta property="og:description" content="On June 1st, wear a free nametag and make new friends all around the city. Sign up and volunteer!"/>
+	<meta name="description" content="On June 1st, wear a free nametag and make new friends all around the city. Sign up and volunteer, or pitch in to our crowdfunding campaign!"/>
+	<meta property="og:description" content="On June 1st, wear a free nametag and make new friends all around the city. Sign up and volunteer, or pitch in to our crowdfunding campaign!"/>
 
     <%= csrf_meta_tag %>
     <%= favicon_link_tag '/assets/favicon.ico' %>
@@ -98,7 +98,9 @@
 
 	<div class="footer-container">
     <footer class='footer'>
-       Licensed under <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons</a>.
+       <a href="http://creativecommons.org/licenses/by/3.0/">
+       <%= r_image_tag('cc.png', :size => "25x25", :style => 'vertical-align:middle;') %>
+       </a>
     </footer>
     </div>
 

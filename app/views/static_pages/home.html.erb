@@ -39,12 +39,12 @@
 		<!-- <h4>$1,500 raised so far!</h4> -->
 		<!-- <p>We've got $1,000 more to go before this event's gonna happen. <br /><b>Click here to join 23 others and pitch in.</b></p> -->
 		<h4>$<%= File.open('/tmp/amount_raised.txt', 'rb') { |file| file.read
-} %> raised so far!</h4>
+}.to_f.round() + 1000 %> raised so far!</h4>
 		<p>For $10 you'll be putting a nametag on 60 people. <b>Click here to pitch in.</b> </p>
 
 		<div class="progress progress-warning">
-		  <div class="bar" style="width: <%= File.open('/tmp/amount_raised.txt', 'rb') { |file| file.read
-}.to_f / 160 %>%"></div>
+		  <div class="bar" style="width: <%= ( File.open('/tmp/amount_raised.txt', 'rb') { |file| file.read
+}.to_f + 1000 )/ 160 %>%"></div>
 		</div>
 
 		<div class="xticker">
@@ -65,7 +65,7 @@
 			<div>$15k</div>
 		</div>
 		<%= r_image_tag('target_under2.5k.png', :size => "784x72", :style => 'margin-left: 21px; margin-bottom:8px;') %>
-		<p style="font-size:10px;">Funds raised go to nametags and logistics. Any unspent money will be reserved for Nametag Day 2014.</p>
+		<p style="font-size:10px;">Number above includes $1000 Awesome Foundation grant.<br>Funds raised go to nametags and logistics. Any unspent money will be reserved for Nametag Day 2014.</p>
 		<div class="clearfix"></div>
 
 
