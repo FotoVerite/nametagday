@@ -539,10 +539,12 @@
 
 <p>Thanks for signing up. We're excited to have you onboard! Here's what we have you down for:</p>
 
-<p style="text-align:center; font-style: italic;" align="center"><strong><%= @member.location.name %> at <%= @member.times_as_string %></strong> on Saturday June 1st<%- if @member.referer %><br> as part of Matthew Bregman's team<% end  %>.</p>
+<p style="text-align:center; font-style: italic;" align="center"><strong><%= @member.location.name %> at <%= @member.times_as_string %></strong> on Saturday June 1st<%- if @member.referer %><br> as part of <%= possify(@member.referer.full_name) %> team<% end  %>.</p>
 
+<% if @member.leader %>
 <p>
 <strong>If you end up assigned as a location leader, there will be a very short training about a week before the event</strong> - look out for an email with more details.</p>
+<% end %>
 
 <p><% unless @member.friends.empty? %>
   You also sent invitations to the following people. When they confirm, they'll be added to your group:
@@ -639,7 +641,7 @@
 							  <a href="https://www.crowdtilt.com/campaigns/nametag-day/" style="color: #000090; text-decoration: none; border: 1px solid #000090; display: block; padding: 4px; width: 160px; margin: 0 auto; border-radius: 5px; background-color: #d9dff8;">Add to the campaign<br>on Crowdtilt</a>
 							</p>
 							<p style="text-align:center; margin-top: 0; font-size:12px;">$10 will put a nametag on 60 people.</p>
-							
+
 
                         </td>
                     </tr>
