@@ -151,8 +151,7 @@ function makeMarker(title, position, locationId, fractionsFull) {
 var spots = {}
 
 // Populates markers array.
-function loadMarkers() {
-	$.getJSON('/registration/locations.json', function(data) {
+function loadMarkers(data) {
 	  var places = data['locations']
 	  var times = data['times'];
 	  for (i in places) {
@@ -174,7 +173,6 @@ function loadMarkers() {
 			google.maps.event.trigger(marker, 'click');
 		}
 	  }
-    });
 }
 
 // Runs on window loading. Markers already created, so just assigns the map to them.
