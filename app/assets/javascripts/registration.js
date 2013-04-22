@@ -52,7 +52,7 @@ function makeIcon(timeMap) {
 	else {
 	  fillColor = "#bdbdbd";
 	  strokeWeight = 3;
-	  strokeColor = "#a7a7a7";
+	  strokeColor = "#787878";
 	}
 	var icon = {
 		path: google.maps.SymbolPath.CIRCLE,
