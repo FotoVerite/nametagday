@@ -47,9 +47,9 @@ function makeIcon(timeMap) {
 	  strokeColor = "#222222";
 	}
 	else if (ratio >= full) {
-	  fillColor = "#43a8c6";
+	  fillColor = "#097494";
 	  strokeWeight = 3;
-	  strokeColor = "#097494";
+	  strokeColor = "#43a8c6";
 	}
 	else if (ratio >= middle) {
 	  fillColor = "#c4c4c4";
@@ -64,7 +64,7 @@ function makeIcon(timeMap) {
 	var icon = {
 		path: google.maps.SymbolPath.CIRCLE,
 		fillColor: fillColor,
-		fillOpacity: 0.8,
+		fillOpacity: 0.7,
 		strokeOpacity: 0.7,
 		scale: mapDotScaleUnselected,
 		strokeWeight: strokeWeight,
