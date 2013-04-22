@@ -17,6 +17,13 @@ var reallyfull = 1.0;
 var full = 0.85;
 var middle = 0.1;
 
+// Multipliers used in the display of the map
+var flakiness = 1;
+var workersPerSite = 5;
+var leadersPerSite = 1;
+
+var peoplePerSite = workersPerSite + leadersPerSite;
+
 // Returns an icon based on volunteer availability. There are 5 time slots, takes the number
 // in the least-filled time slot and weights it 50%; the rest are 12.5% each. Color decided
 // based on the weighted amount.
@@ -105,7 +112,15 @@ function makeMarker(title, position, locationId, fractionsFull) {
 		resetButtons();
 		$('.btn-group button').each(function() {
 		  var time = $(this).val();
-		  var fraction = timeMap[time];
+		  console.log(timeMap[time]);
+		  
+		  // multiplies by 1/6 or 5/6 depending on whether is worker in group
+		  if($(this).closest("div").attr("id")=="worker-group") {
+		  	var fraction = timeMap[time] * (workersPerSite/peoplePerSite) ;
+		  } else {
+		    var fraction = timeMap[time] * (leadersPerSite/peoplePerSite);
+		  }
+		  
 		  // assign class based on fraction
 		  if (fraction >= reallyfull) {
 		    $(this).addClass("reallyfull");
@@ -160,7 +175,7 @@ function loadMarkers() {
 	  	var markerTitle = places[i]['name'];
      	var locationId = places[i]['id'];
 		// time_counts is a map from time slot ID to the number we have
-		var needPerTimeSlot = places[i]['target_distribution_sites'] * 6;
+		var needPerTimeSlot = places[i]['target_distribution_sites'] * peoplePerSite * flakiness;
 		var fractionsFull = {}
 		for (var time in times) {
 		  fractionsFull[time] = places[i]['time_counts'][time]/needPerTimeSlot;

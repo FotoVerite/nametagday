@@ -624,18 +624,18 @@ width: 284px;
 opacity: .4;
 }
 
-#mapkey {
+.mapkey {
 font-size: 12px;
 line-height: 16px;
 margin-bottom: 4px;
 }
 
-#mapkey img {
+.mapkey img {
 vertical-align: middle;
 margin: -2px 1px 0 16px;;
 }
 
-#mapkey img:first-child {
+.mapkey img:first-child {
 margin: -2px 1px 0 0;
 }
 
@@ -674,4 +674,13 @@ opacity: .9;
 #headerbubble div {
 display: table-cell;
 vertical-align: middle;
+}
+
+.btn-group .btn {
+font-weight: bold;
+color: #888 !important;
+}
+
+.btn-group .active {
+color: #444 !important;
 }
