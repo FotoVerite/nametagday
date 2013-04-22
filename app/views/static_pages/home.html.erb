@@ -43,7 +43,8 @@
 		<p>For $10 you'll be putting a nametag on 60 people. <b>Click here to pitch in.</b> </p>
 
 		<div class="progress progress-warning">
-		  <div class="bar" style="width: 8.3%"></div>
+		  <div class="bar" style="width: <%= File.open('/tmp/amount_raised.txt', 'rb') { |file| file.read
+}.to_f / 160 %>%"></div>
 		</div>
 
 		<div class="xticker">
