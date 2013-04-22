@@ -6,8 +6,3 @@
   <%= render :partial => 'form', :locals => {:f => f, :editing => false} %>
 <% end %>
 ￼￼
-<%= content_for :head do %>
-  <script type="text/javascript">
-    var INITIAL_LOCATION_ID = "<%= @member.location_id %>"
-  </script>
-<% end %>

@@ -125,8 +125,11 @@ end
 </script>
 
 <script type="text/javascript">
+  var INITIAL_LOCATION_ID = "<%= @member.location_id ? @member.location_id : -1 %>"
+
+  loadMarkers(<%= raw @locations %>);
+
   google.maps.event.addDomListener(window, 'load', initializeMap);
-  loadMarkers();
 
   $(document).ready(function() {
     $('#add-email').click(function(){

@@ -3,6 +3,7 @@ class RegistrationsController < ApplicationController
 
   def new
     @member = Member.new(:times => [])
+    set_locations
   end
 
   def create
@@ -53,7 +54,7 @@ class RegistrationsController < ApplicationController
 
   def resend_reservation_token
     @member = Member.find_by_email(params[:email])
-    
+
     if @member
       PostOffice.delay.signed_up(@member)
       flash.now[:notice] = "All set!"
@@ -63,7 +64,7 @@ class RegistrationsController < ApplicationController
       @show_signup_link = true
       render(:get_reservation_link)
     end
-    
+
   end
 
   def edit
@@ -129,6 +130,8 @@ class RegistrationsController < ApplicationController
     }.compact
   end
 
-
+  def set_locations
+    @locations = {"locations" => Location.find(:all), "times" => Location::TIMES}.to_json
+  end
 
 end
