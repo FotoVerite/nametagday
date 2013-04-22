@@ -71,7 +71,7 @@ class Member < ActiveRecord::Base
   def add_to_mailing_list
     gb = Gibbon.new(MAILCHIMP_API_KEY)
       gb.list_subscribe({
-        :id => Rails.env == 'production' ? 'fill' : '7823cd6593',
+        :id => Rails.env == 'production' ? 'd53c0b3cb8' : '7823cd6593',
          :email_address => email,
          :merge_vars => {
           :FNAME => first_name,
