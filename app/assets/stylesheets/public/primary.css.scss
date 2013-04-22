@@ -4,6 +4,8 @@ input[disabled], select[disabled], textarea[disabled], input[readonly], select[r
 cursor: default !important;
 }
 
+
+
 .navbar {
   margin-bottom:0px;
 }
@@ -24,6 +26,7 @@ width: 940px;
 margin: 0 auto;
 padding: 0 20px;
 padding-top: 8px;
+min-height: 92px;
 }
 
 .navbar ul {
@@ -51,7 +54,7 @@ padding-top: 8px;
 position: relative;
 }
 
-.navbar .headerbubble a {
+.navbar #headerbubble a {
   padding:0;
   text-decoration:none;
   color:#888;
@@ -653,7 +656,7 @@ height: 32px;
 width: 150px;
 }
 
-.headerbubble {
+#headerbubble {
 position: absolute;
 font-size: 11px;
 text-align: center;
@@ -668,7 +671,7 @@ padding: 10px;
 opacity: .9;
 }
 
-.headerbubble div {
+#headerbubble div {
 display: table-cell;
 vertical-align: middle;
 }
