@@ -35,6 +35,7 @@ function makeIcon(timeMap) {
 
     var ratio = 0;
     for (var time in timeMap) {
+      console.log(timeMap[time]);
       if (timeMap[time] == min) ratio += 0.5*timeMap[time];
       else ratio += 0.125*timeMap[time];
     }
@@ -112,7 +113,6 @@ function makeMarker(title, position, locationId, fractionsFull) {
 		resetButtons();
 		$('.btn-group button').each(function() {
 		  var time = $(this).val();
-		  console.log(timeMap[time]);
 		  
 		  // multiplies by 1/6 or 5/6 depending on whether is worker in group
 		  if($(this).closest("div").attr("id")=="worker-group") {
@@ -238,14 +238,14 @@ function setTimesVal() {
   var times = '';
   if ($('#leader-group').is(':visible')) {
 	$('#leader-group').children().each(function() {
-	  console.log($(this).val());
+	  // console.log($(this).val());
 	  if ($(this).hasClass('active')) {
 		times += $(this).val() + ',';
 	  }
 	});
   } else {
 	$('#worker-group').children().each(function() {
-	  console.log($(this).val());
+	  // console.log($(this).val());
 	  if ($(this).hasClass('active')) {
 		times += $(this).val() + ',';
 	  }
