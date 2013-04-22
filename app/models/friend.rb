@@ -18,7 +18,8 @@ class Friend < ActiveRecord::Base
 
   belongs_to :member
 
-  before_create :create_registration_token, :send_invite
+  before_create :create_registration_token
+  after_create :send_invite
 
   def self.create_token(string="")
     Digest::SHA1.hexdigest("Use the #{string} with #{Time.now}")

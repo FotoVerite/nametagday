@@ -18,7 +18,7 @@ class PostOffice < ActionMailer::Base
     @friend = friend
     @url = friend_registration_url(:token => friend.registration_token)
     mail(
-      :to => @member.email,
+      :to => @friend.email,
       :subject => "#{BRAND} - #{@member.full_name} wants you to join them in #{BRAND}"
     )
   end
