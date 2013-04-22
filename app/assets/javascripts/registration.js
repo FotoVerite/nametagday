@@ -17,13 +17,6 @@ var reallyfull = 1.0;
 var full = 0.85;
 var middle = 0.1;
 
-// Multipliers used in the display of the map
-var flakiness = 1;
-var workersPerSite = 5;
-var leadersPerSite = 1;
-
-var peoplePerSite = workersPerSite + leadersPerSite;
-
 // Returns an icon based on volunteer availability. There are 5 time slots, takes the number
 // in the least-filled time slot and weights it 50%; the rest are 12.5% each. Color decided
 // based on the weighted amount.
@@ -35,7 +28,6 @@ function makeIcon(timeMap) {
 
     var ratio = 0;
     for (var time in timeMap) {
-      console.log(timeMap[time]);
       if (timeMap[time] == min) ratio += 0.5*timeMap[time];
       else ratio += 0.125*timeMap[time];
     }
@@ -48,9 +40,9 @@ function makeIcon(timeMap) {
 	  strokeColor = "#222222";
 	}
 	else if (ratio >= full) {
-	  fillColor = "#097494";
+	  fillColor = "#43a8c6";
 	  strokeWeight = 3;
-	  strokeColor = "#43a8c6";
+	  strokeColor = "#097494";
 	}
 	else if (ratio >= middle) {
 	  fillColor = "#c4c4c4";
@@ -65,7 +57,7 @@ function makeIcon(timeMap) {
 	var icon = {
 		path: google.maps.SymbolPath.CIRCLE,
 		fillColor: fillColor,
-		fillOpacity: 0.7,
+		fillOpacity: 0.8,
 		strokeOpacity: 0.7,
 		scale: mapDotScaleUnselected,
 		strokeWeight: strokeWeight,
@@ -113,14 +105,7 @@ function makeMarker(title, position, locationId, fractionsFull) {
 		resetButtons();
 		$('.btn-group button').each(function() {
 		  var time = $(this).val();
-		  
-		  // multiplies by 1/6 or 5/6 depending on whether is worker in group
-		  if($(this).closest("div").attr("id")=="worker-group") {
-		  	var fraction = timeMap[time] * (workersPerSite/peoplePerSite) ;
-		  } else {
-		    var fraction = timeMap[time] * (leadersPerSite/peoplePerSite);
-		  }
-		  
+		  var fraction = timeMap[time];
 		  // assign class based on fraction
 		  if (fraction >= reallyfull) {
 		    $(this).addClass("reallyfull");
@@ -175,7 +160,7 @@ function loadMarkers() {
 	  	var markerTitle = places[i]['name'];
      	var locationId = places[i]['id'];
 		// time_counts is a map from time slot ID to the number we have
-		var needPerTimeSlot = places[i]['target_distribution_sites'] * peoplePerSite * flakiness;
+		var needPerTimeSlot = places[i]['target_distribution_sites'] * 6;
 		var fractionsFull = {}
 		for (var time in times) {
 		  fractionsFull[time] = places[i]['time_counts'][time]/needPerTimeSlot;
@@ -238,14 +223,14 @@ function setTimesVal() {
   var times = '';
   if ($('#leader-group').is(':visible')) {
 	$('#leader-group').children().each(function() {
-	  // console.log($(this).val());
+	  console.log($(this).val());
 	  if ($(this).hasClass('active')) {
 		times += $(this).val() + ',';
 	  }
 	});
   } else {
 	$('#worker-group').children().each(function() {
-	  // console.log($(this).val());
+	  console.log($(this).val());
 	  if ($(this).hasClass('active')) {
 		times += $(this).val() + ',';
 	  }

@@ -38,7 +38,8 @@
 	<div class="alert alert-block alertcustom fundraisebox">
 		<!-- <h4>$1,500 raised so far!</h4> -->
 		<!-- <p>We've got $1,000 more to go before this event's gonna happen. <br /><b>Click here to join 23 others and pitch in.</b></p> -->
-		<h4>$4,500 raised so far from 55 contributors!</h4>
+		<h4>$<%= File.open('/tmp/amount_raised.txt', 'rb') { |file| file.read
+} %> raised so far!</h4>
 		<p>For $10 you'll be putting a nametag on 60 people. <b>Click here to pitch in.</b> </p>
 
 		<div class="progress progress-warning">
