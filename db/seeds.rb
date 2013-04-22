@@ -124,9 +124,15 @@ locations << FactoryGirl.create(:location,
 
 # Brooklyn
 locations << FactoryGirl.create(:location,
-								:name => "Atlantic Terminal Area",
-								:lat => 40.68461,
-								:lng => -73.97833,
+								:name => "Park Slope",
+								:lat => 40.67048,
+								:lng => -73.98211,
+								:time_counts => empty_times,
+								:target_distribution_sites => 3)
+locations << FactoryGirl.create(:location,
+								:name => "Fort Greene / Clinton Hill",
+								:lat => 40.68942,
+								:lng => -73.96932,
 								:time_counts => empty_times,
 								:target_distribution_sites => 3)
 locations << FactoryGirl.create(:location,
@@ -136,9 +142,9 @@ locations << FactoryGirl.create(:location,
 								:time_counts => empty_times,
 								:target_distribution_sites => 5)
 locations << FactoryGirl.create(:location,
-								:name => "Downtown Brooklyn",
-								:lat => 40.689229,
-								:lng => -73.994637,
+								:name => "Brooklyn Heights",
+								:lat => 40.69601,
+								:lng => -73.99329,
 								:time_counts => empty_times,
 								:target_distribution_sites => 3)
 locations << FactoryGirl.create(:location,
