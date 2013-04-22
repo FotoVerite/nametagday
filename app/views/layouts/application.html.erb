@@ -29,15 +29,17 @@
       <header class="navbar">
         <div class="navbar-inner">
 	      <div class="row">
-	      		<div class="headerbubble"><div>
+	      		<% if current_page? root_path %>	      		
+	      			<div id="headerbubble"><div>
 	      			<a href="http://blog.nametagday.com/">Thanks to the Awesome foundation for making us their April grantwinner!</a></div></div>
+	      		<% end %>	      			
 	      		<div class="span2" style="margin: 0 0 9px 0;">
 	      			<a class="header-logo" href="/"><%= r_image_tag('home-nametag.png', :size => "102x75", :style => 'vertical-align:middle;') %></a>
 	      		</div>
 
 	      		<div class="span10">
 
-	      			<ul>
+	      			<ul id="navinner">
                 		<li><%= link_to "Blog", "http://blog.nametagday.com" %></li>
                 		<!--<li><%= link_to "Volunteer Instructions", "#" %></li>-->
                 		<!-- <li><%= link_to "Request Nametags for Your Event", static_page_path(:event_request) %></li> -->
@@ -113,6 +115,8 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
+  
+  $('#headerbubble').css('right',$('#navinner').innerWidth()+14);
 
 </script>
 

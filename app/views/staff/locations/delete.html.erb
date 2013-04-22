@@ -1,0 +1,17 @@
+<% @page_title = "Delete Member: #{@member.full_name}" %>
+
+<%= link_to('&laquo; Back to List'.html_safe, staff_members_path, :class => 'back-link') %>
+
+<div class="member delete">
+  <h1><%= @page_title %></h1>
+  <p>Are you sure you want to <strong>permanently</strong> delete this member?</p>
+  
+  <p class="item"><%= @member.full_name %></p>
+  
+  <%= form_for([:staff, @member], :method => :delete) do %>
+    <div id="operations">
+      <%= submit_tag("Delete Member") %>
+      <%= cancel_button(staff_member_path(@member))%>
+    </div>
+  <% end %>
+</div>

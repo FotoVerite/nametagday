@@ -1,10 +1,10 @@
 
   <%= error_messages_for(f.object) %>
 
-  <div id="mapkey">
+  <div class="mapkey">
   <%= r_image_tag('circle_empty.png', :size => "14x14") %> Not many people registered
   <%= r_image_tag('circle_partfull.png', :size => "14x14") %> Some people
-  <%= r_image_tag('circle_full.png', :size => "14x14") %> A lot of people
+  <%= r_image_tag('circle_full.png', :size => "14x14") %> Many people
   <%= r_image_tag('circle_waitlist.png', :size => "14x14") %> Might be full
 
   </div>
@@ -29,11 +29,18 @@ end
 
   <label class="checkbox">
     <%= check_box_tag('member[leader]', "1", coordinating, :id => "member_leader", :disabled => "disabled", :style => "cursor:pointer;") %>
-    I'd like to be a <b>coordinator</b>.
+    Sign up as a <b>coordinator</b>.
   </label>
 <p class="undertimetext">This means a four-hour shift and extra leadership. Morning coordinators will meet at distribution centers to collect nametags.</p>
 
     <h4>Shifts available:</h4>
+  <div class="mapkey">
+  <%= r_image_tag('circle_empty.png', :size => "14x14") %> Not many people registered
+  <%= r_image_tag('circle_partfull.png', :size => "14x14") %> Some people
+  <%= r_image_tag('circle_full.png', :size => "14x14") %> Many people
+  <%= r_image_tag('circle_waitlist.png', :size => "14x14") %> Might be full
+
+  </div>
 
   <!-- TODO: add an on-submit check that a button value is one of the times in the db -->
 <div class="btn-group" id="worker-group" <%=raw coordinating ? 'style="display: none;"' : '' %> >
