@@ -1,6 +1,7 @@
 <h1>Sign up to hand out nametags!</h1>
 
-<p style="width: 672px;">We'll be handing out nametags at popular spots across the city. Pick a general area and we'll give you a specific location later. <%= link_to "Send us a message", static_page_path(:name => "contact") %> if you'd like to help somewhere that's not listed.</p>
+<p style="width: 672px;">We'll be handing out nametags at popular spots across the city. Pick a general area and we'll give you a specific location later. If you don't know where you want to be yet.
+<br>Or, <a href="http://eepurl.com/vvkkD">enter your email here</a> to be reminded to sign up a few weeks beforehand.</p>
 <p><b>Click an area below. We'll do our best to put you nearby.</b></p>
 
 <%= form_for @member, :url => registration_path, :html => { :onsubmit => "return validateForm();" } do |f| %>

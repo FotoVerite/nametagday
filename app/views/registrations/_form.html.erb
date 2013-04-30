@@ -29,18 +29,12 @@ end
 
   <label class="checkbox">
     <%= check_box_tag('member[leader]', "1", coordinating, :id => "member_leader", :disabled => "disabled", :style => "cursor:pointer;") %>
-    Sign up as a <b>coordinator</b>.
+    Sign up as a coordinator.
   </label>
 <p class="undertimetext">This means a four-hour shift and extra leadership. Morning coordinators will meet at distribution centers to collect nametags.</p>
 
-    <h4>Shifts available:</h4>
-  <div class="mapkey">
-  <%= r_image_tag('circle_empty.png', :size => "14x14") %> Not many people registered
-  <%= r_image_tag('circle_partfull.png', :size => "14x14") %> Some people
-  <%= r_image_tag('circle_full.png', :size => "14x14") %> Many people
-  <%= r_image_tag('circle_waitlist.png', :size => "14x14") %> Might be full
-
-  </div>
+    <h4>Shifts available</h4>
+    <p style="margin-bottom:0;"><b>Click to select one or more shifts:</b></p>
 
   <!-- TODO: add an on-submit check that a button value is one of the times in the db -->
 <div class="btn-group" id="worker-group" <%=raw coordinating ? 'style="display: none;"' : '' %> >
@@ -56,8 +50,15 @@ end
   <% end %>
 </div>
 
+  <div class="mapkey" style="margin-top:4px;">
+  <%= r_image_tag('circle_empty.png', :size => "14x14") %> Not many people registered
+  <%= r_image_tag('circle_partfull.png', :size => "14x14") %> Some people
+  <%= r_image_tag('circle_full.png', :size => "14x14") %> Many people
+  <%= r_image_tag('circle_waitlist.png', :size => "14x14") %> Might be full
+
+  </div>
 <p class="undertimetext">Sign up for as many shifts as you like. Trust us, a few hours of wishing people &#8220;Happy Nametag Day!&#8221; goes by fast!
-<br><b>Please be at your shift 20 minutes early and plan to leave 20 minutes after.</b></p>
+<br><em>Please be at your shift 20 minutes early and plan to leave 20 minutes after.</em></p>
 
 </div>
 <div id="form_details" class="<%= "disabled" unless !f.object.errors.empty? %>">
@@ -80,7 +81,7 @@ end
 
 
   <div class="short shorter">
-    <dt><%= f.label(:phone) %></dt>
+    <dt><%= f.label(:phone, "Phone (optional)") %></dt>
     <dd><%= f.phone_field(:phone, :disabled => (f.object.errors.empty? && !editing)) %></dd>
   </div>
 
