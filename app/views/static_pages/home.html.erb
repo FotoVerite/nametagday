@@ -40,7 +40,7 @@
 		<!-- <p>We've got $1,000 more to go before this event's gonna happen. <br /><b>Click here to join 23 others and pitch in.</b></p> -->
 		<h4>$<%= File.open('/tmp/amount_raised.txt', 'rb') { |file| file.read
 }.to_f.round() %> raised so far! Click this box to pitch in.</h4>
-		<p>For $10 you'll be putting a nametag on 60 people.</p>
+		<p>For $15 you'll be putting a nametag on at least 100 people. $100 will reach 800 people!</p>
 
 		<div class="progress progress-warning">
 		  <div class="bar" style="width: <%= ( File.open('/tmp/amount_raised.txt', 'rb') { |file| file.read
