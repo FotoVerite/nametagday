@@ -62,7 +62,7 @@ class RegistrationsController < ApplicationController
       flash.now[:notice] = "All set!"
       render(:reservation_link_sent)
     else
-      flash.now[:error] = "We couldn't find that email address. If you haven't signed up yet, <a href='/registration/new'>register here</a>."
+      flash.now[:error] = "We couldn't find that email address. If you haven't signed up yet, <a href='/registration/new'>register here</a>.".html_safe
       @show_signup_link = true
       render(:get_reservation_link)
     end
