@@ -539,15 +539,26 @@
 Hey NAME,
 
 This Saturday is going to be amazing and we hope you're looking forward to it.
+<% if @member.assigned_leader %>
+  We're having training for shift leaders on two dates: date one and date two. YOU MUST CLICK THIS LINK TO RSVP for one of the times, or we'll assume you're not coming. Click this link to tell us you can't make it.
+<% end %>
 
-[IF LEADER We're having training for shift leaders on two dates: date one and date two. YOU MUST CLICK THIS LINK TO RSVP for one of the times, or we'll assume you're not coming. Click this link to tell us you can't make it.]
+<% if @member.assigned %>
+  We have you down for <%= @member.location_assignment %> at <%= @member.assigned_time %> -- that's this Saturday, June 1.
 
-[IF ASSIGNED We have you down for LOCATIONASSIGNMENT at TIMES -- that's this Saturday, June 1.]
-[IF LEADER&EARLYSHIFT Come by at HQASSIGNMENT at 9am to pick up the nametags.]
+  <% if @member.assigned_leader && @member.early_shift%>
+   Come by at <%= @member.distribution_center %> at 9am to pick up the nametags.
+  <% end %>
 
-[IF UNASSIGNED You'll be volunteering from TIMES. Just show up at HQASSIGNMENT, one of our central locations, and we'll send you somewhere nearby.]
+  <% else %>
+    You'll be volunteering from <%= @member.assigned_time %>. Just show up at  <%= @member.distribution_center %>, one of our central locations, and we'll send you somewhere nearby.
+ <% end %>
 
-[IF NOT LEADER To help us plan, it's VERY HELPFUL if you click this link here to confirm that you'll be there. It just takes a nanosecond.] You can also cancel by clicking here.
+
+<% if !@member.assigned_leader %> To help us plan, it's VERY HELPFUL if you click this link here to confirm that you'll be there. It just takes a nanosecond.
+<% end %>
+
+You can also cancel by clicking here.
 
 Before you get there, take a look at our two-page <a>volunteer information guidelines</a>. See you soon!
 
@@ -634,7 +645,7 @@ Before you get there, take a look at our two-page <a>volunteer information guide
 							  <a href="https://www.crowdtilt.com/campaigns/nametag-day/" style="color: #000090; text-decoration: none; border: 1px solid #000090; display: block; padding: 4px; width: 160px; margin: 0 auto; border-radius: 5px; background-color: #d9dff8;">Add to the campaign<br>on Crowdtilt</a>
 							</p>
 							<p style="text-align:center; margin-top: 0; font-size:12px;">$10 will put a nametag on 60 people.</p>
-							
+
 
                         </td>
                     </tr>
