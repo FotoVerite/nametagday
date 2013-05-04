@@ -28,7 +28,7 @@ class Member < ActiveRecord::Base
 
   attr_accessible :first_name, :last_name, :times, :email, :phone, :leader, :times, :canceled, :reservation_token, :location_id
 
-  validates :first_name, :last_name, :times, :email, :presence => true
+  validates :first_name, :last_name, :times, :email, :location_id, :presence => true
 
   scope :search, lambda {|search| where(
       ['first_name LIKE :kw OR last_name LIKE :kw OR email LIKE :kw', :kw => "%#{search}%"]
