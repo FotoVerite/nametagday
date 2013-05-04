@@ -9,7 +9,7 @@
                                 :method => :post
    %>
 <% else %>
-  <p>You're signed up near <b><%= @member.location.name %></b> at <b><%= @member.times_as_string %></b> on June 1st.</p>
+  <p>You've been assigned to <b><%= @member.location.name %></b> at <b><%= @member.times_as_string %></b> on June 1st.</p>
   <p>
     <%= button_to "Cancel Registration",
                               {:controller => "/registrations",
@@ -21,26 +21,3 @@
    %>
   </p>
 
-<h4>Location and Time</h4>
-<% if @friends || @member.referer %>
-<p>If you want to stick with your friends, tell them to change their location too.</p>
-<% end %>
-
-<%= form_for @member, :url => registration_path, :method => 'put' do |f| %>
-
-  <%= error_messages_for(f.object) %>
-
-  <%= render :partial => 'form', :locals => {:f => f, :editing => true} %>
-
-<span class="clearfix"></span>
-
-<%= hidden_field_tag :token, params[:token] %>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#form_details').removeClass("disabled");
-  });
-</script>
-<% end %>
-￼￼￼
-<% end %>
