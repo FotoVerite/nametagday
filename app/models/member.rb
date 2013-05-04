@@ -75,7 +75,8 @@ class Member < ActiveRecord::Base
          :email_address => email,
          :merge_vars => {
           :FNAME => first_name,
-          :LNAME => last_name
+          :LNAME => last_name,
+          :FULLSIGNUP => 1
         }
       })
   end
