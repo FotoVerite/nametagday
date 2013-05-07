@@ -43,7 +43,7 @@
 		<!-- <h4>$1,500 raised so far!</h4> -->
 		<!-- <p>We've got $1,000 more to go before this event's gonna happen. <br /><b>Click here to join 23 others and pitch in.</b></p> -->
 		<h4>$<%= File.open('/tmp/amount_raised.txt', 'rb') { |file| file.read
-}.to_f.round() %> raised so far with <%= distance_of_time_in_words_to_now(Date.new(2013, 5, 16)) %> left!
+}.to_f.round() %> raised so far with <%= distance_of_time_in_words_to_now(DateTime.new(2013,5,15,23,0,0,'-4')   ) %> left!
 <br><div class="btn btn-small btn-warning" style="margin-top:6px;">Click to pitch in. $15 will put a nametag on at least 100 people!</div></h4>
 
 		<div class="progress progress-warning">
