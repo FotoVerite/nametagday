@@ -694,3 +694,37 @@ color: #444 !important;
 div.press a {
   font-size: 150%;
 }
+
+.btn-facebook {
+  background-color: hsl(220, 60%, 40%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2e5dbb", endColorstr="#2851a3");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#2e5dbb), to(#2851a3));
+  background-image: -moz-linear-gradient(top, #2e5dbb, #2851a3);
+  background-image: -ms-linear-gradient(top, #2e5dbb, #2851a3);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2e5dbb), color-stop(100%, #2851a3));
+  background-image: -webkit-linear-gradient(top, #2e5dbb, #2851a3);
+  background-image: -o-linear-gradient(top, #2e5dbb, #2851a3);
+  background-image: linear-gradient(#2e5dbb, #2851a3);
+  border-color: #2851a3 #2851a3 hsl(220, 60%, 38.5%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.09);
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-twitter {
+  background-color: hsl(213, 76%, 70%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a5c8f2", endColorstr="#78acec");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#a5c8f2), to(#78acec));
+  background-image: -moz-linear-gradient(top, #a5c8f2, #78acec);
+  background-image: -ms-linear-gradient(top, #a5c8f2, #78acec);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #a5c8f2), color-stop(100%, #78acec));
+  background-image: -webkit-linear-gradient(top, #a5c8f2, #78acec);
+  background-image: -o-linear-gradient(top, #a5c8f2, #78acec);
+  background-image: linear-gradient(#a5c8f2, #78acec);
+  border-color: #78acec #78acec hsl(213, 76%, 67.5%);
+  color: #333 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.16);
+  -webkit-font-smoothing: antialiased;
+}

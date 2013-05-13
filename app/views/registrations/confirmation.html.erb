@@ -1,6 +1,15 @@
 <h1>Thanks for Registering!</h1>
 
-<p>Mark your calendar for <b><%= @member.times_as_string %></b>, June 1st. We'll email with additional information closer to Nametag Day. In the meantime, keep up with us on <a href="http://twitter.com/NametagDay">Twitter</a> and <a href="http://www.facebook.com/NametagDay">Facebook</a>.</p>
+<p>Mark your calendar for <b><%= @member.times_as_string %></b> on June 1st. We'll email with additional information closer to Nametag Day.</p>
+<p>To help us make Nametag Day even bigger, can you tell your friends you've signed up?</p>
+
+<div style="text-align:center;">
+	<a class="btn btn-facebook" href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://nametagday.com&p[images][0]=http://nametagday.com/assets/256.png&p[title]=I%20just%20signed%20up%20for%20Nametag%20Day!&p[summary]=Join%20me%20in%20volutneering!%0AOn%20June%201st,%20wear%20a%20free%20nametag%20and%20make%20new%20friends%20all%20around%20the%20city.%20Sign%20up%20and%20volunteer,%20or%20pitch%20in%20to%20our%20crowdfunding%20campaign!">Tell your friends on Facebook!</a>
+	<br><a style="margin-top:8px;" class="btn btn-twitter" href="http://twitter.com/home?status=Join%20me%20in%20volunteering%20on%20@nametagday%20on%20June%201,%20handing%20out%20nametags%20to%20make%20NYC%20a%20more%20open%20city.%20http://nametagday.com">Tell your friends on Twitter!</a>
+</div>
+
+<!-- In the meantime, keep up with us on <a href="http://twitter.com/NametagDay">Twitter</a> and <a href="http://www.facebook.com/NametagDay">Facebook</a>.-->
+
 
 <% if @friends.length > 0 %>
 <div>
@@ -10,6 +19,7 @@
   <% end %>
 </div>
 <% end %>
+
 
 <script type="text/javascript">
 var fb_param = {};
@@ -26,5 +36,5 @@ fb_param.value = '0.00';
 <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?id=6008145915367&amp;value=0" /></noscript>
 
 
-<a class="btn xl" href="/">Back to Nametag Day</a>
+<a href="/">&laquo; Back to Nametag Day</a>
 ￼
