@@ -728,3 +728,13 @@ div.press a {
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.16);
   -webkit-font-smoothing: antialiased;
 }
+
+.fb-share-button {
+	position: absolute;
+}
+
+.fb-share-button img {
+	position: relative;
+	left: -152px;
+	top: -52px;
+}
