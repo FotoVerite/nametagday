@@ -1,6 +1,6 @@
 <h1>Register!</h1>
 
-￼<p>You've been invited to join <%= possify @leader.full_name %> group on Nametag Day. Complete this registration form to confirm you'll be attending. Registration deadline is May 26.</p>
+￼<p>You've been invited to join <%= possify @leader.full_name %> group on Nametag Day. Complete this registration form to confirm you'll be attending. Registration deadline is May 27.</p>
 
 <%= form_for @member, :url => registration_path do |f| %>
   <%= render :partial => 'form', :locals => {:f => f, :editing => false} %>
