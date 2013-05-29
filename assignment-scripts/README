@@ -1,0 +1,1 @@
+./go.py data/locations.csv data/members.csv
