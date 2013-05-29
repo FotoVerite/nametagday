@@ -68,4 +68,9 @@ class MailPreview < MailView
     PostOffice.event_request(event_request)
   end
 
+  def assignment
+    member = FactoryGirl.build(:member, :location_id => 1)
+    PostOffice.assignment(member)
+  end
+
 end

@@ -30,12 +30,29 @@ class Member < ActiveRecord::Base
 
   validates :first_name, :last_name, :times, :email, :location_id, :presence => true
 
-  scope :search, lambda {|search| where(
-      ['first_name LIKE :kw OR last_name LIKE :kw OR email LIKE :kw', :kw => "%#{search}%"]
+  scope :search, lambda {|search| where(['first_name LIKE :kw OR last_name LIKE :kw OR email LIKE :kw', :kw => "%#{search}%"]
   ) unless search.nil? }
 
   before_create :create_registration_token
   after_create :update_location_time_counts
+
+  def email_location
+    case location_id
+    when 1
+      "Union Square (North side of East 14th St btwn Union Square East
+      and Union Square West)"
+    when 12
+      "Central Park (Corner of Central Park West and West 59th St)"
+    when 17
+      "Williamsburg (Bedford Avenue between South 9th St and South 10th St)"
+    when 4
+      "East Village (St. Marks Place and Avenue A, West corner of
+      Tompkins Square Park)"
+    when 19
+      "Park Slope (Prospect Park West & Flatbush Av, Northwest corner of
+Prospect Park)"
+    end
+  end
 
   def canceled?
     canceled == "1"
