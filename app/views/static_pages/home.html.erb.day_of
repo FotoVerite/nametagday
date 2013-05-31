@@ -1,0 +1,200 @@
+
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+<div id="top">
+  <div class="left-column">
+
+   <div class="row">
+      <div class="span12">
+        <h1 class="main" style="text-align: center; font-size: 70px;">
+        	<b>NAMETAG DAY IS TODAY!</b>
+        </h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="span12">
+        <p class="lead" style="margin-top: 12px; margin-bottom: 0px; text-align:center;">Come to one of our <a href="javascript:showLocations();">12 locations</a> and grab a nametag. Or watch the day unfold on <a>Twitter</a> or <a>Facebook</a>.</p>
+
+      </div>
+    </div>
+    
+    <div class="row">
+    	<div class="span1"></div>
+    	<div class="span10">
+    	
+    		<div id="locationinfo" style="display:none;">
+    		<i>Introductory text telling them what to expect when they show up at a locations.</i>
+    		
+    		You can pick asdsdfsdfasf at:
+    		<br><b>Union Square</b> - fasdf aasdf s
+    		<br><b>Union Square</b> - fasdf aasdf s
+    		<br><b>Union Square</b> - fasdf aasdf s
+    		</div>
+    	<div class="whitespace"></div>
+    	</div>
+    </div>
+    
+    
+<div class="whitespace"></div>
+    
+    <div class="row">
+    
+
+
+      <div class="span8">
+
+	<ul class="nav nav-tabs" style="margin-bottom:0;">
+	  <li class="active" id="yt-tab"><a href="javascript:goToYouTube()">YouTube</a></li>
+	  <li id="ig-tab"><a href="javascript:goToInstagram()">Instagram</a></li>
+	</ul>
+
+
+      		<iframe id="youtubeEmbed" width="619" height="348" class="img-polaroid" src="http://www.youtube-nocookie.com/embed/videoseries?list=PLB80DHoxi6xbfKwfnd7dG0AoxBe0dCWrO&modestbranding=1&rel=0&showinfo=1" frameborder="0" allowfullscreen ></iframe>
+      		
+      		<div id="instagramEmbed" style="display:none; overflow-y:scroll; overflow-x:hidden; width:619px;height:348px;" class="img-polaroid" >
+      			<iframe src="http://users.instush.com/matrix-gallery/?gw=618&gh=1080&user_id=333711676&username=nametagday&sid=-1&susername=-1&tag=-1&stype=likes&bg=FFFFFF&t=dFzWxrOOHvAdj9wuk-ReoJUKJCPWnkNKgC3ele-lk821z4RdpTqE-oXeZRv-ir49h8tlfw67rsg&space=true&rd=true&btcol=blue" allowtransparency="true" frameborder="0" scrolling="no"  style="width:619px;height:950px;border:none;overflow:visible;" ></iframe>
+      		</div>
+
+
+
+      </div>
+      
+      <div class="span4">
+      
+      	<a class="twitter-timeline" href="https://twitter.com/search?q=nametagday" data-widget-id="340327510229254144">Tweets about "nametagday"</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+      </div>
+
+  </div>
+</div>
+
+<div class="whitespace"></div>
+
+<a href="https://www.crowdtilt.com/campaigns/nametag-day/" class="nolinkylook">
+	<div class="alert alert-block alert-success fundraisebox">
+		<!-- <h4>$1,500 raised so far!</h4> -->
+		<!-- <p>We've got $1,000 more to go before this event's gonna happen. <br /><b>Click here to join 23 others and pitch in.</b></p> -->
+		<h4>Or pitch in to Nametag Day 2014. We've already raised $<%= File.open('/tmp/amount_raised.txt', 'rb') { |file| file.read
+}.to_f.round() %>!
+<br><div class="btn btn-small btn-success" style="margin-top:6px;">Click here. $15 will put a nametag on at least 100 people!</div></h4>
+
+		<div class="progress progress-success">
+		  <div class="bar" style="width: <%= ( File.open('/tmp/amount_raised.txt', 'rb') { |file| file.read
+}.to_f )/ 160 %>%"></div>
+		</div>
+
+		<div class="xticker">
+			<div class="first">$1k</div>
+			<div>$2k</div>
+			<div>$3k</div>
+			<div>$4k</div>
+			<div>$5k</div>
+			<div>$6k</div>
+			<div>$7k</div>
+			<div>$8k</div>
+			<div>$9k</div>
+			<div>$10k</div>
+			<div>$11k</div>
+			<div>$12k</div>
+			<div>$13k</div>
+			<div>$14k</div>
+			<div>$15k</div>
+			<div>$16k</div>
+		</div>
+		<p style="font-size:10px; line-height: 12px; margin-top:28px;"><!--Number above includes $1000 Awesome Foundation grant. Thanks Awesome Foundation!<br>-->Funds raised go to nametags and logistics.</p>
+		<div class="clearfix"></div>
+
+
+	</div>
+</a>
+
+<!--	<div class="alert alertcustom">
+		<i class="icon-bullhorn" style="margin-right:7px;"></i>We're looking for an event coordinator! <a href="http://www.idealist.org/view/internship/fTJN948XTpw4/">Read the posting</a> and if you're interested, <a href="mailto:hello@nametagday.com">get in touch</a>.
+	</div> -->
+
+<div class="whitespace clearfix"></div>
+
+<div id="bottom">
+
+
+
+  <div class="row" style="margin-bottom: 25px;">
+    <div class="span5">
+      <%= r_image_tag('image-chulo.jpg', :size => "370x208", :style => 'vertical-align:middle;', :class => 'img-polaroid') %>
+    </div>
+    <div class="span7">
+      <h4>Let's document this day!</h4>
+      <p>Tweet us your photos and videos from Instagram and YouTube with #NametagDay, and we'll feature them on our site.</p>
+      <p>If you'd like, grab a camera and take some higher-quality footage. We'll get it up and set up a way to crowd-edit everything, and make a citywide interactive documentary.</p>
+      <p>Send footage to us using <a href="https://www.wetransfer.com/" target="_blank">WeTransfer</a> or your favorite sharing service. Or share a Dropbox folder with Mike at michael@everythingiseverything.com.</p>
+    </div>
+  </div>
+
+<div class="whitespace"></div>
+
+
+
+
+  <div class="row" style="margin-bottom: 15px;">
+    <div class="span7">
+      </p>
+      <h4>Can I still get involved?</h4>
+      <p>Didn't get to sign up? Sure, come on by! Come by our headquarters at _________ and we'll give you some nametags to hand out, anywhere and however you want. You can even grab some for a party tonight. We'll be open from 9:30am to 5:30pm.</p>
+      <p>You can call the Nametag Day hotline to check in with us at __________, but we might be a little bit busy.</p>
+    </div>
+    <div class="span5">
+      <%= r_image_tag('image-dina.jpg', :size => "370x208", :style => 'vertical-align:middle;', :class => 'img-polaroid') %>
+    </div>
+  </div>
+
+  <div class="whitespace"></div>
+
+  <div class="row" style="margin-bottom: 15px;">
+    <div class="span7">
+      <h4>Meet your fellow New Yorkers</h4>
+      <p>Ever wanted to connect with the millions of New Yorkers walking past you? Each day brings opportunities to make new friends and share experiences. All too often, we can forget to notice the people around us. Nametag Day aims to break this barrier and strengthen the human element of the New York experience, adding a bit of spontaneity and silliness to people's day.</p>
+    </div>
+    <div class="span5">
+      <%= r_image_tag('image-kids.jpg', :size => "370x208", :style => 'vertical-align:middle;', :class => 'img-polaroid') %>
+    </div>
+  </div>
+</div>
+
+  <div class="whitespace"></div>
+
+
+
+<div id="bottom-button" align="center">
+<div style="text-align: center; "><%= link_to 'Register Now!', new_registration_path, { :class => "btn btn-info btn-large", :style => "padding: 9px 50px;"  } %></div>
+</div>
+
+<div class="whitespace"></div>
+
+    <div class="poem">"We cannot live only for ourselves. A thousand fibers connect us with our fellow men; and among those fibers, as sympathetic threads, our actions run as causes, and they come back to us as effects."<br />- Herman Melville</div>
+
+<div class="whitespace"></div>
+
+
+
+<script>
+	function goToInstagram() {
+		$('#youtubeEmbed').hide();
+		$('#instagramEmbed').show();
+		$('#ig-tab').addClass('active');
+		$('#yt-tab').removeClass('active');
+	}
+	
+	function goToYouTube() {
+		$('#instagramEmbed').hide();
+		$('#youtubeEmbed').show();
+		$('#yt-tab').addClass('active');
+		$('#ig-tab').removeClass('active');
+	}
+	
+	function showLocations() {
+		$('#locationinfo').toggle("slide",{direction: 'up'});
+	}
+</script>
