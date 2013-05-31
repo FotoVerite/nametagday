@@ -43,4 +43,11 @@ class PostOffice < ActionMailer::Base
     )
   end
 
+  def assignment(member)
+    @member = member
+     mail(
+      :to => member.email,
+      :subject => "#{BRAND} - #{@member.full_name} assignment"
+    )
+   end
 end
