@@ -120,6 +120,7 @@ class RegistrationsController < ApplicationController
 
   def locations
     locations = Location.find(:all)
+    #locations = Location.find(1, 12, 17, 4, 19)
     respond_to do |format|
       format.json { render json: {"locations" => locations, "times" => Location::TIMES}}
     end
@@ -135,7 +136,7 @@ class RegistrationsController < ApplicationController
   end
 
   def set_locations
-    @locations = {"locations" => Location.find(:all), "times" => Location::TIMES}.to_json
+    @locations = {"locations" => Location.find(1, 12, 17, 4, 19), "times" => Location::TIMES}.to_json
   end
 
 end
