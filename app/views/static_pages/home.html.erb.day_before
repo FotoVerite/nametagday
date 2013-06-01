@@ -1,0 +1,153 @@
+<div id="top">
+  <div class="left-column">
+
+   <div class="row">
+      <div class="span12">
+        <h1 class="main">
+        	<span class="citytop">Saturday, June 1<br />New York City</span>
+        	<b>NAMETAG DAY</b>
+        </h1> 
+      </div>
+    </div>
+    <div class="whitespace"></div>
+
+
+    <div class="row">
+      <div class="span6">
+        <p class="lead" style="margin-top: 12px;">Imagine everyone in New York City wearing a nametag. Tomorrow, on <b>June 1st</b>, we'll be giving them out at sites across the city:
+          <ul><li><b>Union Square</b> - North side of East 14th St btwn Union Square East and Union Square West</li>
+            <li><b>Central Park</b> - East side of 5th Av between East 58th and 59th St (in front of the Apple store)</li>
+            <li><b>East Village</b> - Tompkins Square Park</li>
+            <li><b>Williamsburg</b> - Bedford Avenue between North 9th St and North 10th St</li>
+            <li><b>Prospect Park</b> (northwest corner)</li>
+          </ul>
+
+
+        </p>
+        <p class="lead">We need your help! Click <b>volunteer now</b> below to sign up for a shift handing them out. 
+
+      </div>
+      <div class="pull-right">
+        <iframe class="img-polaroid" width="450" height="253" src="http://www.youtube.com/embed/RchV2AW0NAM?rel=0;showinfo=0;HD=1;controls=0" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="row" style="margin:16px 0;">
+      <div class="span12" style="width:900px;">
+         <div style="text-align: center;"><%= link_to 'Volunteer now!', new_registration_path, { :class => "btn btn-info btn-large", :style => "padding: 0 92px; line-height: 44px; font-size: 23px;"  } %></div>
+
+          <div style="padding: 4px; text-align: center;">
+            <small>Already signed up? <%= link_to "Modify registration", get_reservation_link_registration_path %></small>
+          </div>
+
+      </div>
+    </div>
+
+<div class="fb-share-button">
+	<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fnametagday.com" target="_blank">
+		<%= r_image_tag('catshare.jpg', :size => "150x160") %>
+	</a>
+</div>
+
+
+
+<a href="https://www.crowdtilt.com/campaigns/nametag-day/" class="nolinkylook">
+	<div class="alert alert-block alertcustom fundraisebox">
+		<!-- <h4>$1,500 raised so far!</h4> -->
+		<!-- <p>We've got $1,000 more to go before this event's gonna happen. <br /><b>Click here to join 23 others and pitch in.</b></p> -->
+		<h4>$<%= File.open('/tmp/amount_raised.txt', 'rb') { |file| file.read
+}.to_f.round() %> raised so far with <%= distance_of_time_in_words_to_now(DateTime.new(2013,6,2,23,0,0,'-4')   ) %> left!
+<br><div class="btn btn-small btn-warning" style="margin-top:6px;">Click to pitch in. $15 will put a nametag on at least 100 people!</div></h4>
+
+		<div class="progress progress-warning">
+		  <div class="bar" style="width: <%= ( File.open('/tmp/amount_raised.txt', 'rb') { |file| file.read
+}.to_f )/ 160 %>%"></div>
+		</div>
+
+		<div class="xticker">
+			<div class="first">$1k</div>
+			<div>$2k</div>
+			<div>$3k</div>
+			<div>$4k</div>
+			<div>$5k</div>
+			<div>$6k</div>
+			<div>$7k</div>
+			<div>$8k</div>
+			<div>$9k</div>
+			<div>$10k</div>
+			<div>$11k</div>
+			<div>$12k</div>
+			<div>$13k</div>
+			<div>$14k</div>
+			<div>$15k</div>
+			<div>$16k</div>
+		</div>
+		<%= r_image_tag('target_under3.5k.png', :size => "765x72", :style => 'margin-left: 28px; margin-bottom:8px;') %>
+		<p style="font-size:10px; line-height: 12px;"><!--Number above includes $1000 Awesome Foundation grant. Thanks Awesome Foundation!<br>-->Funds raised go to nametags and logistics. Any unspent money will be reserved for Nametag Day 2014.</p>
+		<div class="clearfix"></div>
+
+
+	</div>
+</a>
+
+<!--	<div class="alert alertcustom">
+		<i class="icon-bullhorn" style="margin-right:7px;"></i>We're looking for an event coordinator! <a href="http://www.idealist.org/view/internship/fTJN948XTpw4/">Read the posting</a> and if you're interested, <a href="mailto:hello@nametagday.com">get in touch</a>.
+	</div> -->
+
+<div class="whitespace clearfix"></div>
+
+<div id="bottom">
+  <div class="row" style="margin-bottom: 15px;">
+    <div class="span5">
+      <%= r_image_tag('image-dina.jpg', :size => "370x208", :style => 'vertical-align:middle;', :class => 'img-polaroid') %>
+    </div>
+    <div class="span7">
+      </p>
+      <h4>How can I get involved?</h4>
+      <p>Click the "volunteer now" link above! You can choose a location and time, and even invite friends to be placed at the same location as you. If you're not ready to sign up, <a href="http://eepurl.com/vvkkD">leave us your email</a> and we'll remind you later.</p>
+      <p>If you're on a listserv, send out an email encouraging others to volunteer with you. You can also throw a Nametag Day-themed event and <%= link_to "request nametags", static_page_path(:event_request) %> for a Nametag Day-themed event on our site. If you tell us about it, we'll do our best to spread the word.</p>
+      <!--<p>Anything else? Want to work on our core team? Just <%= link_to "send us a message", static_page_path(:name => "contact") %>.</p>-->
+    </div>
+  </div>
+
+  <div class="whitespace"></div>
+
+  <div class="row" style="margin-bottom: 15px;">
+    <div class="span7">
+      <h4>Meet your fellow New Yorkers</h4>
+      <p>Ever wanted to connect with the millions of New Yorkers walking past you? Each day brings opportunities to make new friends and share experiences. All too often, we can forget to notice the people around us. Nametag Day aims to break this barrier and strengthen the human element of the New York experience, adding a bit of spontaneity and silliness to people's day.</p>
+    </div>
+    <div class="span5">
+      <%= r_image_tag('image-kids.jpg', :size => "370x208", :style => 'vertical-align:middle;', :class => 'img-polaroid') %>
+    </div>
+  </div>
+</div>
+
+  <div class="whitespace"></div>
+
+
+  <div class="row" style="margin-bottom: 25px;">
+    <div class="span5">
+      <%= r_image_tag('image-chulo.jpg', :size => "370x208", :style => 'vertical-align:middle;', :class => 'img-polaroid') %>
+    </div>
+    <div class="span7">
+      <h4>Help document the day!</h4>
+      <p>Tweet us your photos and videos from YouTube and Instagram, and we'll feature them on our site.</p>
+      <p>And let's make a documentary together. Film a story or three about the day, being as creative as you like. We'll provide a dropbox to send the footage and then we can crowd-edit it into a citywide interactive documentary.</p>
+    </div>
+  </div>
+
+<div class="whitespace"></div>
+
+<div id="bottom-button" align="center">
+<div style="text-align: center; "><%= link_to 'Register Now!', new_registration_path, { :class => "btn btn-info btn-large", :style => "padding: 9px 50px;"  } %></div>
+</div>
+
+<div class="whitespace"></div>
+
+    <div class="poem">"We cannot live only for ourselves. A thousand fibers connect us with our fellow men; and among those fibers, as sympathetic threads, our actions run as causes, and they come back to us as effects."<br />- Herman Melville</div>
+
+<div class="whitespace"></div>
+
