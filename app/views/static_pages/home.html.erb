@@ -56,6 +56,21 @@
       		<iframe id="youtubeEmbed" style="" width="619" height="374" class="img-polaroid" src="http://www.youtube-nocookie.com/embed/videoseries?list=PLB80DHoxi6xbfKwfnd7dG0AoxBe0dCWrO&modestbranding=1&rel=0&showinfo=1" frameborder="0" allowfullscreen ></iframe>
 
       </div>
+      <div class="span12" style="text-align:center;margin-top:20px;">
+
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_donations">
+        <input type="hidden" name="business" value="AX4GEVX3J4SW6">
+        <input type="hidden" name="lc" value="US">
+        <input type="hidden" name="item_name" value="NameTagDay">
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_LG.gif:NonHostedGuest">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+      </div>
+
+
 
 <!--      <div class="span4">
 
@@ -123,14 +138,13 @@
 
 <a href="https://www.crowdtilt.com/campaigns/nametag-day/" class="nolinkylook">
   <div class="alert alert-block alert-success fundraisebox">
-    <!-- <h4>$1,500 raised so far!</h4> 
-    <!-- <p>We've got $1,000 more to go before this event's gonna happen. <br /><b>Click here to join 23 others and pitch in.</b></p> 
+    <!-- <h4>$1,500 raised so far!</h4>
+    <!-- <p>We've got $1,000 more to go before this event's gonna happen. <br /><b>Click here to join 23 others and pitch in.</b></p>
     <h4>Pitch in for Nametag Day 2014!
 <br><div class="btn btn-small btn-success" style="margin-top:6px;">Click here. $15 will put a nametag on at least 100 people!</div></h4>
 
     <div class="progress progress-success">
-      <div class="bar" style="width: <%= ( File.open('/tmp/amount_raised.txt', 'rb') { |file| file.read
-}.to_f )/ 160 %>%"></div>
+      <div class="bar" ></div>
     </div>
 
     <div class="xticker">

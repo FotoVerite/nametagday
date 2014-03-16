@@ -33,6 +33,7 @@ group :development, :test do
   gem "steak"
   gem 'capistrano'
   gem 'capistrano-ext'
+  gem 'capistrano-novafabrica', :git => 'https://github.com/novafabrica/nf-cap-plugin', :ref => "520d6e90850e5b24db6cdea01c6138dd8693efd2"
   #gem 'pry-rails'
   gem 'factory_girl_rails'
   gem 'ffaker'
