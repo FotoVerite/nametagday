@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
 
   before_filter :ensure_valid, :only => [:show]
 
-  PAGES = ["about", "home", "contact", "event_request", "email_sent", "request_sent", "meetus", "faq", "instructions", "press"]
+  PAGES = ["about", "home", "contact", "event_request", "email_sent", "request_sent", "meetus", "faq", "instructions", "press", "volunteer"]
 
   NO_LAYOUT = []
 
