@@ -13,8 +13,8 @@
 	<link href="114.png" rel="apple-touch-icon-precomposed" sizes="114x114" />
 	<link href="144.png" rel="apple-touch-icon-precomposed" sizes="144x144" />
 
-	<meta name="description" content="On June 1st, wear a free nametag and make new friends all around the city. Sign up and volunteer, or pitch in to our crowdfunding campaign!"/>
-	<meta property="og:description" content="On June 1st, wear a free nametag and make new friends all around the city. Sign up and volunteer, or pitch in to our crowdfunding campaign!"/>
+	<meta name="description" content="On the first Sat in June, wear a free nametag and make new friends all around the city. Sign up and volunteer, or donate on our website!"/>
+	<meta property="og:description" content="On the first Sat in June, wear a free nametag and make new friends all around the city. Sign up and volunteer, or donate on our website!"/>
 
 
 
@@ -61,6 +61,9 @@
               <% end %>
 
             <li>
+              <%= link_to "Home", static_page_path(:name => "home") %>
+            </li>
+            <li>
               <%= link_to "FAQ", static_page_path(:name => "faq") %>
             </li>
             <li>
@@ -102,6 +105,11 @@
         </div>
         <div class="container-for-content main <%= @container_class %>">
           <%= yield %>
+          <div style="text-align:center;">
+         <a href="https://www.facebook.com/sharer/sharer.php?u=http://nametagday.com">
+                <%= r_image_tag('share.jpg', :size => "160x41", :style => 'vertical-align:middle; margin-bottom:15px;') %>
+        </a>
+          </div>
         </div>
       </div>
       <div class="push"><!--//--></div>
